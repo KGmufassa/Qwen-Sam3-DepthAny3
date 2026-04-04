@@ -2,7 +2,7 @@
 Command Name: preprep-repo
 Description: Processes selectively downloaded repository files and converts them into a structured, token-efficient, LLM-ready dataset. Extracts key metadata, normalizes file content, and prepares both a JSON dataset and a human-readable Markdown breakdown for downstream analysis.
 Agent: Build
-subtask: true
+subtask: false
 ---
 
 ## Interactive Input Phase (REQUIRED)
