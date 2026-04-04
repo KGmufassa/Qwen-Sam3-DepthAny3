@@ -101,7 +101,7 @@ Produce a flattened, human-readable exclusion list with intelligent folder colla
    → include ONLY the directory path  
    Example:
 
-`assets/`
+`assets`
 
 
 2. IF only specific files are excluded:
