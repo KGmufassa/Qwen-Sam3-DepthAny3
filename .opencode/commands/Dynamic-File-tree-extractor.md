@@ -8,8 +8,12 @@ Subtask: true
 ## Inputs
 
 - file_tree_path (string, required)  
-- goal (string, optional)
-
+- goal:
+   - I want to only extract files that help do the following:
+        1. How to use the app
+        2. How to apply or wrap the app withing an exsiting app
+        3. How to run the app in tandem with other exsiting apps
+        4. How to make changes to the code base to increase productivity when applicable
 ---
 
 ## Outputs
