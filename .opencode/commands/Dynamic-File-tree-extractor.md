@@ -15,10 +15,10 @@ Subtask: true
 ## Outputs
 
 ### JSON Output
-`./<repo_name>/pre-analysis/json/extraction-plan.json`
+`./pre-analysis/<repo_name>/json/extraction-plan.json`
 
 ### Markdown Output
-`./<repo_name>/pre-analysis/markdown/extraction-plan.md`
+`./pre-analysis/<repo_name>/markdown/extraction-plan.md`
 
 ---
 
@@ -59,7 +59,7 @@ Extract repo name from root
 
 ### Step 2 — Create Output Directory
 
-`./<repo_name>/`
+`./pre-analysis/<repo_name>`
 
 ---
 
@@ -222,10 +222,10 @@ id="simple-exclude-list"
 ### Step 15 — Persist Outputs
 
 JSON:
-`./<repo_name>/pre-analysis/json/extraction-plan.json`
+`./pre-analysis/<repo_name>/json/extraction-plan.json`
 
 Markdown:
-`./<repo_name>/pre-analysis/markdown/extraction-plan.md`
+`./pre-analysis/<repo_name>/markdown/extraction-plan.md`
 
 ---
 
