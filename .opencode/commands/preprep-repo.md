@@ -54,13 +54,13 @@ Options:
 ### 1. JSON Output
 Saved to:
 
-    ./<repo_name>/analysis/preprep-repo-doc.json
+    ./<repo_name>/analysis/json/preprep-repo-doc.json
 
 
 ### 2. Markdown Output (NEW)
 Saved to:
 
-    ./<repo_name>/analysis/preprep-repo-breakdown.md
+    ./<repo_name>/analysis/markdown/preprep-repo-breakdown.md
 
 
 ---
