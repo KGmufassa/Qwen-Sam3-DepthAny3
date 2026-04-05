@@ -1,0 +1,155 @@
+{
+  "input": {
+    "repo_folder": "./Qwen-image-layered File Content",
+    "focus": "Full Repository Overview",
+    "mode": "Balanced"
+  },
+  "status": "success",
+  "step": "Analyze-Architecture",
+  "architecture": {
+    "style": "workflow-oriented multi-app script architecture",
+    "summary": "The repository is composed of three loosely coupled Gradio applications that form a user-managed pipeline: decompose an image into layers, edit selected layers, then recombine the result.",
+    "traits": [
+      "Shallow file layout with script entry points instead of package modules",
+      "Workflow coupling through files and user actions instead of direct imports",
+      "Heavy reliance on external pretrained model pipelines",
+      "Export-oriented design for downstream creative tooling"
+    ]
+  },
+  "components": [
+    {
+      "name": "Main Decomposition App",
+      "path": "src/app.py",
+      "responsibilities": [
+        "Load QwenImageLayeredPipeline",
+        "Accept image and inference controls from the Gradio UI",
+        "Generate multiple RGBA layers",
+        "Create PPTX, ZIP, and PSD export artifacts"
+      ],
+      "key_functions": [
+        "imagelist_to_pptx",
+        "imagelist_to_psd",
+        "export_gallery",
+        "infer"
+      ],
+      "dependencies": [
+        "diffusers.QwenImageLayeredPipeline",
+        "torch",
+        "gradio",
+        "PIL.Image",
+        "pptx.Presentation",
+        "psd_tools.PSDImage",
+        "numpy"
+      ]
+    },
+    {
+      "name": "RGBA Layer Editor",
+      "path": "src/tool/edit_rgba_image.py",
+      "responsibilities": [
+        "Load Qwen image-edit pipeline",
+        "Prepare transparent images for editing",
+        "Run segmentation-based background removal",
+        "Return edited RGBA outputs"
+      ],
+      "key_functions": [
+        "blend_with_green_bg",
+        "infer"
+      ],
+      "dependencies": [
+        "diffusers.QwenImageEditPlusPipeline",
+        "transformers.AutoModelForImageSegmentation",
+        "torchvision.transforms",
+        "torch",
+        "gradio",
+        "PIL.Image"
+      ]
+    },
+    {
+      "name": "Layer Combiner",
+      "path": "src/tool/combine_layers.py",
+      "responsibilities": [
+        "Receive uploaded transparent layers",
+        "Normalize them to a common height",
+        "Alpha-composite them in order",
+        "Return a final merged image"
+      ],
+      "key_functions": [
+        "combine_images"
+      ],
+      "dependencies": [
+        "gradio",
+        "PIL.Image"
+      ]
+    }
+  ],
+  "execution_flow": {
+    "primary_path": [
+      "User launches src/app.py",
+      "Gradio UI collects image, prompts, layer count, seed, and inference settings",
+      "infer() runs the layered decomposition pipeline",
+      "Layer images are materialized as temporary PNG outputs",
+      "Export helpers build PPTX, ZIP, and PSD artifacts",
+      "User optionally edits one or more layers in src/tool/edit_rgba_image.py",
+      "User recombines layers in src/tool/combine_layers.py"
+    ],
+    "handoffs": [
+      {
+        "from": "src/app.py",
+        "to": "src/tool/edit_rgba_image.py",
+        "artifact": "RGBA layer PNG files"
+      },
+      {
+        "from": "src/tool/edit_rgba_image.py",
+        "to": "src/tool/combine_layers.py",
+        "artifact": "Edited transparent PNG layers"
+      }
+    ]
+  },
+  "data_flow": {
+    "inputs": [
+      "Source image for decomposition",
+      "Text prompts and inference parameters",
+      "Single RGBA layer plus edit prompt for editing",
+      "Multiple layer files for recomposition"
+    ],
+    "intermediate_artifacts": [
+      "PIL RGBA images",
+      "NumPy arrays for image conversion",
+      "Torch generators for seeded runs",
+      "Temporary PNG, PPTX, ZIP, and PSD files"
+    ],
+    "outputs": [
+      "Layer gallery",
+      "Downloadable PPTX/ZIP/PSD packages",
+      "Edited transparent layer",
+      "Final recomposited image"
+    ]
+  },
+  "integration_boundaries": {
+    "internal": [
+      "Minimal direct code-level integration across scripts",
+      "Shared workflow semantics defined by file outputs and user actions"
+    ],
+    "external": [
+      "Hugging Face diffusers models",
+      "RMBG segmentation model",
+      "GPU and CUDA runtime expectations",
+      "Gradio web UI runtime"
+    ]
+  },
+  "strengths": [
+    "Clear end-to-end operator workflow",
+    "Small footprint and easy-to-understand structure",
+    "Export formats make the repo useful beyond pure model demos"
+  ],
+  "risks": [
+    "Missing dependency manifest makes environment recreation fragile",
+    "Snapshot suggests missing assets referenced by the code",
+    "CUDA and bfloat16 assumptions may fail on unsupported hardware",
+    "Manual file handoff between apps can introduce user error"
+  ],
+  "outputs": {
+    "json": "./Qwen-image-layered File Content/analysis/json/architecture-analysis.json",
+    "markdown": "./Qwen-image-layered File Content/analysis/markdown/architecture-analysis.md"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "input": {
+    "repo_folder": "./Qwen-image-layered File Content",
+    "focus": "Full Repository Overview"
+  },
+  "status": "success",
+  "step": "Analyze-Repo-Foundation",
+  "repository": {
+    "name": "Qwen-image-layered File Content",
+    "type": "demo-oriented Python application suite",
+    "source_snapshot": "analysis/json/preprep-repo-doc.json"
+  },
+  "overview": {
+    "purpose": "Provides a workflow for decomposing an image into editable RGBA layers, editing those layers, recombining them, and exporting results in creative-tool-friendly formats.",
+    "size": {
+      "files_detected": 5,
+      "entry_points": 3,
+      "high_priority_files": 2
+    },
+    "shape": "Shallow, script-first structure centered on Gradio apps rather than a reusable package architecture."
+  },
+  "entry_points": [
+    {
+      "path": "src/app.py",
+      "kind": "gradio_app",
+      "role": "Main decomposition and export interface"
+    },
+    {
+      "path": "src/tool/edit_rgba_image.py",
+      "kind": "gradio_app",
+      "role": "Transparent layer editing tool"
+    },
+    {
+      "path": "src/tool/combine_layers.py",
+      "kind": "gradio_app",
+      "role": "Layer recomposition utility"
+    }
+  ],
+  "modules": [
+    {
+      "path": "README.md",
+      "role": "Operational documentation and workflow guide",
+      "importance": "medium"
+    },
+    {
+      "path": "src/app.py",
+      "role": "Loads the layered decomposition pipeline and packages outputs as gallery images, PPTX, ZIP, and PSD artifacts.",
+      "importance": "high"
+    },
+    {
+      "path": "src/tool/edit_rgba_image.py",
+      "role": "Edits one RGBA layer with Qwen Image Edit and restores transparency via segmentation.",
+      "importance": "high"
+    },
+    {
+      "path": "src/tool/combine_layers.py",
+      "role": "Alpha-composites multiple transparent layers into one final image.",
+      "importance": "medium"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "README.md",
+      "to": "src/app.py",
+      "type": "documents_entry_point"
+    },
+    {
+      "from": "README.md",
+      "to": "src/tool/edit_rgba_image.py",
+      "type": "documents_entry_point"
+    },
+    {
+      "from": "README.md",
+      "to": "src/tool/combine_layers.py",
+      "type": "documents_entry_point"
+    },
+    {
+      "from": "src/app.py",
+      "to": "src/tool/edit_rgba_image.py",
+      "type": "workflow_handoff"
+    },
+    {
+      "from": "src/tool/edit_rgba_image.py",
+      "to": "src/tool/combine_layers.py",
+      "type": "workflow_handoff"
+    }
+  ],
+  "tech_stack": {
+    "languages": [
+      "Python",
+      "Markdown"
+    ],
+    "libraries": [
+      "diffusers",
+      "torch",
+      "gradio",
+      "Pillow",
+      "numpy",
+      "python-pptx",
+      "psd-tools",
+      "transformers",
+      "torchvision"
+    ],
+    "runtime": [
+      "Python",
+      "CUDA-capable GPU preferred"
+    ]
+  },
+  "observations": [
+    "The repository is optimized for user workflow across separate apps, not for internal code reuse.",
+    "Most logic is concentrated in src/app.py, while the other scripts operate as companion tools.",
+    "External pretrained models are core runtime dependencies, making environment setup important."
+  ],
+  "unknowns": [
+    "No dependency manifest is present in the analyzed snapshot.",
+    "Referenced assets such as assets/test_images appear to be missing from the snapshot.",
+    "CUDA, model cache, and exact version expectations are not defined in the captured files."
+  ],
+  "outputs": {
+    "json": "./Qwen-image-layered File Content/analysis/json/Analyze-Repo-Foundation.json",
+    "markdown": "./Qwen-image-layered File Content/analysis/markdown/Analyze-Repo-Foundation.md"
+  }
+}

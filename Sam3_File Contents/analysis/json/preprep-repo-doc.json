@@ -1,0 +1,4314 @@
+{
+  "input": {
+    "input_source": "/Users/wislemleger/Desktop/GitHub/Qwen-Sam3-DepthAny3/Sam3_File Contents.md",
+    "goal": "General understanding",
+    "mode": "Deep",
+    "repo_name": "Sam3_File Contents"
+  },
+  "validation": {
+    "has_file_markers": true,
+    "has_code_blocks": true,
+    "file_marker_count": 81,
+    "code_fence_count": 70,
+    "errors": []
+  },
+  "overview": {
+    "total_files_detected": 81,
+    "total_files_processed": 81,
+    "processing_mode": "Deep",
+    "goal": "General understanding",
+    "role_counts": {
+      "agent-runtime": 19,
+      "evaluation-script": 7,
+      "example-notebook": 8,
+      "model-component": 6,
+      "model-factory": 1,
+      "model-support": 22,
+      "package-config": 1,
+      "package-export": 1,
+      "predictor": 4,
+      "project-overview": 1,
+      "sam-core-component": 6,
+      "supporting-file": 3,
+      "utility-script": 2
+    },
+    "language_counts": {
+      "markdown": 2,
+      "python": 76,
+      "text": 2,
+      "toml": 1
+    },
+    "token_estimate_total": 228811
+  },
+  "entry_points": [
+    "README.md",
+    "sam3/agent/helpers/color_map.py",
+    "sam3/model_builder.py",
+    "scripts/eval/gold/eval_sam3.py",
+    "scripts/eval/standalone_cgf1.py",
+    "scripts/eval/veval/README.md",
+    "scripts/eval/veval/__init__.py",
+    "scripts/eval/veval/saco_yt1b_annot_update.py",
+    "scripts/eval/veval/saco_yt1b_downloader.py",
+    "scripts/eval/veval/saco_yt1b_frame_prep_util.py",
+    "scripts/measure_speed.py",
+    "scripts/qualitative_test.py"
+  ],
+  "config_files": [
+    "pyproject.toml"
+  ],
+  "tech_stack": {
+    "languages": [
+      [
+        "python",
+        76
+      ],
+      [
+        "markdown",
+        2
+      ],
+      [
+        "text",
+        2
+      ],
+      [
+        "toml",
+        1
+      ]
+    ],
+    "tools": [
+      "Jupyter",
+      "OpenCV",
+      "Pillow",
+      "PyTorch",
+      "huggingface_hub",
+      "iopath",
+      "matplotlib",
+      "numpy",
+      "torchvision"
+    ],
+    "runtime": [
+      "Python >=3.8",
+      "CUDA GPU recommended"
+    ]
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "type": "documentation",
+      "role": "project-overview",
+      "priority": "high",
+      "line_count": 408,
+      "char_count": 21375,
+      "token_estimate": 5344,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "heading",
+          "name": "SAM 3: Segment Anything with Concepts",
+          "line": 1
+        },
+        {
+          "type": "heading",
+          "name": "Latest updates",
+          "line": 58
+        },
+        {
+          "type": "heading",
+          "name": "Installation",
+          "line": 65
+        },
+        {
+          "type": "heading",
+          "name": "Prerequisites",
+          "line": 67
+        },
+        {
+          "type": "heading",
+          "name": "Getting Started",
+          "line": 111
+        },
+        {
+          "type": "heading",
+          "name": "Basic Usage",
+          "line": 119
+        },
+        {
+          "type": "heading",
+          "name": "Examples",
+          "line": 163
+        },
+        {
+          "type": "heading",
+          "name": "Model",
+          "line": 197
+        },
+        {
+          "type": "heading",
+          "name": "Image Results",
+          "line": 204
+        },
+        {
+          "type": "heading",
+          "name": "Video Results",
+          "line": 296
+        },
+        {
+          "type": "heading",
+          "name": "SA-Co Dataset",
+          "line": 347
+        },
+        {
+          "type": "heading",
+          "name": "Development",
+          "line": 358
+        },
+        {
+          "type": "heading",
+          "name": "Contributing",
+          "line": 372
+        },
+        {
+          "type": "heading",
+          "name": "License",
+          "line": 377
+        },
+        {
+          "type": "heading",
+          "name": "Acknowledgements",
+          "line": 382
+        },
+        {
+          "type": "heading",
+          "name": "Citing SAM 3",
+          "line": 394
+        }
+      ],
+      "summary": "Top-level project documentation describing SAM 3 capabilities, setup, usage, examples, and benchmarks.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "pyproject.toml",
+      "language": "toml",
+      "type": "config",
+      "role": "package-config",
+      "priority": "high",
+      "line_count": 135,
+      "char_count": 2770,
+      "token_estimate": 693,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "section",
+          "name": "[build-system]",
+          "line": 1
+        },
+        {
+          "type": "section",
+          "name": "[project]",
+          "line": 5
+        },
+        {
+          "type": "section",
+          "name": "[project.optional-dependencies]",
+          "line": 38
+        },
+        {
+          "type": "section",
+          "name": "[project.urls]",
+          "line": 81
+        },
+        {
+          "type": "section",
+          "name": "[tool.setuptools.packages.find]",
+          "line": 85
+        },
+        {
+          "type": "section",
+          "name": "[tool.setuptools.package-data]",
+          "line": 89
+        },
+        {
+          "type": "section",
+          "name": "[tool.setuptools.dynamic]",
+          "line": 92
+        },
+        {
+          "type": "section",
+          "name": "[tool.black]",
+          "line": 95
+        },
+        {
+          "type": "section",
+          "name": "[tool.isort]",
+          "line": 100
+        },
+        {
+          "type": "section",
+          "name": "[tool.usort]",
+          "line": 104
+        },
+        {
+          "type": "section",
+          "name": "[tool.ufmt]",
+          "line": 107
+        },
+        {
+          "type": "section",
+          "name": "[tool.mypy]",
+          "line": 110
+        },
+        {
+          "type": "section",
+          "name": "[tool.pytest.ini_options]",
+          "line": 131
+        }
+      ],
+      "summary": "Build and packaging configuration defining dependencies, extras, Python versions, and developer tooling.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "package-export",
+      "priority": "high",
+      "line_count": 9,
+      "char_count": 246,
+      "token_estimate": 62,
+      "imports": [
+        ".model_builder:build_sam3_image_model,build_sam3_predictor"
+      ],
+      "exports": [
+        "build_sam3_image_model",
+        "build_sam3_predictor"
+      ],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Package export module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/agent_core.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "high",
+      "line_count": 565,
+      "char_count": 26074,
+      "token_estimate": 6519,
+      "imports": [
+        ".client_llm:send_generate_request",
+        ".client_sam3:call_sam_service",
+        ".viz:visualize",
+        "PIL:Image",
+        "copy",
+        "cv2",
+        "json",
+        "os"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/agent/client_llm.py",
+        "sam3/agent/client_sam3.py",
+        "sam3/agent/viz.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "save_debug_messages",
+          "line": 17
+        },
+        {
+          "type": "function",
+          "name": "cleanup_debug_files",
+          "line": 27
+        },
+        {
+          "type": "function",
+          "name": "count_images",
+          "line": 39
+        },
+        {
+          "type": "function",
+          "name": "_prune_messages_for_next_round",
+          "line": 56
+        },
+        {
+          "type": "function",
+          "name": "agent_inference",
+          "line": 124
+        }
+      ],
+      "summary": "Agent loop that combines MLLM tool decisions, SAM 3 service calls, debugging output, and visualization.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam3_base_predictor.py",
+      "language": "python",
+      "type": "source",
+      "role": "predictor",
+      "priority": "high",
+      "line_count": 322,
+      "char_count": 12677,
+      "token_estimate": 3170,
+      "imports": [
+        "gc",
+        "sam3.logger:get_logger",
+        "time",
+        "torch",
+        "typing:Dict,List,Optional",
+        "uuid"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Sam3BasePredictor",
+          "line": 23
+        }
+      ],
+      "summary": "Predictor module with 1 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam3_image.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "high",
+      "line_count": 908,
+      "char_count": 38886,
+      "token_estimate": 9722,
+      "imports": [
+        ".act_ckpt_utils:activation_ckpt_wrapper",
+        ".box_ops:box_cxcywh_to_xyxy",
+        ".data_misc:FindStage",
+        ".geometry_encoders:Prompt",
+        ".model_misc:inverse_sigmoid",
+        "copy:deepcopy",
+        "numpy",
+        "os",
+        "sam3.model.model_misc:SAM3Output",
+        "sam3.model.sam1_task_predictor:SAM3InteractiveImagePredictor",
+        "sam3.model.vl_combiner:SAM3VLBackbone",
+        "sam3.perflib.nms:nms_masks",
+        "sam3.train.data.collator:BatchedDatapoint",
+        "torch",
+        "typing:Dict,List,Optional,Tuple"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/act_ckpt_utils.py",
+        "sam3/model/box_ops.py",
+        "sam3/model/data_misc.py",
+        "sam3/model/geometry_encoders.py",
+        "sam3/model/model_misc.py",
+        "sam3/model/sam1_task_predictor.py",
+        "sam3/model/vl_combiner.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_update_out",
+          "line": 24
+        },
+        {
+          "type": "class",
+          "name": "Sam3Image",
+          "line": 34
+        },
+        {
+          "type": "class",
+          "name": "Sam3ImageOnVideoMultiGPU",
+          "line": 712
+        }
+      ],
+      "summary": "Model support module with 2 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam3_image_processor.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "high",
+      "line_count": 222,
+      "char_count": 8932,
+      "token_estimate": 2233,
+      "imports": [
+        "PIL",
+        "numpy",
+        "sam3.model.data_misc:FindStage,interpolate",
+        "sam3.model:box_ops",
+        "torch",
+        "torchvision.transforms:v2",
+        "typing:Dict,List"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/__init__.py",
+        "sam3/model/box_ops.py",
+        "sam3/model/data_misc.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Sam3Processor",
+          "line": 14
+        }
+      ],
+      "summary": "Stateful image inference wrapper for setting inputs, applying prompts, and producing masks, boxes, and scores.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam3_multiplex_video_predictor.py",
+      "language": "python",
+      "type": "source",
+      "role": "predictor",
+      "priority": "high",
+      "line_count": 63,
+      "char_count": 2137,
+      "token_estimate": 535,
+      "imports": [
+        "sam3.logger:get_logger",
+        "sam3.model.sam3_base_predictor:Sam3BasePredictor",
+        "torch",
+        "typing:Dict,Optional"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/logger.py",
+        "sam3/model/sam3_base_predictor.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Sam3MultiplexVideoPredictor",
+          "line": 22
+        }
+      ],
+      "summary": "Predictor module with 1 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam3_video_predictor.py",
+      "language": "python",
+      "type": "source",
+      "role": "predictor",
+      "priority": "high",
+      "line_count": 331,
+      "char_count": 14099,
+      "token_estimate": 3525,
+      "imports": [
+        "contextlib:closing",
+        "datetime",
+        "gc",
+        "multiprocessing",
+        "os",
+        "psutil",
+        "queue",
+        "sam3.logger:get_logger",
+        "sam3.model.sam3_base_predictor:Sam3BasePredictor",
+        "socket",
+        "sys",
+        "time",
+        "torch",
+        "typing:List,Optional",
+        "uuid"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/logger.py",
+        "sam3/model/sam3_base_predictor.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Sam3VideoPredictor",
+          "line": 25
+        },
+        {
+          "type": "class",
+          "name": "Sam3VideoPredictorMultiGPU",
+          "line": 100
+        }
+      ],
+      "summary": "Session-oriented video predictor that serves request dispatch, propagation, and optional multi-GPU execution.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model_builder.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-factory",
+      "priority": "high",
+      "line_count": 1318,
+      "char_count": 42716,
+      "token_estimate": 10679,
+      "imports": [
+        "huggingface_hub:hf_hub_download",
+        "iopath.common.file_io:g_pathmgr",
+        "os",
+        "pkg_resources",
+        "sam3.model.decoder:DecoupledTransformerDecoderLayerv2,SimpleRoPEAttention,TransformerDecoder,TransformerDecoderLayer,TransformerDecoderLayerv2,TransformerEncoderCrossAttention,TransformerEncoderDecoupledCrossAttention",
+        "sam3.model.encoder:TransformerEncoderFusion,TransformerEncoderLayer",
+        "sam3.model.geometry_encoders:SequenceGeometryEncoder",
+        "sam3.model.maskformer_segmentation:PixelDecoder,UniversalSegmentationHead",
+        "sam3.model.memory:CXBlock,SimpleFuser,SimpleMaskDownSampler,SimpleMaskEncoder",
+        "sam3.model.model_misc:DotProductScoring,MLP,MultiheadAttentionWrapper,TransformerWrapper",
+        "sam3.model.multiplex_utils:MultiplexController",
+        "sam3.model.necks:Sam3DualViTDetNeck,Sam3TriViTDetNeck",
+        "sam3.model.position_encoding:PositionEmbeddingSine",
+        "sam3.model.sam1_task_predictor:SAM3InteractiveImagePredictor",
+        "sam3.model.sam3_image:Sam3Image,Sam3ImageOnVideoMultiGPU",
+        "sam3.model.sam3_tracking_predictor:Sam3TrackerPredictor",
+        "sam3.model.sam3_video_inference:Sam3VideoInferenceWithInstanceInteractivity",
+        "sam3.model.sam3_video_predictor:Sam3VideoPredictorMultiGPU",
+        "sam3.model.text_encoder_ve:VETextEncoder",
+        "sam3.model.tokenizer_ve:SimpleTokenizer",
+        "sam3.model.video_tracking_multiplex:VideoTrackingDynamicMultiplex",
+        "sam3.model.vitdet:ViT",
+        "sam3.model.vl_combiner:SAM3VLBackbone,SAM3VLBackboneTri,TriHeadVisionOnly",
+        "sam3.sam.transformer:RoPEAttention",
+        "torch",
+        "torch.nn",
+        "typing:Optional"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/encoder.py",
+        "sam3/model/geometry_encoders.py",
+        "sam3/model/maskformer_segmentation.py",
+        "sam3/model/memory.py",
+        "sam3/model/model_misc.py",
+        "sam3/model/multiplex_utils.py",
+        "sam3/model/necks.py",
+        "sam3/model/position_encoding.py",
+        "sam3/model/sam1_task_predictor.py",
+        "sam3/model/sam3_image.py",
+        "sam3/model/sam3_video_predictor.py",
+        "sam3/model/text_encoder_ve.py",
+        "sam3/model/tokenizer_ve.py",
+        "sam3/model/vitdet.py",
+        "sam3/model/vl_combiner.py",
+        "sam3/sam/transformer.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_setup_tf32",
+          "line": 54
+        },
+        {
+          "type": "function",
+          "name": "_create_position_encoding",
+          "line": 66
+        },
+        {
+          "type": "function",
+          "name": "_create_vit_backbone",
+          "line": 77
+        },
+        {
+          "type": "function",
+          "name": "_create_vit_neck",
+          "line": 109
+        },
+        {
+          "type": "function",
+          "name": "_create_vl_backbone",
+          "line": 120
+        },
+        {
+          "type": "function",
+          "name": "_create_transformer_encoder",
+          "line": 125
+        },
+        {
+          "type": "function",
+          "name": "_create_transformer_decoder",
+          "line": 165
+        },
+        {
+          "type": "function",
+          "name": "_create_dot_product_scoring",
+          "line": 203
+        },
+        {
+          "type": "function",
+          "name": "_create_segmentation_head",
+          "line": 217
+        },
+        {
+          "type": "function",
+          "name": "_create_geometry_encoder",
+          "line": 246
+        },
+        {
+          "type": "function",
+          "name": "_create_sam3_model",
+          "line": 302
+        },
+        {
+          "type": "function",
+          "name": "_create_tracker_maskmem_backbone",
+          "line": 344
+        },
+        {
+          "type": "function",
+          "name": "_create_tracker_transformer",
+          "line": 380
+        },
+        {
+          "type": "function",
+          "name": "build_tracker",
+          "line": 445
+        },
+        {
+          "type": "function",
+          "name": "_create_text_encoder",
+          "line": 500
+        },
+        {
+          "type": "function",
+          "name": "_create_vision_backbone",
+          "line": 512
+        },
+        {
+          "type": "function",
+          "name": "_create_sam3_transformer",
+          "line": 529
+        },
+        {
+          "type": "function",
+          "name": "_load_checkpoint",
+          "line": 539
+        },
+        {
+          "type": "function",
+          "name": "_setup_device_and_mode",
+          "line": 564
+        },
+        {
+          "type": "function",
+          "name": "build_sam3_image_model",
+          "line": 573
+        },
+        {
+          "type": "function",
+          "name": "download_ckpt_from_hf",
+          "line": 657
+        },
+        {
+          "type": "function",
+          "name": "build_sam3_video_model",
+          "line": 676
+        },
+        {
+          "type": "function",
+          "name": "build_sam3_video_predictor",
+          "line": 817
+        },
+        {
+          "type": "function",
+          "name": "_create_multiplex_maskmem_backbone",
+          "line": 823
+        },
+        {
+          "type": "function",
+          "name": "_create_multiplex_transformer",
+          "line": 863
+        }
+      ],
+      "summary": "Central factory module that constructs image, video, and multiplex model variants and handles checkpoint setup.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "scripts/measure_speed.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-script",
+      "priority": "high",
+      "line_count": 304,
+      "char_count": 9143,
+      "token_estimate": 2286,
+      "imports": [
+        "PIL:Image,ImageDraw",
+        "argparse",
+        "getpass",
+        "numpy",
+        "os",
+        "shutil",
+        "time",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "max_memory_allocated",
+          "line": 31
+        },
+        {
+          "type": "function",
+          "name": "synthesize_video_data",
+          "line": 43
+        },
+        {
+          "type": "function",
+          "name": "profiler_runner",
+          "line": 97
+        },
+        {
+          "type": "function",
+          "name": "main_loop",
+          "line": 120
+        },
+        {
+          "type": "function",
+          "name": "run_test",
+          "line": 145
+        }
+      ],
+      "summary": "Utility script module with 0 classes and 5 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "__main__ guard"
+      ]
+    },
+    {
+      "path": "scripts/qualitative_test.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-script",
+      "priority": "high",
+      "line_count": 312,
+      "char_count": 9673,
+      "token_estimate": 2419,
+      "imports": [
+        "PIL:Image,ImageDraw",
+        "argparse",
+        "cv2",
+        "getpass",
+        "matplotlib",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "shutil",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "extract_frames",
+          "line": 55
+        },
+        {
+          "type": "function",
+          "name": "synthesize_video",
+          "line": 76
+        },
+        {
+          "type": "function",
+          "name": "load_frame",
+          "line": 114
+        },
+        {
+          "type": "function",
+          "name": "render_overlay",
+          "line": 121
+        },
+        {
+          "type": "function",
+          "name": "save_overlay",
+          "line": 135
+        },
+        {
+          "type": "function",
+          "name": "collect_propagation",
+          "line": 165
+        },
+        {
+          "type": "function",
+          "name": "main",
+          "line": 194
+        }
+      ],
+      "summary": "Utility script module with 0 classes and 7 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "__main__ guard"
+      ]
+    },
+    {
+      "path": "sam3/agent/client_llm.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 207,
+      "char_count": 7694,
+      "token_estimate": 1924,
+      "imports": [
+        "base64",
+        "openai:OpenAI",
+        "os",
+        "typing:Any,Optional"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "get_image_base64_and_mime",
+          "line": 12
+        },
+        {
+          "type": "function",
+          "name": "send_generate_request",
+          "line": 36
+        },
+        {
+          "type": "function",
+          "name": "send_direct_request",
+          "line": 130
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 3 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/client_sam3.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 139,
+      "char_count": 5099,
+      "token_estimate": 1275,
+      "imports": [
+        ".helpers.mask_overlap_removal:remove_overlapping_masks",
+        ".viz:visualize",
+        "PIL:Image",
+        "json",
+        "os",
+        "sam3.model.box_ops:box_xyxy_to_xywh",
+        "sam3.train.masks_ops:rle_encode",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/agent/helpers/mask_overlap_removal.py",
+        "sam3/agent/viz.py",
+        "sam3/model/box_ops.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "sam3_inference",
+          "line": 17
+        },
+        {
+          "type": "function",
+          "name": "call_sam_service",
+          "line": 51
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/boxes.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 440,
+      "char_count": 14592,
+      "token_estimate": 3648,
+      "imports": [
+        "enum:IntEnum,unique",
+        "math",
+        "numpy",
+        "torch",
+        "torch:device",
+        "typing:List,Tuple,Union"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "BoxMode",
+          "line": 17
+        },
+        {
+          "type": "class",
+          "name": "Boxes",
+          "line": 139
+        },
+        {
+          "type": "function",
+          "name": "pairwise_intersection",
+          "line": 327
+        },
+        {
+          "type": "function",
+          "name": "pairwise_iou",
+          "line": 351
+        },
+        {
+          "type": "function",
+          "name": "pairwise_ioa",
+          "line": 376
+        },
+        {
+          "type": "function",
+          "name": "pairwise_point_box_distance",
+          "line": 396
+        },
+        {
+          "type": "function",
+          "name": "matched_pairwise_iou",
+          "line": 415
+        }
+      ],
+      "summary": "Agent runtime module with 2 classes and 5 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/color_map.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 152,
+      "char_count": 3645,
+      "token_estimate": 912,
+      "imports": [
+        "numpy",
+        "random"
+      ],
+      "exports": [
+        "colormap",
+        "random_color",
+        "random_colors"
+      ],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "colormap",
+          "line": 90
+        },
+        {
+          "type": "function",
+          "name": "random_color",
+          "line": 106
+        },
+        {
+          "type": "function",
+          "name": "random_colors",
+          "line": 122
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 3 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "__main__ guard"
+      ]
+    },
+    {
+      "path": "sam3/agent/helpers/keypoints.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 246,
+      "char_count": 9048,
+      "token_estimate": 2262,
+      "imports": [
+        "numpy",
+        "torch",
+        "torch.nn:functional",
+        "typing:Any,List,Tuple,Union"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Keypoints",
+          "line": 12
+        },
+        {
+          "type": "function",
+          "name": "_keypoints_to_heatmap",
+          "line": 112
+        },
+        {
+          "type": "function",
+          "name": "heatmaps_to_keypoints",
+          "line": 172
+        }
+      ],
+      "summary": "Agent runtime module with 1 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/mask_overlap_removal.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 130,
+      "char_count": 4821,
+      "token_estimate": 1206,
+      "imports": [
+        "numpy",
+        "torch",
+        "typing:Dict,List"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "mask_intersection",
+          "line": 16
+        },
+        {
+          "type": "function",
+          "name": "mask_iom",
+          "line": 32
+        },
+        {
+          "type": "function",
+          "name": "_decode_single_mask",
+          "line": 42
+        },
+        {
+          "type": "function",
+          "name": "_decode_masks_to_torch_bool",
+          "line": 67
+        },
+        {
+          "type": "function",
+          "name": "remove_overlapping_masks",
+          "line": 73
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 5 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/masks.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 561,
+      "char_count": 20097,
+      "token_estimate": 5025,
+      "imports": [
+        ".boxes:Boxes",
+        ".memory:retry_if_cuda_oom",
+        ".roi_align:ROIAlign",
+        "copy",
+        "itertools",
+        "numpy",
+        "pycocotools.mask",
+        "torch",
+        "torch:device",
+        "typing:Any,Iterator,List,Union"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/agent/helpers/boxes.py",
+        "sam3/agent/helpers/memory.py",
+        "sam3/agent/helpers/roi_align.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "polygon_area",
+          "line": 19
+        },
+        {
+          "type": "function",
+          "name": "polygons_to_bitmask",
+          "line": 25
+        },
+        {
+          "type": "function",
+          "name": "rasterize_polygons_within_box",
+          "line": 44
+        },
+        {
+          "type": "class",
+          "name": "BitMasks",
+          "line": 93
+        },
+        {
+          "type": "class",
+          "name": "PolygonMasks",
+          "line": 276
+        },
+        {
+          "type": "class",
+          "name": "ROIMasks",
+          "line": 488
+        }
+      ],
+      "summary": "Agent runtime module with 3 classes and 3 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/memory.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 89,
+      "char_count": 2643,
+      "token_estimate": 661,
+      "imports": [
+        "contextlib:contextmanager",
+        "functools:wraps",
+        "logging",
+        "torch"
+      ],
+      "exports": [
+        "retry_if_cuda_oom"
+      ],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_ignore_torch_cuda_oom",
+          "line": 15
+        },
+        {
+          "type": "function",
+          "name": "retry_if_cuda_oom",
+          "line": 29
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/rle.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 124,
+      "char_count": 4244,
+      "token_estimate": 1061,
+      "imports": [
+        "numpy",
+        "pycocotools:mask",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "rle_encode",
+          "line": 13
+        },
+        {
+          "type": "function",
+          "name": "robust_rle_encode",
+          "line": 84
+        },
+        {
+          "type": "function",
+          "name": "ann_to_rle",
+          "line": 105
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 3 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/roi_align.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 77,
+      "char_count": 3136,
+      "token_estimate": 784,
+      "imports": [
+        "torch:nn",
+        "torchvision.ops:roi_align"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "ROIAlign",
+          "line": 10
+        }
+      ],
+      "summary": "Agent runtime module with 1 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/rotated_boxes.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 535,
+      "char_count": 19763,
+      "token_estimate": 4941,
+      "imports": [
+        ".boxes:Boxes",
+        "__future__:absolute_import,division,print_function,unicode_literals",
+        "math",
+        "torch",
+        "typing:List,Tuple"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/agent/helpers/boxes.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "pairwise_iou_rotated",
+          "line": 17
+        },
+        {
+          "type": "class",
+          "name": "RotatedBoxes",
+          "line": 35
+        },
+        {
+          "type": "function",
+          "name": "pairwise_iou",
+          "line": 520
+        }
+      ],
+      "summary": "Agent runtime module with 1 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/som_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 408,
+      "char_count": 12021,
+      "token_estimate": 3006,
+      "imports": [
+        "colorsys",
+        "cv2",
+        "dataclasses:dataclass",
+        "matplotlib",
+        "matplotlib.colors",
+        "numpy",
+        "pycocotools.mask",
+        "typing:List,Tuple"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "rgb_to_hex",
+          "line": 16
+        },
+        {
+          "type": "function",
+          "name": "_validate_color_hex",
+          "line": 78
+        },
+        {
+          "type": "class",
+          "name": "Color",
+          "line": 88
+        },
+        {
+          "type": "class",
+          "name": "ColorPalette",
+          "line": 191
+        },
+        {
+          "type": "function",
+          "name": "draw_box",
+          "line": 289
+        },
+        {
+          "type": "function",
+          "name": "draw_text",
+          "line": 305
+        },
+        {
+          "type": "function",
+          "name": "draw_mask",
+          "line": 335
+        },
+        {
+          "type": "function",
+          "name": "_change_color_brightness",
+          "line": 383
+        }
+      ],
+      "summary": "Agent runtime module with 2 classes and 6 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/zoom_in.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 197,
+      "char_count": 6497,
+      "token_estimate": 1625,
+      "imports": [
+        ".som_utils:ColorPalette,draw_box,draw_mask,draw_text",
+        "PIL:Image",
+        "io",
+        "math",
+        "matplotlib.pyplot",
+        "numpy",
+        "pycocotools.mask"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/agent/helpers/som_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "render_zoom_in",
+          "line": 16
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/inference.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 67,
+      "char_count": 2257,
+      "token_estimate": 565,
+      "imports": [
+        "json",
+        "os",
+        "sam3.agent.agent_core:agent_inference"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/agent/agent_core.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "run_single_image_inference",
+          "line": 11
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/viz.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "medium",
+      "line_count": 118,
+      "char_count": 3989,
+      "token_estimate": 998,
+      "imports": [
+        ".helpers.visualizer:Visualizer",
+        ".helpers.zoom_in:render_zoom_in",
+        "PIL:Image",
+        "cv2",
+        "numpy",
+        "pycocotools.mask"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/agent/helpers/zoom_in.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "visualize",
+          "line": 14
+        }
+      ],
+      "summary": "Agent runtime module with 0 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/act_ckpt_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 116,
+      "char_count": 4346,
+      "token_estimate": 1087,
+      "imports": [
+        "functools:wraps",
+        "inspect",
+        "torch",
+        "torch.nn",
+        "torch.utils._pytree:tree_map_only",
+        "torch.utils.checkpoint",
+        "typing:Callable,TypeVar,Union"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "activation_ckpt_wrapper",
+          "line": 19
+        },
+        {
+          "type": "function",
+          "name": "clone_output_wrapper",
+          "line": 95
+        }
+      ],
+      "summary": "Model support module with 0 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/box_ops.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 219,
+      "char_count": 6004,
+      "token_estimate": 1501,
+      "imports": [
+        "torch",
+        "typing:Tuple"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "box_cxcywh_to_xyxy",
+          "line": 13
+        },
+        {
+          "type": "function",
+          "name": "box_cxcywh_to_xywh",
+          "line": 19
+        },
+        {
+          "type": "function",
+          "name": "box_xywh_to_xyxy",
+          "line": 25
+        },
+        {
+          "type": "function",
+          "name": "box_xywh_to_cxcywh",
+          "line": 31
+        },
+        {
+          "type": "function",
+          "name": "box_xyxy_to_xywh",
+          "line": 37
+        },
+        {
+          "type": "function",
+          "name": "box_xyxy_to_cxcywh",
+          "line": 43
+        },
+        {
+          "type": "function",
+          "name": "box_area",
+          "line": 49
+        },
+        {
+          "type": "function",
+          "name": "masks_to_boxes",
+          "line": 63
+        },
+        {
+          "type": "function",
+          "name": "box_iou",
+          "line": 93
+        },
+        {
+          "type": "function",
+          "name": "generalized_box_iou",
+          "line": 121
+        },
+        {
+          "type": "function",
+          "name": "fast_diag_generalized_box_iou",
+          "line": 148
+        },
+        {
+          "type": "function",
+          "name": "fast_diag_box_iou",
+          "line": 175
+        },
+        {
+          "type": "function",
+          "name": "box_xywh_inter_union",
+          "line": 198
+        }
+      ],
+      "summary": "Model support module with 0 classes and 13 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/data_misc.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 268,
+      "char_count": 8171,
+      "token_estimate": 2043,
+      "imports": [
+        "collections",
+        "dataclasses:dataclass,field,fields,is_dataclass",
+        "re",
+        "torch",
+        "torch.utils:_pytree",
+        "typing:Any,get_args,get_origin,List,Mapping,Optional,Sequence,Union"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "NestedTensor",
+          "line": 19
+        },
+        {
+          "type": "function",
+          "name": "interpolate",
+          "line": 66
+        },
+        {
+          "type": "class",
+          "name": "BatchedPointer",
+          "line": 95
+        },
+        {
+          "type": "class",
+          "name": "FindStage",
+          "line": 109
+        },
+        {
+          "type": "class",
+          "name": "BatchedFindTarget",
+          "line": 142
+        },
+        {
+          "type": "class",
+          "name": "BatchedInferenceMetadata",
+          "line": 182
+        },
+        {
+          "type": "class",
+          "name": "BatchedDatapoint",
+          "line": 217
+        },
+        {
+          "type": "function",
+          "name": "convert_my_tensors",
+          "line": 227
+        }
+      ],
+      "summary": "Model support module with 6 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/edt.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 175,
+      "char_count": 8389,
+      "token_estimate": 2098,
+      "imports": [
+        "torch",
+        "triton",
+        "triton.language"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "edt_kernel",
+          "line": 56
+        },
+        {
+          "type": "function",
+          "name": "edt_triton",
+          "line": 119
+        }
+      ],
+      "summary": "Model support module with 0 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/encoder.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 596,
+      "char_count": 23203,
+      "token_estimate": 5801,
+      "imports": [
+        ".act_ckpt_utils:activation_ckpt_wrapper",
+        ".model_misc:get_activation_fn,get_clones,get_valid_ratio",
+        "torch",
+        "torch:nn,Tensor",
+        "typing:Any,Dict,List,Optional,Tuple"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/act_ckpt_utils.py",
+        "sam3/model/model_misc.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "TransformerEncoderLayer",
+          "line": 15
+        },
+        {
+          "type": "class",
+          "name": "TransformerEncoder",
+          "line": 254
+        },
+        {
+          "type": "class",
+          "name": "TransformerEncoderFusion",
+          "line": 464
+        },
+        {
+          "type": "function",
+          "name": "pool_text_feat",
+          "line": 582
+        }
+      ],
+      "summary": "Model component module with 3 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/geometry_encoders.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 838,
+      "char_count": 33349,
+      "token_estimate": 8338,
+      "imports": [
+        ".act_ckpt_utils:activation_ckpt_wrapper",
+        ".box_ops:box_cxcywh_to_xyxy",
+        ".model_misc:get_clones",
+        "torch",
+        "torch.nn",
+        "torchvision",
+        "typing:Tuple",
+        "typing_extensions:override"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/act_ckpt_utils.py",
+        "sam3/model/box_ops.py",
+        "sam3/model/model_misc.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "is_right_padded",
+          "line": 17
+        },
+        {
+          "type": "function",
+          "name": "concat_padded_sequences",
+          "line": 23
+        },
+        {
+          "type": "class",
+          "name": "Prompt",
+          "line": 83
+        },
+        {
+          "type": "class",
+          "name": "MaskEncoder",
+          "line": 404
+        },
+        {
+          "type": "class",
+          "name": "FusedMaskEncoder",
+          "line": 425
+        },
+        {
+          "type": "class",
+          "name": "SequenceGeometryEncoder",
+          "line": 470
+        }
+      ],
+      "summary": "Model component module with 4 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/io_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 725,
+      "char_count": 27658,
+      "token_estimate": 6915,
+      "imports": [
+        "PIL:Image",
+        "contextlib",
+        "numpy",
+        "os",
+        "queue",
+        "re",
+        "sam3.logger:get_logger",
+        "threading:Condition,get_ident,Lock,Thread",
+        "time",
+        "torch",
+        "torch.nn.functional",
+        "torchvision.transforms.functional",
+        "tqdm:tqdm"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "load_resource_as_video_frames",
+          "line": 29
+        },
+        {
+          "type": "function",
+          "name": "load_image_as_single_frame_video",
+          "line": 93
+        },
+        {
+          "type": "function",
+          "name": "load_video_frames",
+          "line": 116
+        },
+        {
+          "type": "function",
+          "name": "load_video_frames_from_image_folder",
+          "line": 165
+        },
+        {
+          "type": "function",
+          "name": "load_video_frames_from_video_file",
+          "line": 220
+        },
+        {
+          "type": "function",
+          "name": "load_video_frames_from_video_file_using_cv2",
+          "line": 262
+        },
+        {
+          "type": "function",
+          "name": "load_dummy_video",
+          "line": 332
+        },
+        {
+          "type": "function",
+          "name": "_load_img_as_tensor",
+          "line": 346
+        },
+        {
+          "type": "class",
+          "name": "AsyncImageFrameLoader",
+          "line": 355
+        },
+        {
+          "type": "class",
+          "name": "TorchCodecDecoder",
+          "line": 419
+        },
+        {
+          "type": "class",
+          "name": "FIFOLock",
+          "line": 471
+        },
+        {
+          "type": "class",
+          "name": "AsyncVideoFileLoaderWithTorchCodec",
+          "line": 502
+        }
+      ],
+      "summary": "Model support module with 4 classes and 8 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/maskformer_segmentation.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 337,
+      "char_count": 11798,
+      "token_estimate": 2950,
+      "imports": [
+        ".model_misc:MLP",
+        "math",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional",
+        "torch.utils.checkpoint",
+        "typing:Dict,List,Optional"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/model_misc.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "LinearPresenceHead",
+          "line": 16
+        },
+        {
+          "type": "class",
+          "name": "MaskPredictor",
+          "line": 25
+        },
+        {
+          "type": "class",
+          "name": "SegmentationHead",
+          "line": 56
+        },
+        {
+          "type": "class",
+          "name": "PixelDecoder",
+          "line": 184
+        },
+        {
+          "type": "class",
+          "name": "UniversalSegmentationHead",
+          "line": 234
+        }
+      ],
+      "summary": "Model support module with 5 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/memory.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 209,
+      "char_count": 7025,
+      "token_estimate": 1757,
+      "imports": [
+        ".model_misc:get_clones,LayerNorm2d",
+        "math",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional",
+        "typing:Tuple"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/model_misc.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "SimpleMaskDownSampler",
+          "line": 21
+        },
+        {
+          "type": "class",
+          "name": "CXBlock",
+          "line": 90
+        },
+        {
+          "type": "class",
+          "name": "SimpleFuser",
+          "line": 148
+        },
+        {
+          "type": "class",
+          "name": "SimpleMaskEncoder",
+          "line": 166
+        }
+      ],
+      "summary": "Model support module with 4 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/model_misc.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 1105,
+      "char_count": 39977,
+      "token_estimate": 9995,
+      "imports": [
+        "collections.abc:Iterator",
+        "contextlib:AbstractContextManager",
+        "copy",
+        "enum:auto,Enum",
+        "math",
+        "numpy",
+        "torch",
+        "torch.nn.functional",
+        "torch.overrides:handle_torch_function,has_torch_function",
+        "torch:nn,Tensor",
+        "typing:Dict,List,Optional,Tuple,Union",
+        "typing_extensions:override",
+        "warnings",
+        "weakref"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "inverse_sigmoid",
+          "line": 29
+        },
+        {
+          "type": "function",
+          "name": "get_sdpa_settings",
+          "line": 40
+        },
+        {
+          "type": "class",
+          "name": "AttentionType",
+          "line": 73
+        },
+        {
+          "type": "function",
+          "name": "multi_head_attention_forward",
+          "line": 89
+        },
+        {
+          "type": "class",
+          "name": "MultiheadAttention",
+          "line": 453
+        },
+        {
+          "type": "class",
+          "name": "DotProductScoring",
+          "line": 714
+        },
+        {
+          "type": "class",
+          "name": "LayerScale",
+          "line": 771
+        },
+        {
+          "type": "class",
+          "name": "LayerNorm2d",
+          "line": 786
+        },
+        {
+          "type": "class",
+          "name": "TransformerWrapper",
+          "line": 801
+        },
+        {
+          "type": "class",
+          "name": "MLP",
+          "line": 837
+        },
+        {
+          "type": "function",
+          "name": "get_clones",
+          "line": 875
+        },
+        {
+          "type": "function",
+          "name": "get_clones_seq",
+          "line": 879
+        },
+        {
+          "type": "function",
+          "name": "get_activation_fn",
+          "line": 883
+        },
+        {
+          "type": "function",
+          "name": "get_activation_module",
+          "line": 894
+        },
+        {
+          "type": "function",
+          "name": "get_valid_ratio",
+          "line": 905
+        },
+        {
+          "type": "function",
+          "name": "gen_sineembed_for_position",
+          "line": 915
+        },
+        {
+          "type": "class",
+          "name": "SAM3Output",
+          "line": 954
+        }
+      ],
+      "summary": "Model support module with 8 classes and 9 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/multiplex_mask_decoder.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 470,
+      "char_count": 20043,
+      "token_estimate": 5011,
+      "imports": [
+        "sam3.sam.common:LayerNorm2d",
+        "torch",
+        "torch.nn:functional",
+        "torch:nn",
+        "typing:List,Optional,Type"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/sam/common.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "MultiplexMaskDecoder",
+          "line": 16
+        },
+        {
+          "type": "class",
+          "name": "MLP",
+          "line": 448
+        }
+      ],
+      "summary": "Model component module with 2 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/multiplex_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 538,
+      "char_count": 21192,
+      "token_estimate": 5298,
+      "imports": [
+        "logging",
+        "math",
+        "torch",
+        "torch:nn",
+        "typing:Optional"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "MultiplexState",
+          "line": 20
+        },
+        {
+          "type": "class",
+          "name": "MultiplexController",
+          "line": 434
+        }
+      ],
+      "summary": "Model support module with 2 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/necks.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 269,
+      "char_count": 9066,
+      "token_estimate": 2267,
+      "imports": [
+        "copy:deepcopy",
+        "sam3.model.data_misc:NestedTensor",
+        "torch",
+        "torch.nn",
+        "typing:List,Optional,Tuple"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/data_misc.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Sam3DualViTDetNeck",
+          "line": 15
+        },
+        {
+          "type": "class",
+          "name": "Sam3TriViTDetNeck",
+          "line": 130
+        }
+      ],
+      "summary": "Model component module with 2 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/position_encoding.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 132,
+      "char_count": 5374,
+      "token_estimate": 1344,
+      "imports": [
+        "math",
+        "torch",
+        "torch:nn",
+        "typing:Optional"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "PositionEmbeddingSine",
+          "line": 12
+        }
+      ],
+      "summary": "Model support module with 1 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam1_task_predictor.py",
+      "language": "python",
+      "type": "source",
+      "role": "predictor",
+      "priority": "medium",
+      "line_count": 457,
+      "char_count": 19600,
+      "token_estimate": 4900,
+      "imports": [
+        "PIL.Image:Image",
+        "logging",
+        "numpy",
+        "sam3.model.sam3_tracker_base:Sam3TrackerBase",
+        "sam3.model.utils.sam1_utils:SAM2Transforms",
+        "torch",
+        "torch.nn",
+        "typing:List,Optional,Tuple,Union"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/utils/sam1_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "SAM3InteractiveImagePredictor",
+          "line": 21
+        }
+      ],
+      "summary": "Predictor module with 1 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam3_multiplex_detector.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 943,
+      "char_count": 40130,
+      "token_estimate": 10033,
+      "imports": [
+        "numpy",
+        "os",
+        "sam3.model.data_misc:BatchedDatapoint,FindStage",
+        "sam3.model.geometry_encoders:Prompt",
+        "sam3.model.model_misc:SAM3Output",
+        "sam3.model.sam3_image:Sam3Image",
+        "sam3.model.sam3_multiplex_detector_utils:nms_masks",
+        "sam3.model.vl_combiner:SAM3VLBackbone",
+        "torch",
+        "typing:Dict,List,Optional"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/data_misc.py",
+        "sam3/model/geometry_encoders.py",
+        "sam3/model/model_misc.py",
+        "sam3/model/sam3_image.py",
+        "sam3/model/sam3_multiplex_detector_utils.py",
+        "sam3/model/vl_combiner.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Sam3MultiplexImageBase",
+          "line": 20
+        },
+        {
+          "type": "class",
+          "name": "Sam3MultiplexDetector",
+          "line": 317
+        }
+      ],
+      "summary": "Model support module with 2 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam3_multiplex_detector_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 369,
+      "char_count": 13217,
+      "token_estimate": 3305,
+      "imports": [
+        "logging",
+        "numpy",
+        "sam3.perflib.masks_ops:mask_iou",
+        "sam3.train.masks_ops:mask_iom",
+        "sam3:perflib",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/__init__.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "nms_masks",
+          "line": 20
+        },
+        {
+          "type": "function",
+          "name": "_nms_masks_core",
+          "line": 59
+        },
+        {
+          "type": "function",
+          "name": "_nms_masks_core_batched",
+          "line": 89
+        },
+        {
+          "type": "function",
+          "name": "_batched_mask_iou",
+          "line": 134
+        },
+        {
+          "type": "function",
+          "name": "_batched_mask_iom",
+          "line": 159
+        },
+        {
+          "type": "function",
+          "name": "_batched_generic_nms_mask",
+          "line": 184
+        },
+        {
+          "type": "function",
+          "name": "_nms_masks_core_single",
+          "line": 238
+        },
+        {
+          "type": "function",
+          "name": "generic_nms_cpu",
+          "line": 293
+        },
+        {
+          "type": "function",
+          "name": "generic_nms_mask",
+          "line": 313
+        },
+        {
+          "type": "function",
+          "name": "perf_mask_iou",
+          "line": 348
+        },
+        {
+          "type": "function",
+          "name": "perf_mask_iom",
+          "line": 365
+        }
+      ],
+      "summary": "Model support module with 0 classes and 11 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/sam3_tracker_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 438,
+      "char_count": 18822,
+      "token_estimate": 4706,
+      "imports": [
+        "numpy",
+        "numpy.typing:NDArray",
+        "sam3.model.edt:edt_triton",
+        "torch",
+        "torch.nn.functional"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/edt.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "sample_box_points",
+          "line": 12
+        },
+        {
+          "type": "function",
+          "name": "mask_to_box",
+          "line": 58
+        },
+        {
+          "type": "function",
+          "name": "sample_random_points_from_errors",
+          "line": 87
+        },
+        {
+          "type": "function",
+          "name": "sample_one_point_from_error_center",
+          "line": 137
+        },
+        {
+          "type": "function",
+          "name": "sample_one_point_from_error_center_slow",
+          "line": 197
+        },
+        {
+          "type": "function",
+          "name": "get_next_point",
+          "line": 262
+        },
+        {
+          "type": "function",
+          "name": "select_closest_cond_frames",
+          "line": 271
+        },
+        {
+          "type": "function",
+          "name": "get_1d_sine_pe",
+          "line": 328
+        },
+        {
+          "type": "function",
+          "name": "get_best_gt_match_from_multimasks",
+          "line": 341
+        },
+        {
+          "type": "function",
+          "name": "fill_holes_in_mask_scores",
+          "line": 370
+        },
+        {
+          "type": "function",
+          "name": "_get_connected_components_with_padding",
+          "line": 419
+        }
+      ],
+      "summary": "Model support module with 0 classes and 11 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/text_encoder_ve.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 330,
+      "char_count": 11274,
+      "token_estimate": 2819,
+      "imports": [
+        ".model_misc:LayerScale",
+        "collections:OrderedDict",
+        "torch",
+        "torch.nn",
+        "torch.utils.checkpoint:checkpoint",
+        "typing:Callable,List,Optional,Tuple,Union"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/model_misc.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "ResidualAttentionBlock",
+          "line": 15
+        },
+        {
+          "type": "class",
+          "name": "Transformer",
+          "line": 92
+        },
+        {
+          "type": "function",
+          "name": "text_global_pool",
+          "line": 150
+        },
+        {
+          "type": "class",
+          "name": "TextTransformer",
+          "line": 166
+        },
+        {
+          "type": "class",
+          "name": "VETextEncoder",
+          "line": 255
+        }
+      ],
+      "summary": "Model component module with 4 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/tokenizer_ve.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 255,
+      "char_count": 8842,
+      "token_estimate": 2211,
+      "imports": [
+        "ftfy",
+        "functools:lru_cache",
+        "gzip",
+        "html",
+        "io",
+        "iopath.common.file_io:g_pathmgr",
+        "os",
+        "regex",
+        "string",
+        "torch",
+        "typing:List,Optional,Union"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "bytes_to_unicode",
+          "line": 32
+        },
+        {
+          "type": "function",
+          "name": "get_pairs",
+          "line": 58
+        },
+        {
+          "type": "function",
+          "name": "basic_clean",
+          "line": 70
+        },
+        {
+          "type": "function",
+          "name": "whitespace_clean",
+          "line": 76
+        },
+        {
+          "type": "function",
+          "name": "_clean_canonicalize",
+          "line": 82
+        },
+        {
+          "type": "function",
+          "name": "_clean_lower",
+          "line": 87
+        },
+        {
+          "type": "function",
+          "name": "_clean_whitespace",
+          "line": 92
+        },
+        {
+          "type": "function",
+          "name": "get_clean_fn",
+          "line": 97
+        },
+        {
+          "type": "function",
+          "name": "canonicalize_text",
+          "line": 108
+        },
+        {
+          "type": "class",
+          "name": "SimpleTokenizer",
+          "line": 130
+        }
+      ],
+      "summary": "Model support module with 1 classes and 9 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/utils/misc.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 79,
+      "char_count": 2536,
+      "token_estimate": 634,
+      "imports": [
+        "collections:defaultdict",
+        "dataclasses:fields,is_dataclass",
+        "torch",
+        "typing:Any,Mapping,Protocol,runtime_checkable"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_is_named_tuple",
+          "line": 12
+        },
+        {
+          "type": "class",
+          "name": "_CopyableData",
+          "line": 17
+        },
+        {
+          "type": "function",
+          "name": "copy_data_to_device",
+          "line": 23
+        }
+      ],
+      "summary": "Model support module with 1 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/utils/sam1_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 121,
+      "char_count": 5045,
+      "token_estimate": 1262,
+      "imports": [
+        "torch",
+        "torch.nn",
+        "torch.nn.functional",
+        "torchvision.transforms:Normalize,Resize,ToTensor",
+        "warnings"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "SAM2Transforms",
+          "line": 18
+        }
+      ],
+      "summary": "Model support module with 1 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/utils/sam2_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 235,
+      "char_count": 8295,
+      "token_estimate": 2074,
+      "imports": [
+        "PIL:Image",
+        "numpy",
+        "os",
+        "threading:Thread",
+        "torch",
+        "tqdm:tqdm"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_load_img_as_tensor",
+          "line": 18
+        },
+        {
+          "type": "class",
+          "name": "AsyncVideoFrameLoader",
+          "line": 30
+        },
+        {
+          "type": "function",
+          "name": "load_video_frames",
+          "line": 98
+        },
+        {
+          "type": "function",
+          "name": "load_video_frames_from_jpg_images",
+          "line": 139
+        },
+        {
+          "type": "function",
+          "name": "load_video_frames_from_video_file",
+          "line": 206
+        }
+      ],
+      "summary": "Model support module with 1 classes and 4 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/vitdet.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "medium",
+      "line_count": 1032,
+      "char_count": 38319,
+      "token_estimate": 9580,
+      "imports": [
+        "functools:partial",
+        "math",
+        "sam3.model.data_misc:NestedTensor",
+        "sam3.model.model_misc:AttentionType,LayerScale",
+        "sam3.perflib.fused:addmm_act",
+        "sam3.sam.rope:apply_rotary_enc_real,VisionRotaryEmbeddingVE",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional",
+        "torch.utils.checkpoint",
+        "torch:Tensor",
+        "typing:Callable,List,Optional,Tuple,Union"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/data_misc.py",
+        "sam3/model/model_misc.py",
+        "sam3/sam/rope.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Mlp",
+          "line": 36
+        },
+        {
+          "type": "function",
+          "name": "init_t_xy",
+          "line": 79
+        },
+        {
+          "type": "function",
+          "name": "compute_axial_cis",
+          "line": 88
+        },
+        {
+          "type": "function",
+          "name": "reshape_for_broadcast",
+          "line": 107
+        },
+        {
+          "type": "function",
+          "name": "apply_rotary_enc",
+          "line": 115
+        },
+        {
+          "type": "function",
+          "name": "window_partition",
+          "line": 140
+        },
+        {
+          "type": "function",
+          "name": "window_unpartition",
+          "line": 163
+        },
+        {
+          "type": "function",
+          "name": "get_rel_pos",
+          "line": 189
+        },
+        {
+          "type": "function",
+          "name": "get_abs_pos",
+          "line": 222
+        },
+        {
+          "type": "function",
+          "name": "concat_rel_pos",
+          "line": 286
+        },
+        {
+          "type": "class",
+          "name": "PatchEmbed",
+          "line": 346
+        },
+        {
+          "type": "class",
+          "name": "Attention",
+          "line": 386
+        },
+        {
+          "type": "class",
+          "name": "Block",
+          "line": 635
+        },
+        {
+          "type": "class",
+          "name": "ViT",
+          "line": 743
+        }
+      ],
+      "summary": "Model support module with 5 classes and 9 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/vl_combiner.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 430,
+      "char_count": 14910,
+      "token_estimate": 3728,
+      "imports": [
+        ".act_ckpt_utils:activation_ckpt_wrapper",
+        ".data_misc:NestedTensor",
+        ".necks:Sam3DualViTDetNeck,Sam3TriViTDetNeck",
+        "copy:copy",
+        "torch",
+        "torch.nn",
+        "torch.nn.attention:sdpa_kernel,SDPBackend",
+        "typing:List,Optional"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/model/act_ckpt_utils.py",
+        "sam3/model/data_misc.py",
+        "sam3/model/necks.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "SAM3VLBackbone",
+          "line": 19
+        },
+        {
+          "type": "class",
+          "name": "SAM3VLBackboneTri",
+          "line": 181
+        },
+        {
+          "type": "class",
+          "name": "VisionOnly",
+          "line": 272
+        },
+        {
+          "type": "class",
+          "name": "TriHeadVisionOnly",
+          "line": 337
+        }
+      ],
+      "summary": "Model component module with 4 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/sam/common.py",
+      "language": "python",
+      "type": "source",
+      "role": "sam-core-component",
+      "priority": "medium",
+      "line_count": 41,
+      "char_count": 1370,
+      "token_estimate": 343,
+      "imports": [
+        "torch",
+        "torch.nn",
+        "typing:Type"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "MLPBlock",
+          "line": 11
+        },
+        {
+          "type": "class",
+          "name": "LayerNorm2d",
+          "line": 29
+        }
+      ],
+      "summary": "Sam core component module with 2 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/sam/mask_decoder.py",
+      "language": "python",
+      "type": "source",
+      "role": "sam-core-component",
+      "priority": "medium",
+      "line_count": 321,
+      "char_count": 13424,
+      "token_estimate": 3356,
+      "imports": [
+        ".common:LayerNorm2d",
+        "torch",
+        "torch.nn:functional",
+        "torch:nn",
+        "typing:List,Optional,Tuple,Type"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/sam/common.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "MaskDecoder",
+          "line": 14
+        },
+        {
+          "type": "class",
+          "name": "MLP",
+          "line": 299
+        }
+      ],
+      "summary": "Sam core component module with 2 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/sam/prompt_encoder.py",
+      "language": "python",
+      "type": "source",
+      "role": "sam-core-component",
+      "priority": "medium",
+      "line_count": 245,
+      "char_count": 9277,
+      "token_estimate": 2320,
+      "imports": [
+        ".common:LayerNorm2d",
+        "numpy",
+        "torch",
+        "torch:nn",
+        "typing:Any,Optional,Tuple,Type"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/sam/common.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "PromptEncoder",
+          "line": 14
+        },
+        {
+          "type": "class",
+          "name": "PositionEmbeddingRandom",
+          "line": 202
+        }
+      ],
+      "summary": "Sam core component module with 2 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/sam/rope.py",
+      "language": "python",
+      "type": "source",
+      "role": "sam-core-component",
+      "priority": "medium",
+      "line_count": 163,
+      "char_count": 5934,
+      "token_estimate": 1484,
+      "imports": [
+        "einops:rearrange,repeat",
+        "torch",
+        "torch:broadcast_tensors,nn",
+        "typing:Optional"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "init_t_xy",
+          "line": 19
+        },
+        {
+          "type": "function",
+          "name": "compute_axial_cis",
+          "line": 26
+        },
+        {
+          "type": "function",
+          "name": "reshape_for_broadcast",
+          "line": 50
+        },
+        {
+          "type": "function",
+          "name": "apply_rotary_enc",
+          "line": 58
+        },
+        {
+          "type": "function",
+          "name": "complex_mult",
+          "line": 83
+        },
+        {
+          "type": "function",
+          "name": "apply_rotary_enc_real",
+          "line": 92
+        },
+        {
+          "type": "function",
+          "name": "broadcat",
+          "line": 120
+        },
+        {
+          "type": "function",
+          "name": "rotate_half",
+          "line": 125
+        },
+        {
+          "type": "class",
+          "name": "VisionRotaryEmbeddingVE",
+          "line": 132
+        }
+      ],
+      "summary": "Sam core component module with 1 classes and 8 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/sam/transformer.py",
+      "language": "python",
+      "type": "source",
+      "role": "sam-core-component",
+      "priority": "medium",
+      "line_count": 359,
+      "char_count": 12862,
+      "token_estimate": 3216,
+      "imports": [
+        ".common:MLPBlock",
+        "functools:partial",
+        "math",
+        "sam3.sam.rope:apply_rotary_enc,apply_rotary_enc_real,compute_axial_cis",
+        "torch",
+        "torch.nn.functional",
+        "torch:nn,Tensor",
+        "typing:Tuple,Type"
+      ],
+      "exports": [],
+      "dependencies": [
+        "sam3/sam/common.py",
+        "sam3/sam/rope.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "TwoWayTransformer",
+          "line": 17
+        },
+        {
+          "type": "class",
+          "name": "TwoWayAttentionBlock",
+          "line": 110
+        },
+        {
+          "type": "class",
+          "name": "Attention",
+          "line": 186
+        },
+        {
+          "type": "class",
+          "name": "RoPEAttention",
+          "line": 267
+        }
+      ],
+      "summary": "Sam core component module with 4 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "scripts/eval/gold/eval_sam3.py",
+      "language": "python",
+      "type": "source",
+      "role": "evaluation-script",
+      "priority": "medium",
+      "line_count": 106,
+      "char_count": 3357,
+      "token_estimate": 840,
+      "imports": [
+        "argparse",
+        "os",
+        "sam3.eval.cgf1_eval:CGF1Evaluator"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "main",
+          "line": 64
+        }
+      ],
+      "summary": "Evaluation script module with 0 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "__main__ guard"
+      ]
+    },
+    {
+      "path": "scripts/eval/standalone_cgf1.py",
+      "language": "python",
+      "type": "source",
+      "role": "evaluation-script",
+      "priority": "medium",
+      "line_count": 50,
+      "char_count": 1422,
+      "token_estimate": 356,
+      "imports": [
+        "argparse",
+        "sam3.eval.cgf1_eval:CGF1Evaluator"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "main",
+          "line": 15
+        }
+      ],
+      "summary": "Evaluation script module with 0 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "__main__ guard"
+      ]
+    },
+    {
+      "path": "scripts/eval/veval/README.md",
+      "language": "markdown",
+      "type": "documentation",
+      "role": "evaluation-script",
+      "priority": "medium",
+      "line_count": 248,
+      "char_count": 11022,
+      "token_estimate": 2756,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "heading",
+          "name": "SA-Co/VEval Dataset",
+          "line": 1
+        },
+        {
+          "type": "heading",
+          "name": "Environment",
+          "line": 12
+        },
+        {
+          "type": "heading",
+          "name": "Download",
+          "line": 22
+        },
+        {
+          "type": "heading",
+          "name": "The expected folder structure",
+          "line": 23
+        },
+        {
+          "type": "heading",
+          "name": "Download ready-to-use data",
+          "line": 42
+        },
+        {
+          "type": "heading",
+          "name": "Download via preprocessing steps",
+          "line": 57
+        },
+        {
+          "type": "heading",
+          "name": "Download annotations",
+          "line": 58
+        },
+        {
+          "type": "heading",
+          "name": "Download videos or frames",
+          "line": 71
+        },
+        {
+          "type": "heading",
+          "name": "SA-Co/VEval - SAV",
+          "line": 72
+        },
+        {
+          "type": "heading",
+          "name": "SA-Co/VEval - YT-Temporal-1B",
+          "line": 106
+        },
+        {
+          "type": "heading",
+          "name": "SA-Co/VEval - SmartGlasses",
+          "line": 138
+        },
+        {
+          "type": "heading",
+          "name": "Annotation Format",
+          "line": 147
+        },
+        {
+          "type": "heading",
+          "name": "Run Offline Eval",
+          "line": 216
+        }
+      ],
+      "summary": "Evaluation script module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "scripts/eval/veval/saco_yt1b_annot_update.py",
+      "language": "python",
+      "type": "source",
+      "role": "evaluation-script",
+      "priority": "medium",
+      "line_count": 138,
+      "char_count": 4397,
+      "token_estimate": 1100,
+      "imports": [
+        "argparse",
+        "json",
+        "logging",
+        "os",
+        "pandas"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "get_available_saco_yt1b_ids",
+          "line": 15
+        },
+        {
+          "type": "function",
+          "name": "update_yt1b_annot_per_field",
+          "line": 40
+        },
+        {
+          "type": "function",
+          "name": "update_yt1b_annot",
+          "line": 58
+        },
+        {
+          "type": "function",
+          "name": "main",
+          "line": 93
+        }
+      ],
+      "summary": "Evaluation script module with 0 classes and 4 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "__main__ guard"
+      ]
+    },
+    {
+      "path": "scripts/eval/veval/saco_yt1b_downloader.py",
+      "language": "python",
+      "type": "source",
+      "role": "evaluation-script",
+      "priority": "medium",
+      "line_count": 137,
+      "char_count": 4105,
+      "token_estimate": 1027,
+      "imports": [
+        "argparse",
+        "functools:partial",
+        "logging",
+        "multiprocessing",
+        "os",
+        "pandas",
+        "saco_yt1b_frame_prep_util:YtVideoPrep",
+        "tqdm:tqdm"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "download_and_extract_frames",
+          "line": 17
+        },
+        {
+          "type": "function",
+          "name": "main",
+          "line": 42
+        }
+      ],
+      "summary": "Evaluation script module with 0 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "__main__ guard"
+      ]
+    },
+    {
+      "path": "scripts/eval/veval/saco_yt1b_frame_prep_util.py",
+      "language": "python",
+      "type": "source",
+      "role": "evaluation-script",
+      "priority": "medium",
+      "line_count": 266,
+      "char_count": 8994,
+      "token_estimate": 2249,
+      "imports": [
+        "argparse",
+        "logging",
+        "os",
+        "pandas as pd",
+        "subprocess",
+        "yt_dlp"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Evaluation script module with 0 classes and 0 top-level functions.",
+      "parse_error": "SyntaxError: expected an indented block (line 266)",
+      "entry_flags": []
+    },
+    {
+      "path": "MANIFEST.in",
+      "language": "text",
+      "type": "asset",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 6,
+      "char_count": 162,
+      "token_estimate": 41,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Supporting file module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "examples/saco_gold_silver_vis_example.ipynb",
+      "language": "python",
+      "type": "notebook",
+      "role": "example-notebook",
+      "priority": "low",
+      "line_count": 117,
+      "char_count": 3832,
+      "token_estimate": 958,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Example notebook module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "examples/saco_veval_eval_example.ipynb",
+      "language": "python",
+      "type": "notebook",
+      "role": "example-notebook",
+      "priority": "low",
+      "line_count": 62,
+      "char_count": 2124,
+      "token_estimate": 531,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Example notebook module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "examples/saco_veval_vis_example.ipynb",
+      "language": "python",
+      "type": "notebook",
+      "role": "example-notebook",
+      "priority": "low",
+      "line_count": 117,
+      "char_count": 3895,
+      "token_estimate": 974,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Example notebook module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "examples/sam3.1_video_predictor_example.ipynb",
+      "language": "python",
+      "type": "notebook",
+      "role": "example-notebook",
+      "priority": "low",
+      "line_count": 418,
+      "char_count": 13331,
+      "token_estimate": 3333,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Example notebook module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "examples/sam3_agent.ipynb",
+      "language": "python",
+      "type": "notebook",
+      "role": "example-notebook",
+      "priority": "low",
+      "line_count": 123,
+      "char_count": 3982,
+      "token_estimate": 996,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Example notebook module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "examples/sam3_for_sam1_task_example.ipynb",
+      "language": "python",
+      "type": "notebook",
+      "role": "example-notebook",
+      "priority": "low",
+      "line_count": 391,
+      "char_count": 12895,
+      "token_estimate": 3224,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Example notebook module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "examples/sam3_for_sam2_video_task_example.ipynb",
+      "language": "python",
+      "type": "notebook",
+      "role": "example-notebook",
+      "priority": "low",
+      "line_count": 607,
+      "char_count": 23922,
+      "token_estimate": 5981,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Example notebook module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "examples/sam3_image_interactive.ipynb",
+      "language": "python",
+      "type": "notebook",
+      "role": "example-notebook",
+      "priority": "low",
+      "line_count": 593,
+      "char_count": 20992,
+      "token_estimate": 5248,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Example notebook module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "low",
+      "line_count": 3,
+      "char_count": 88,
+      "token_estimate": 22,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Agent runtime module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/helpers/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "agent-runtime",
+      "priority": "low",
+      "line_count": 3,
+      "char_count": 88,
+      "token_estimate": 22,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Agent runtime module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/agent/system_prompts/system_prompt_iterative_checking.txt",
+      "language": "text",
+      "type": "documentation",
+      "role": "agent-runtime",
+      "priority": "low",
+      "line_count": 26,
+      "char_count": 5851,
+      "token_estimate": 1463,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Agent runtime module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/logger.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 56,
+      "char_count": 1835,
+      "token_estimate": 459,
+      "imports": [
+        "logging",
+        "os"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "ColoredFormatter",
+          "line": 16
+        },
+        {
+          "type": "function",
+          "name": "get_logger",
+          "line": 41
+        }
+      ],
+      "summary": "Supporting file module with 1 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "low",
+      "line_count": 3,
+      "char_count": 88,
+      "token_estimate": 22,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Model support module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/model/utils/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-support",
+      "priority": "low",
+      "line_count": 7,
+      "char_count": 232,
+      "token_estimate": 58,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Model support module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/sam/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "sam-core-component",
+      "priority": "low",
+      "line_count": 6,
+      "char_count": 211,
+      "token_estimate": 53,
+      "imports": [
+        ".mask_decoder:MaskDecoder",
+        ".prompt_encoder:PromptEncoder",
+        ".transformer:TwoWayTransformer"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Sam core component module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "sam3/visualization_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 943,
+      "char_count": 30477,
+      "token_estimate": 7620,
+      "imports": [
+        "PIL:Image",
+        "cv2",
+        "json",
+        "matplotlib.colors:to_rgb",
+        "matplotlib.patches",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pandas",
+        "pathlib:Path",
+        "pycocotools.mask",
+        "skimage.color:lab2rgb,rgb2lab",
+        "sklearn.cluster:KMeans",
+        "subprocess",
+        "torch",
+        "torchvision.ops:masks_to_boxes",
+        "tqdm:tqdm"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "generate_colors",
+          "line": 24
+        },
+        {
+          "type": "function",
+          "name": "show_img_tensor",
+          "line": 47
+        },
+        {
+          "type": "function",
+          "name": "draw_box_on_image",
+          "line": 58
+        },
+        {
+          "type": "function",
+          "name": "plot_bbox",
+          "line": 92
+        },
+        {
+          "type": "function",
+          "name": "plot_mask",
+          "line": 147
+        },
+        {
+          "type": "function",
+          "name": "normalize_bbox",
+          "line": 158
+        },
+        {
+          "type": "function",
+          "name": "visualize_frame_output",
+          "line": 184
+        },
+        {
+          "type": "function",
+          "name": "visualize_formatted_frame_output",
+          "line": 207
+        },
+        {
+          "type": "function",
+          "name": "render_masklet_frame",
+          "line": 390
+        },
+        {
+          "type": "function",
+          "name": "save_masklet_video",
+          "line": 468
+        },
+        {
+          "type": "function",
+          "name": "save_masklet_image",
+          "line": 502
+        },
+        {
+          "type": "function",
+          "name": "prepare_masks_for_visualization",
+          "line": 512
+        },
+        {
+          "type": "function",
+          "name": "convert_coco_to_masklet_format",
+          "line": 523
+        },
+        {
+          "type": "function",
+          "name": "save_side_by_side_visualization",
+          "line": 584
+        },
+        {
+          "type": "function",
+          "name": "bitget",
+          "line": 609
+        },
+        {
+          "type": "function",
+          "name": "pascal_color_map",
+          "line": 613
+        },
+        {
+          "type": "function",
+          "name": "draw_masks_to_frame",
+          "line": 624
+        },
+        {
+          "type": "function",
+          "name": "get_annot_df",
+          "line": 657
+        },
+        {
+          "type": "function",
+          "name": "get_annot_dfs",
+          "line": 673
+        },
+        {
+          "type": "function",
+          "name": "get_media_dir",
+          "line": 682
+        },
+        {
+          "type": "function",
+          "name": "get_all_annotations_for_frame",
+          "line": 695
+        },
+        {
+          "type": "function",
+          "name": "visualize_prompt_overlay",
+          "line": 742
+        },
+        {
+          "type": "function",
+          "name": "plot_results",
+          "line": 858
+        },
+        {
+          "type": "function",
+          "name": "single_visualization",
+          "line": 879
+        },
+        {
+          "type": "function",
+          "name": "show_mask",
+          "line": 891
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 28 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "scripts/eval/veval/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "evaluation-script",
+      "priority": "low",
+      "line_count": 3,
+      "char_count": 88,
+      "token_estimate": 22,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Evaluation script module with 0 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    }
+  ],
+  "relationships": [
+    {
+      "from": "sam3/agent/agent_core.py",
+      "to": "sam3/agent/client_llm.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/agent_core.py",
+      "to": "sam3/agent/client_sam3.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/agent_core.py",
+      "to": "sam3/agent/viz.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/client_sam3.py",
+      "to": "sam3/agent/helpers/mask_overlap_removal.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/client_sam3.py",
+      "to": "sam3/agent/viz.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/client_sam3.py",
+      "to": "sam3/model/box_ops.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/helpers/masks.py",
+      "to": "sam3/agent/helpers/boxes.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/helpers/masks.py",
+      "to": "sam3/agent/helpers/memory.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/helpers/masks.py",
+      "to": "sam3/agent/helpers/roi_align.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/helpers/rotated_boxes.py",
+      "to": "sam3/agent/helpers/boxes.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/helpers/zoom_in.py",
+      "to": "sam3/agent/helpers/som_utils.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/inference.py",
+      "to": "sam3/agent/agent_core.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/agent/viz.py",
+      "to": "sam3/agent/helpers/zoom_in.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/encoder.py",
+      "to": "sam3/model/act_ckpt_utils.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/encoder.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/geometry_encoders.py",
+      "to": "sam3/model/act_ckpt_utils.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/geometry_encoders.py",
+      "to": "sam3/model/box_ops.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/geometry_encoders.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/io_utils.py",
+      "to": "sam3/logger.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/maskformer_segmentation.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/memory.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/multiplex_mask_decoder.py",
+      "to": "sam3/sam/common.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/necks.py",
+      "to": "sam3/model/data_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam1_task_predictor.py",
+      "to": "sam3/model/utils/sam1_utils.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_base_predictor.py",
+      "to": "sam3/logger.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image.py",
+      "to": "sam3/model/act_ckpt_utils.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image.py",
+      "to": "sam3/model/box_ops.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image.py",
+      "to": "sam3/model/data_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image.py",
+      "to": "sam3/model/geometry_encoders.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image.py",
+      "to": "sam3/model/sam1_task_predictor.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image.py",
+      "to": "sam3/model/vl_combiner.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image_processor.py",
+      "to": "sam3/model/__init__.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image_processor.py",
+      "to": "sam3/model/box_ops.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_image_processor.py",
+      "to": "sam3/model/data_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_detector.py",
+      "to": "sam3/model/data_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_detector.py",
+      "to": "sam3/model/geometry_encoders.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_detector.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_detector.py",
+      "to": "sam3/model/sam3_image.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_detector.py",
+      "to": "sam3/model/sam3_multiplex_detector_utils.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_detector.py",
+      "to": "sam3/model/vl_combiner.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_detector_utils.py",
+      "to": "sam3/__init__.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_video_predictor.py",
+      "to": "sam3/logger.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_multiplex_video_predictor.py",
+      "to": "sam3/model/sam3_base_predictor.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_tracker_utils.py",
+      "to": "sam3/model/edt.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_video_predictor.py",
+      "to": "sam3/logger.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/sam3_video_predictor.py",
+      "to": "sam3/model/sam3_base_predictor.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/text_encoder_ve.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/vitdet.py",
+      "to": "sam3/model/data_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/vitdet.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/vitdet.py",
+      "to": "sam3/sam/rope.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/vl_combiner.py",
+      "to": "sam3/model/act_ckpt_utils.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/vl_combiner.py",
+      "to": "sam3/model/data_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model/vl_combiner.py",
+      "to": "sam3/model/necks.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/encoder.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/geometry_encoders.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/maskformer_segmentation.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/memory.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/model_misc.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/multiplex_utils.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/necks.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/position_encoding.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/sam1_task_predictor.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/sam3_image.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/sam3_video_predictor.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/text_encoder_ve.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/tokenizer_ve.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/vitdet.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/model/vl_combiner.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/model_builder.py",
+      "to": "sam3/sam/transformer.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/sam/mask_decoder.py",
+      "to": "sam3/sam/common.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/sam/prompt_encoder.py",
+      "to": "sam3/sam/common.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/sam/transformer.py",
+      "to": "sam3/sam/common.py",
+      "type": "imports"
+    },
+    {
+      "from": "sam3/sam/transformer.py",
+      "to": "sam3/sam/rope.py",
+      "type": "imports"
+    }
+  ],
+  "key_observations": [
+    "`sam3/model_builder.py` is the assembly hub for the repository's model variants.",
+    "Image inference is exposed through a processor-style API, while video inference uses session/request semantics.",
+    "The codebase separates core SAM blocks (`sam3/sam`) from higher-level SAM 3 orchestration (`sam3/model`).",
+    "An additional `sam3/agent` layer integrates multimodal LLM reasoning with SAM 3 segmentation calls.",
+    "Examples and evaluation scripts are included directly in the snapshot, which makes the repo documentation-heavy and workflow-oriented."
+  ],
+  "unknowns_issues": [
+    "Some internal imports do not resolve within the extracted markdown snapshot, which suggests missing files or stale references: sam3/__init__.py -> .model_builder:build_sam3_image_model,build_sam3_predictor, sam3/agent/client_sam3.py -> sam3.train.masks_ops:rle_encode, sam3/agent/viz.py -> .helpers.visualizer:Visualizer, sam3/model/sam1_task_predictor.py -> sam3.model.sam3_tracker_base:Sam3TrackerBase, sam3/model/sam3_image.py -> sam3.perflib.nms:nms_masks, sam3/model/sam3_image.py -> sam3.train.data.collator:BatchedDatapoint, sam3/model/sam3_multiplex_detector_utils.py -> sam3.perflib.masks_ops:mask_iou, sam3/model/sam3_multiplex_detector_utils.py -> sam3.train.masks_ops:mask_iom ...",
+    "No Dockerfile was detected in the provided markdown snapshot.",
+    "No `.env` file was detected in the provided markdown snapshot."
+  ],
+  "missing_internal_imports": [
+    {
+      "source": "sam3/__init__.py",
+      "import": ".model_builder:build_sam3_image_model,build_sam3_predictor"
+    },
+    {
+      "source": "sam3/agent/client_sam3.py",
+      "import": "sam3.train.masks_ops:rle_encode"
+    },
+    {
+      "source": "sam3/agent/viz.py",
+      "import": ".helpers.visualizer:Visualizer"
+    },
+    {
+      "source": "sam3/model/sam1_task_predictor.py",
+      "import": "sam3.model.sam3_tracker_base:Sam3TrackerBase"
+    },
+    {
+      "source": "sam3/model/sam3_image.py",
+      "import": "sam3.perflib.nms:nms_masks"
+    },
+    {
+      "source": "sam3/model/sam3_image.py",
+      "import": "sam3.train.data.collator:BatchedDatapoint"
+    },
+    {
+      "source": "sam3/model/sam3_multiplex_detector_utils.py",
+      "import": "sam3.perflib.masks_ops:mask_iou"
+    },
+    {
+      "source": "sam3/model/sam3_multiplex_detector_utils.py",
+      "import": "sam3.train.masks_ops:mask_iom"
+    },
+    {
+      "source": "sam3/model/vitdet.py",
+      "import": "sam3.perflib.fused:addmm_act"
+    },
+    {
+      "source": "sam3/model_builder.py",
+      "import": "sam3.model.decoder:DecoupledTransformerDecoderLayerv2,SimpleRoPEAttention,TransformerDecoder,TransformerDecoderLayer,TransformerDecoderLayerv2,TransformerEncoderCrossAttention,TransformerEncoderDecoupledCrossAttention"
+    },
+    {
+      "source": "sam3/model_builder.py",
+      "import": "sam3.model.sam3_tracking_predictor:Sam3TrackerPredictor"
+    },
+    {
+      "source": "sam3/model_builder.py",
+      "import": "sam3.model.sam3_video_inference:Sam3VideoInferenceWithInstanceInteractivity"
+    },
+    {
+      "source": "sam3/model_builder.py",
+      "import": "sam3.model.video_tracking_multiplex:VideoTrackingDynamicMultiplex"
+    },
+    {
+      "source": "sam3/sam/__init__.py",
+      "import": ".mask_decoder:MaskDecoder"
+    },
+    {
+      "source": "sam3/sam/__init__.py",
+      "import": ".prompt_encoder:PromptEncoder"
+    },
+    {
+      "source": "sam3/sam/__init__.py",
+      "import": ".transformer:TwoWayTransformer"
+    },
+    {
+      "source": "scripts/eval/gold/eval_sam3.py",
+      "import": "sam3.eval.cgf1_eval:CGF1Evaluator"
+    },
+    {
+      "source": "scripts/eval/standalone_cgf1.py",
+      "import": "sam3.eval.cgf1_eval:CGF1Evaluator"
+    }
+  ],
+  "summary": "This repository appears to package Meta's SAM 3 segmentation stack as a Python library with image, video, multiplex, and agent-driven workflows. The structure centers on a model factory, core architecture modules, predictor runtimes, and example/evaluation material for demonstration and benchmarking."
+}

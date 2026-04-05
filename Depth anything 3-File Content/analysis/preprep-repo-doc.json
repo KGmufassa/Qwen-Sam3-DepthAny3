@@ -1,0 +1,5534 @@
+{
+  "input": {
+    "input_source": "/Users/wislemleger/Desktop/GitHub/Qwen-Sam3-DepthAny3/Depth anything 3-File Content.md",
+    "goal": "General understanding",
+    "mode": "Balanced",
+    "repo_name": "Depth anything 3-File Content"
+  },
+  "validation": {
+    "has_file_markers": true,
+    "has_code_blocks": true,
+    "file_marker_count": 97,
+    "code_fence_count": 82,
+    "errors": []
+  },
+  "overview": {
+    "total_files_detected": 97,
+    "total_files_processed": 97,
+    "processing_mode": "Balanced",
+    "goal": "General understanding",
+    "role_counts": {
+      "api-doc": 1,
+      "backend-service": 1,
+      "cli-doc": 1,
+      "cli-entry": 1,
+      "dependency-manifest": 2,
+      "inference-orchestrator": 1,
+      "model-component": 20,
+      "package-config": 1,
+      "package-export": 2,
+      "performance-extension": 1,
+      "project-overview": 1,
+      "public-api": 1,
+      "runtime-config": 3,
+      "service-layer": 3,
+      "streaming-pipeline": 1,
+      "supporting-file": 14,
+      "ui-layer": 8,
+      "utility-module": 33,
+      "utility-script": 1,
+      "web-app-entry": 1
+    },
+    "language_counts": {
+      "cpp": 1,
+      "markdown": 4,
+      "python": 85,
+      "shell": 1,
+      "text": 2,
+      "toml": 1,
+      "yaml": 3
+    },
+    "token_estimate_total": 219596
+  },
+  "entry_points": [
+    "README.md",
+    "da3_streaming/da3_streaming.py",
+    "da3_streaming/fastloop/__init__.py",
+    "da3_streaming/loop_utils/__init__.py",
+    "da3_streaming/loop_utils/alignment_torch.py",
+    "da3_streaming/loop_utils/alignment_triton.py",
+    "da3_streaming/loop_utils/loop_detector.py",
+    "da3_streaming/loop_utils/sim3loop.py",
+    "da3_streaming/npz_output_process.py",
+    "src/depth_anything_3/api.py",
+    "src/depth_anything_3/app/gradio_app.py",
+    "src/depth_anything_3/cli.py",
+    "src/depth_anything_3/services/backend.py",
+    "src/depth_anything_3/services/gallery.py",
+    "src/depth_anything_3/utils/io/input_processor.py",
+    "src/depth_anything_3/utils/logger.py",
+    "src/depth_anything_3/utils/pose_align.py",
+    "src/depth_anything_3/utils/read_write_model.py"
+  ],
+  "config_files": [
+    "da3_streaming/requirements.txt",
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "tech_stack": {
+    "languages": [
+      [
+        "python",
+        85
+      ],
+      [
+        "markdown",
+        4
+      ],
+      [
+        "yaml",
+        3
+      ],
+      [
+        "text",
+        2
+      ],
+      [
+        "cpp",
+        1
+      ],
+      [
+        "shell",
+        1
+      ],
+      [
+        "toml",
+        1
+      ]
+    ],
+    "tools": [
+      "FastAPI",
+      "Gradio",
+      "NumPy",
+      "OmegaConf",
+      "Open3D",
+      "OpenCV",
+      "Pillow",
+      "PyTorch",
+      "Typer",
+      "Uvicorn",
+      "e3nn",
+      "einops",
+      "huggingface_hub",
+      "imageio",
+      "matplotlib",
+      "moviepy",
+      "plyfile",
+      "pycolmap",
+      "requests",
+      "safetensors",
+      "torchvision",
+      "trimesh",
+      "xformers"
+    ],
+    "runtime": [
+      "Python >=3.9, <=3.13",
+      "CUDA GPU recommended"
+    ]
+  },
+  "relationships": [
+    {
+      "from": "da3_streaming/da3_streaming.py",
+      "to": "src/depth_anything_3/api.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/cfg.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/registry.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/utils/export/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/utils/geometry.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/utils/io/input_processor.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/utils/io/output_processor.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/api.py",
+      "to": "src/depth_anything_3/utils/pose_align.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/gradio_app.py",
+      "to": "src/depth_anything_3/app/css_and_html.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/gradio_app.py",
+      "to": "src/depth_anything_3/app/modules/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/gradio_app.py",
+      "to": "src/depth_anything_3/app/modules/event_handlers.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/gradio_app.py",
+      "to": "src/depth_anything_3/app/modules/ui_components.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/gradio_app.py",
+      "to": "src/depth_anything_3/app/modules/utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/__init__.py",
+      "to": "src/depth_anything_3/app/modules/event_handlers.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/__init__.py",
+      "to": "src/depth_anything_3/app/modules/file_handlers.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/__init__.py",
+      "to": "src/depth_anything_3/app/modules/model_inference.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/__init__.py",
+      "to": "src/depth_anything_3/app/modules/ui_components.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/__init__.py",
+      "to": "src/depth_anything_3/app/modules/utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/__init__.py",
+      "to": "src/depth_anything_3/app/modules/visualization.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/event_handlers.py",
+      "to": "src/depth_anything_3/app/modules/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/event_handlers.py",
+      "to": "src/depth_anything_3/app/modules/file_handlers.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/event_handlers.py",
+      "to": "src/depth_anything_3/app/modules/model_inference.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/event_handlers.py",
+      "to": "src/depth_anything_3/app/modules/utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/event_handlers.py",
+      "to": "src/depth_anything_3/app/modules/visualization.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/event_handlers.py",
+      "to": "src/depth_anything_3/utils/memory.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/file_handlers.py",
+      "to": "src/depth_anything_3/app/modules/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/file_handlers.py",
+      "to": "src/depth_anything_3/app/modules/utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/model_inference.py",
+      "to": "src/depth_anything_3/api.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/model_inference.py",
+      "to": "src/depth_anything_3/utils/export/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/model_inference.py",
+      "to": "src/depth_anything_3/utils/export/glb.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/model_inference.py",
+      "to": "src/depth_anything_3/utils/export/gs.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/model_inference.py",
+      "to": "src/depth_anything_3/utils/memory.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/ui_components.py",
+      "to": "src/depth_anything_3/app/css_and_html.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/ui_components.py",
+      "to": "src/depth_anything_3/app/modules/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/app/modules/ui_components.py",
+      "to": "src/depth_anything_3/app/modules/utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/cli.py",
+      "to": "src/depth_anything_3/app/gradio_app.py"
+    },
+    {
+      "from": "src/depth_anything_3/cli.py",
+      "to": "src/depth_anything_3/services/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/cli.py",
+      "to": "src/depth_anything_3/services/gallery.py"
+    },
+    {
+      "from": "src/depth_anything_3/cli.py",
+      "to": "src/depth_anything_3/services/inference_service.py"
+    },
+    {
+      "from": "src/depth_anything_3/cli.py",
+      "to": "src/depth_anything_3/services/input_handlers.py"
+    },
+    {
+      "from": "src/depth_anything_3/cli.py",
+      "to": "src/depth_anything_3/utils/constants.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/__init__.py",
+      "to": "src/depth_anything_3/model/da3.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/cam_enc.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/cam_enc.py",
+      "to": "src/depth_anything_3/model/utils/attention.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/cam_enc.py",
+      "to": "src/depth_anything_3/model/utils/block.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/cam_enc.py",
+      "to": "src/depth_anything_3/model/utils/transform.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/cam_enc.py",
+      "to": "src/depth_anything_3/utils/geometry.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/da3.py",
+      "to": "src/depth_anything_3/cfg.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/da3.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/da3.py",
+      "to": "src/depth_anything_3/model/utils/transform.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/da3.py",
+      "to": "src/depth_anything_3/utils/alignment.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/da3.py",
+      "to": "src/depth_anything_3/utils/geometry.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/da3.py",
+      "to": "src/depth_anything_3/utils/ray_utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/dinov2.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/dinov2.py",
+      "to": "src/depth_anything_3/model/dinov2/vision_transformer.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/layers/block.py",
+      "to": "src/depth_anything_3/model/dinov2/layers/attention.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/layers/block.py",
+      "to": "src/depth_anything_3/model/dinov2/layers/drop_path.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/layers/block.py",
+      "to": "src/depth_anything_3/model/dinov2/layers/layer_scale.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/layers/block.py",
+      "to": "src/depth_anything_3/model/dinov2/layers/mlp.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/vision_transformer.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/vision_transformer.py",
+      "to": "src/depth_anything_3/model/dinov2/layers/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/vision_transformer.py",
+      "to": "src/depth_anything_3/model/reference_view_selector.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/vision_transformer.py",
+      "to": "src/depth_anything_3/utils/constants.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dinov2/vision_transformer.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dpt.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dpt.py",
+      "to": "src/depth_anything_3/model/utils/head_utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dualdpt.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dualdpt.py",
+      "to": "src/depth_anything_3/model/dpt.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/dualdpt.py",
+      "to": "src/depth_anything_3/model/utils/head_utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gs_adapter.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gs_adapter.py",
+      "to": "src/depth_anything_3/model/utils/transform.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gs_adapter.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gs_adapter.py",
+      "to": "src/depth_anything_3/utils/geometry.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gs_adapter.py",
+      "to": "src/depth_anything_3/utils/pose_align.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gs_adapter.py",
+      "to": "src/depth_anything_3/utils/sh_helpers.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gsdpt.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gsdpt.py",
+      "to": "src/depth_anything_3/model/dpt.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/gsdpt.py",
+      "to": "src/depth_anything_3/model/utils/head_utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/utils/block.py",
+      "to": "src/depth_anything_3/model/utils/attention.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/utils/gs_renderer.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/utils/gs_renderer.py",
+      "to": "src/depth_anything_3/utils/camera_trj_helpers.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/utils/gs_renderer.py",
+      "to": "src/depth_anything_3/utils/geometry.py"
+    },
+    {
+      "from": "src/depth_anything_3/model/utils/gs_renderer.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/services/__init__.py",
+      "to": "src/depth_anything_3/services/backend.py"
+    },
+    {
+      "from": "src/depth_anything_3/services/backend.py",
+      "to": "src/depth_anything_3/api.py"
+    },
+    {
+      "from": "src/depth_anything_3/services/backend.py",
+      "to": "src/depth_anything_3/services/gallery.py"
+    },
+    {
+      "from": "src/depth_anything_3/services/backend.py",
+      "to": "src/depth_anything_3/utils/memory.py"
+    },
+    {
+      "from": "src/depth_anything_3/services/inference_service.py",
+      "to": "src/depth_anything_3/api.py"
+    },
+    {
+      "from": "src/depth_anything_3/services/input_handlers.py",
+      "to": "src/depth_anything_3/utils/read_write_model.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/camera_trj_helpers.py",
+      "to": "src/depth_anything_3/utils/geometry.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/camera_trj_helpers.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/__init__.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/__init__.py",
+      "to": "src/depth_anything_3/utils/export/gs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/colmap.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/colmap.py",
+      "to": "src/depth_anything_3/utils/export/glb.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/colmap.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/depth_vis.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/depth_vis.py",
+      "to": "src/depth_anything_3/utils/visualize.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/feat_vis.py",
+      "to": "src/depth_anything_3/utils/parallel_utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/feat_vis.py",
+      "to": "src/depth_anything_3/utils/pca_utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/glb.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/glb.py",
+      "to": "src/depth_anything_3/utils/export/depth_vis.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/glb.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/gs.py",
+      "to": "src/depth_anything_3/model/__init__.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/gs.py",
+      "to": "src/depth_anything_3/model/utils/gs_renderer.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/gs.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/gs.py",
+      "to": "src/depth_anything_3/utils/gsply_helpers.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/gs.py",
+      "to": "src/depth_anything_3/utils/layout_helpers.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/gs.py",
+      "to": "src/depth_anything_3/utils/visualize.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/npz.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/export/npz.py",
+      "to": "src/depth_anything_3/utils/parallel_utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/gsply_helpers.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/io/input_processor.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/io/input_processor.py",
+      "to": "src/depth_anything_3/utils/parallel_utils.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/io/output_processor.py",
+      "to": "src/depth_anything_3/specs.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/model_loading.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/pose_align.py",
+      "to": "src/depth_anything_3/utils/geometry.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/ray_utils.py",
+      "to": "src/depth_anything_3/utils/geometry.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/sh_helpers.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    },
+    {
+      "from": "src/depth_anything_3/utils/visualize.py",
+      "to": "src/depth_anything_3/utils/logger.py"
+    }
+  ],
+  "key_observations": [
+    "The repo exposes the core DA3 inference stack through a Python API, a Typer CLI, and a Gradio UI.",
+    "A FastAPI backend keeps models resident in memory and queues inference jobs, which fits long GPU-bound workloads.",
+    "A separate `da3_streaming` subsystem extends the main package for chunked long-video processing and loop-aware alignment.",
+    "Most files live in model and utility layers, indicating a research-style codebase with reusable geometry, export, and visualization helpers.",
+    "Multiple export helpers suggest the project is designed for downstream reconstruction, visualization, and interoperability rather than depth-only output."
+  ],
+  "unknowns_issues": [],
+  "summary": "Depth Anything 3 is a visual geometry toolkit centered on a pretrained PyTorch model that predicts depth, pose, and related 3D outputs from single-view or multi-view imagery. The repository is organized around `src/depth_anything_3` for the main package, with separate service/UI layers, model internals, export helpers, and an additional `da3_streaming` pipeline for long video inference.",
+  "files": [
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "type": "documentation",
+      "role": "project-overview",
+      "priority": "high",
+      "line_count": 328,
+      "char_count": 18518,
+      "token_estimate": 4630,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "heading",
+          "name": "\ud83d\udcf0 News",
+          "line": 42
+        },
+        {
+          "type": "heading",
+          "name": "\u2728 Highlights",
+          "line": 49
+        },
+        {
+          "type": "heading",
+          "name": "\ud83c\udfc6 Model Zoo",
+          "line": 51
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udee0\ufe0f Codebase Features",
+          "line": 67
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\ude80 Quick Start",
+          "line": 84
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udce6 Installation",
+          "line": 86
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udcbb Basic Usage",
+          "line": 98
+        },
+        {
+          "type": "heading",
+          "name": "prediction.processed_images : [N, H, W, 3] uint8   array",
+          "line": 111
+        },
+        {
+          "type": "heading",
+          "name": "prediction.depth            : [N, H, W]    float32 array",
+          "line": 113
+        },
+        {
+          "type": "heading",
+          "name": "prediction.conf             : [N, H, W]    float32 array",
+          "line": 115
+        },
+        {
+          "type": "heading",
+          "name": "prediction.extrinsics       : [N, 3, 4]    float32 array # opencv w2c or colmap format",
+          "line": 117
+        },
+        {
+          "type": "heading",
+          "name": "prediction.intrinsics       : [N, 3, 3]    float32 array",
+          "line": 119
+        },
+        {
+          "type": "heading",
+          "name": "This can be a Hugging Face repository or a local directory",
+          "line": 126
+        },
+        {
+          "type": "heading",
+          "name": "If you encounter network issues, consider using the following mirror: export HF_ENDPOINT=https://hf-mirror.com",
+          "line": 127
+        },
+        {
+          "type": "heading",
+          "name": "Alternatively, you can download the model directly from Hugging Face",
+          "line": 128
+        },
+        {
+          "type": "heading",
+          "name": "CLI auto mode with backend reuse",
+          "line": 132
+        },
+        {
+          "type": "heading",
+          "name": "CLI video processing with feature visualization",
+          "line": 139
+        },
+        {
+          "type": "heading",
+          "name": "CLI auto mode without backend reuse",
+          "line": 149
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udcda Useful Documentation",
+          "line": 199
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\uddc2\ufe0f Model Cards",
+          "line": 205
+        }
+      ],
+      "summary": "Documentation covering \ud83d\udcf0 News, \u2728 Highlights, \ud83c\udfc6 Model Zoo, \ud83d\udee0\ufe0f Codebase Features.",
+      "parse_error": null,
+      "entry_flags": [
+        "project-doc"
+      ]
+    },
+    {
+      "path": "pyproject.toml",
+      "language": "toml",
+      "type": "config",
+      "role": "package-config",
+      "priority": "high",
+      "line_count": 94,
+      "char_count": 2038,
+      "token_estimate": 510,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "section",
+          "name": "[build-system]",
+          "line": 1
+        },
+        {
+          "type": "section",
+          "name": "[project]",
+          "line": 5
+        },
+        {
+          "type": "section",
+          "name": "[project.optional-dependencies]",
+          "line": 44
+        },
+        {
+          "type": "section",
+          "name": "[project.scripts]",
+          "line": 50
+        },
+        {
+          "type": "section",
+          "name": "[project.urls]",
+          "line": 53
+        },
+        {
+          "type": "section",
+          "name": "[tool.hatch.version]",
+          "line": 56
+        },
+        {
+          "type": "section",
+          "name": "[tool.hatch.build.targets.wheel]",
+          "line": 59
+        },
+        {
+          "type": "section",
+          "name": "[tool.hatch.build.targets.sdist]",
+          "line": 62
+        },
+        {
+          "type": "section",
+          "name": "[tool.hatch.metadata]",
+          "line": 69
+        },
+        {
+          "type": "section",
+          "name": "[tool.mypy]",
+          "line": 72
+        },
+        {
+          "type": "section",
+          "name": "[tool.black]",
+          "line": 75
+        },
+        {
+          "type": "section",
+          "name": "[tool.isort]",
+          "line": 85
+        }
+      ],
+      "summary": "Build and packaging configuration defining dependencies, optional extras, CLI entry point, and Python version support.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "requirements.txt",
+      "language": "text",
+      "type": "config",
+      "role": "dependency-manifest",
+      "priority": "medium",
+      "line_count": 24,
+      "char_count": 214,
+      "token_estimate": 54,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Dependency manifest listing runtime packages needed for inference, services, and export tooling.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/README.md",
+      "language": "markdown",
+      "type": "documentation",
+      "role": "supporting-file",
+      "priority": "medium",
+      "line_count": 156,
+      "char_count": 8010,
+      "token_estimate": 2002,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "heading",
+          "name": "**Updates**",
+          "line": 12
+        },
+        {
+          "type": "heading",
+          "name": "Setup, Installation & Running",
+          "line": 16
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udcee 1 - Clone this project",
+          "line": 18
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udce6 2 - Environment Setup",
+          "line": 34
+        },
+        {
+          "type": "heading",
+          "name": "Step 1: Dependency Installation",
+          "line": 36
+        },
+        {
+          "type": "heading",
+          "name": "Step 2: Weights Download",
+          "line": 44
+        },
+        {
+          "type": "heading",
+          "name": "System dependencies you may encounter.",
+          "line": 53
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\ude80 3 - Running the code",
+          "line": 62
+        },
+        {
+          "type": "heading",
+          "name": "4 - Outputs",
+          "line": 83
+        },
+        {
+          "type": "heading",
+          "name": "Basic Outputs",
+          "line": 85
+        },
+        {
+          "type": "heading",
+          "name": "Additional Outputs",
+          "line": 93
+        },
+        {
+          "type": "heading",
+          "name": "Experiment Results",
+          "line": 108
+        },
+        {
+          "type": "heading",
+          "name": "Acknowledgements",
+          "line": 154
+        }
+      ],
+      "summary": "Documentation covering **Updates**, Setup, Installation & Running, \ud83d\udcee 1 - Clone this project, \ud83d\udce6 2 - Environment Setup.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/da3_streaming.py",
+      "language": "python",
+      "type": "source",
+      "role": "streaming-pipeline",
+      "priority": "high",
+      "line_count": 927,
+      "char_count": 35236,
+      "token_estimate": 8809,
+      "imports": [
+        "argparse",
+        "gc",
+        "glob",
+        "json",
+        "os",
+        "shutil",
+        "sys",
+        "datetime",
+        "matplotlib",
+        "matplotlib.pyplot",
+        "numpy",
+        "torch",
+        "loop_utils.alignment_torch",
+        "loop_utils.config_utils",
+        "loop_utils.loop_detector",
+        "loop_utils.sim3loop",
+        "loop_utils.sim3utils",
+        "safetensors.torch",
+        "depth_anything_3.api"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/api.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "depth_to_point_cloud_vectorized",
+          "line": 53
+        },
+        {
+          "type": "function",
+          "name": "remove_duplicates",
+          "line": 112
+        },
+        {
+          "type": "class",
+          "name": "DA3_Streaming",
+          "line": 132
+        },
+        {
+          "type": "function",
+          "name": "copy_file",
+          "line": 862
+        }
+      ],
+      "summary": "Chunked long-video inference pipeline that extends DA3 with loop handling and memory-aware processing.",
+      "parse_error": null,
+      "entry_flags": [
+        "script",
+        "streaming"
+      ]
+    },
+    {
+      "path": "da3_streaming/npz_output_process.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 144,
+      "char_count": 4577,
+      "token_estimate": 1144,
+      "imports": [
+        "argparse",
+        "os",
+        "glob",
+        "numpy",
+        "loop_utils.sim3utils",
+        "da3_streaming"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "read_camera_poses",
+          "line": 10
+        },
+        {
+          "type": "function",
+          "name": "create_point_cloud",
+          "line": 22
+        },
+        {
+          "type": "function",
+          "name": "main",
+          "line": 97
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 3 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "da3_streaming/requirements.txt",
+      "language": "text",
+      "type": "config",
+      "role": "dependency-manifest",
+      "priority": "medium",
+      "line_count": 7,
+      "char_count": 60,
+      "token_estimate": 15,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Dependency manifest listing runtime packages needed for inference, services, and export tooling.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/configs/base_config.yaml",
+      "language": "yaml",
+      "type": "config",
+      "role": "runtime-config",
+      "priority": "medium",
+      "line_count": 51,
+      "char_count": 1594,
+      "token_estimate": 398,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "key",
+          "name": "Weights",
+          "line": 1
+        },
+        {
+          "type": "key",
+          "name": "DA3",
+          "line": 2
+        },
+        {
+          "type": "key",
+          "name": "DA3_CONFIG",
+          "line": 3
+        },
+        {
+          "type": "key",
+          "name": "SALAD",
+          "line": 4
+        },
+        {
+          "type": "key",
+          "name": "Model",
+          "line": 6
+        },
+        {
+          "type": "key",
+          "name": "chunk_size",
+          "line": 7
+        },
+        {
+          "type": "key",
+          "name": "overlap",
+          "line": 8
+        },
+        {
+          "type": "key",
+          "name": "loop_chunk_size",
+          "line": 9
+        },
+        {
+          "type": "key",
+          "name": "loop_enable",
+          "line": 10
+        },
+        {
+          "type": "key",
+          "name": "useDBoW",
+          "line": 11
+        },
+        {
+          "type": "key",
+          "name": "delete_temp_files",
+          "line": 12
+        },
+        {
+          "type": "key",
+          "name": "align_lib",
+          "line": 13
+        },
+        {
+          "type": "key",
+          "name": "align_method",
+          "line": 14
+        },
+        {
+          "type": "key",
+          "name": "scale_compute_method",
+          "line": 15
+        },
+        {
+          "type": "key",
+          "name": "align_type",
+          "line": 16
+        },
+        {
+          "type": "key",
+          "name": "ref_view_strategy",
+          "line": 18
+        },
+        {
+          "type": "key",
+          "name": "ref_view_strategy_loop",
+          "line": 19
+        },
+        {
+          "type": "key",
+          "name": "depth_threshold",
+          "line": 20
+        },
+        {
+          "type": "key",
+          "name": "save_depth_conf_result",
+          "line": 22
+        },
+        {
+          "type": "key",
+          "name": "save_debug_info",
+          "line": 23
+        }
+      ],
+      "summary": "Configuration file used by the surrounding pipeline or runtime.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/configs/kitti.yaml",
+      "language": "yaml",
+      "type": "config",
+      "role": "runtime-config",
+      "priority": "medium",
+      "line_count": 51,
+      "char_count": 1585,
+      "token_estimate": 396,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "key",
+          "name": "Weights",
+          "line": 1
+        },
+        {
+          "type": "key",
+          "name": "DA3",
+          "line": 2
+        },
+        {
+          "type": "key",
+          "name": "DA3_CONFIG",
+          "line": 3
+        },
+        {
+          "type": "key",
+          "name": "SALAD",
+          "line": 4
+        },
+        {
+          "type": "key",
+          "name": "Model",
+          "line": 6
+        },
+        {
+          "type": "key",
+          "name": "chunk_size",
+          "line": 7
+        },
+        {
+          "type": "key",
+          "name": "overlap",
+          "line": 8
+        },
+        {
+          "type": "key",
+          "name": "loop_chunk_size",
+          "line": 9
+        },
+        {
+          "type": "key",
+          "name": "loop_enable",
+          "line": 10
+        },
+        {
+          "type": "key",
+          "name": "useDBoW",
+          "line": 11
+        },
+        {
+          "type": "key",
+          "name": "delete_temp_files",
+          "line": 12
+        },
+        {
+          "type": "key",
+          "name": "align_lib",
+          "line": 13
+        },
+        {
+          "type": "key",
+          "name": "align_method",
+          "line": 14
+        },
+        {
+          "type": "key",
+          "name": "scale_compute_method",
+          "line": 15
+        },
+        {
+          "type": "key",
+          "name": "align_type",
+          "line": 16
+        },
+        {
+          "type": "key",
+          "name": "ref_view_strategy",
+          "line": 18
+        },
+        {
+          "type": "key",
+          "name": "ref_view_strategy_loop",
+          "line": 19
+        },
+        {
+          "type": "key",
+          "name": "depth_threshold",
+          "line": 20
+        },
+        {
+          "type": "key",
+          "name": "save_depth_conf_result",
+          "line": 22
+        },
+        {
+          "type": "key",
+          "name": "save_debug_info",
+          "line": 23
+        }
+      ],
+      "summary": "Configuration file used by the surrounding pipeline or runtime.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/configs/tum.yaml",
+      "language": "yaml",
+      "type": "config",
+      "role": "runtime-config",
+      "priority": "medium",
+      "line_count": 51,
+      "char_count": 1594,
+      "token_estimate": 398,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "key",
+          "name": "Weights",
+          "line": 1
+        },
+        {
+          "type": "key",
+          "name": "DA3",
+          "line": 2
+        },
+        {
+          "type": "key",
+          "name": "DA3_CONFIG",
+          "line": 3
+        },
+        {
+          "type": "key",
+          "name": "SALAD",
+          "line": 4
+        },
+        {
+          "type": "key",
+          "name": "Model",
+          "line": 6
+        },
+        {
+          "type": "key",
+          "name": "chunk_size",
+          "line": 7
+        },
+        {
+          "type": "key",
+          "name": "overlap",
+          "line": 8
+        },
+        {
+          "type": "key",
+          "name": "loop_chunk_size",
+          "line": 9
+        },
+        {
+          "type": "key",
+          "name": "loop_enable",
+          "line": 10
+        },
+        {
+          "type": "key",
+          "name": "useDBoW",
+          "line": 11
+        },
+        {
+          "type": "key",
+          "name": "delete_temp_files",
+          "line": 12
+        },
+        {
+          "type": "key",
+          "name": "align_lib",
+          "line": 13
+        },
+        {
+          "type": "key",
+          "name": "align_method",
+          "line": 14
+        },
+        {
+          "type": "key",
+          "name": "scale_compute_method",
+          "line": 15
+        },
+        {
+          "type": "key",
+          "name": "align_type",
+          "line": 16
+        },
+        {
+          "type": "key",
+          "name": "ref_view_strategy",
+          "line": 18
+        },
+        {
+          "type": "key",
+          "name": "ref_view_strategy_loop",
+          "line": 19
+        },
+        {
+          "type": "key",
+          "name": "depth_threshold",
+          "line": 20
+        },
+        {
+          "type": "key",
+          "name": "save_depth_conf_result",
+          "line": 22
+        },
+        {
+          "type": "key",
+          "name": "save_debug_info",
+          "line": 23
+        }
+      ],
+      "summary": "Configuration file used by the surrounding pipeline or runtime.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/fastloop/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "package-export",
+      "priority": "low",
+      "line_count": 15,
+      "char_count": 670,
+      "token_estimate": 168,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Package initializer that exposes package-level symbols or marks import boundaries.",
+      "parse_error": null,
+      "entry_flags": [
+        "index"
+      ]
+    },
+    {
+      "path": "da3_streaming/fastloop/solve.cpp",
+      "language": "cpp",
+      "type": "native-source",
+      "role": "performance-extension",
+      "priority": "low",
+      "line_count": 111,
+      "char_count": 3500,
+      "token_estimate": 875,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "symbol",
+          "name": "J",
+          "line": 63
+        }
+      ],
+      "summary": "Native C++ implementation used to accelerate loop or alignment computations.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/fastloop/solve_python.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 100,
+      "char_count": 2946,
+      "token_estimate": 736,
+      "imports": [
+        "numpy",
+        "torch",
+        "scipy.sparse",
+        "scipy.sparse.linalg"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "solve_sparse",
+          "line": 23
+        },
+        {
+          "type": "function",
+          "name": "solve_system_py",
+          "line": 36
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/loop_utils/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "package-export",
+      "priority": "medium",
+      "line_count": 15,
+      "char_count": 670,
+      "token_estimate": 168,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Package initializer that exposes package-level symbols or marks import boundaries.",
+      "parse_error": null,
+      "entry_flags": [
+        "index"
+      ]
+    },
+    {
+      "path": "da3_streaming/loop_utils/alignment_torch.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "medium",
+      "line_count": 395,
+      "char_count": 13129,
+      "token_estimate": 3282,
+      "imports": [
+        "numpy",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "weighted_estimate_se3_torch",
+          "line": 21
+        },
+        {
+          "type": "function",
+          "name": "weighted_estimate_sim3_torch",
+          "line": 51
+        },
+        {
+          "type": "function",
+          "name": "weighted_estimate_sim3_numba_torch",
+          "line": 86
+        },
+        {
+          "type": "function",
+          "name": "huber_loss_torch",
+          "line": 119
+        },
+        {
+          "type": "function",
+          "name": "compute_residuals_torch",
+          "line": 132
+        },
+        {
+          "type": "function",
+          "name": "compute_huber_weights_torch",
+          "line": 141
+        },
+        {
+          "type": "function",
+          "name": "apply_transformation_torch",
+          "line": 153
+        },
+        {
+          "type": "function",
+          "name": "robust_weighted_estimate_sim3_torch",
+          "line": 164
+        },
+        {
+          "type": "function",
+          "name": "apply_sim3_direct_torch",
+          "line": 207
+        },
+        {
+          "type": "function",
+          "name": "depth_to_point_cloud_optimized_torch",
+          "line": 256
+        },
+        {
+          "type": "function",
+          "name": "warmup_torch",
+          "line": 310
+        },
+        {
+          "type": "function",
+          "name": "print_gpu_memory",
+          "line": 362
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 12 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "da3_streaming/loop_utils/alignment_triton.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "medium",
+      "line_count": 543,
+      "char_count": 16947,
+      "token_estimate": 4237,
+      "imports": [
+        "numpy",
+        "torch",
+        "triton",
+        "triton.language"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "apply_transformation_residual_kernel",
+          "line": 24
+        },
+        {
+          "type": "function",
+          "name": "weighted_covariance_kernel",
+          "line": 74
+        },
+        {
+          "type": "function",
+          "name": "compute_huber_weights_kernel",
+          "line": 143
+        },
+        {
+          "type": "function",
+          "name": "weighted_mean_kernel",
+          "line": 162
+        },
+        {
+          "type": "function",
+          "name": "apply_transformation_residual_triton",
+          "line": 188
+        },
+        {
+          "type": "function",
+          "name": "compute_weighted_mean_triton",
+          "line": 225
+        },
+        {
+          "type": "function",
+          "name": "compute_weighted_covariance_triton",
+          "line": 245
+        },
+        {
+          "type": "function",
+          "name": "compute_huber_weights_triton",
+          "line": 274
+        },
+        {
+          "type": "function",
+          "name": "weighted_estimate_se3_triton",
+          "line": 288
+        },
+        {
+          "type": "function",
+          "name": "weighted_estimate_sim3_triton",
+          "line": 315
+        },
+        {
+          "type": "function",
+          "name": "weighted_estimate_sim3_numba_triton",
+          "line": 354
+        },
+        {
+          "type": "function",
+          "name": "robust_weighted_estimate_sim3_triton",
+          "line": 389
+        },
+        {
+          "type": "function",
+          "name": "warmup_triton",
+          "line": 457
+        },
+        {
+          "type": "function",
+          "name": "print_gpu_memory",
+          "line": 510
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 14 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "da3_streaming/loop_utils/config_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 66,
+      "char_count": 1935,
+      "token_estimate": 484,
+      "imports": [
+        "yaml"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "load_config",
+          "line": 20
+        },
+        {
+          "type": "function",
+          "name": "update_recursive",
+          "line": 52
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/loop_utils/logging_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 32,
+      "char_count": 966,
+      "token_estimate": 242,
+      "imports": [
+        "rich"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "get_style",
+          "line": 24
+        },
+        {
+          "type": "function",
+          "name": "Log",
+          "line": 30
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/loop_utils/loop_detector.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "medium",
+      "line_count": 391,
+      "char_count": 13340,
+      "token_estimate": 3335,
+      "imports": [
+        "argparse",
+        "os",
+        "sys",
+        "pathlib",
+        "faiss",
+        "torch",
+        "torchvision.transforms",
+        "PIL",
+        "torch",
+        "tqdm",
+        "loop_utils.salad.models"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "VPRModel",
+          "line": 35
+        },
+        {
+          "type": "class",
+          "name": "LoopDetector",
+          "line": 74
+        },
+        {
+          "type": "function",
+          "name": "main",
+          "line": 331
+        }
+      ],
+      "summary": "Supporting file module with 2 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "da3_streaming/loop_utils/loop_refinement.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "medium",
+      "line_count": 268,
+      "char_count": 7995,
+      "token_estimate": 1999,
+      "imports": [
+        "numba",
+        "numpy",
+        "pypose",
+        "sim3solve",
+        "torch",
+        "einops",
+        "scipy.spatial.transform"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "make_pypose_Sim3",
+          "line": 26
+        },
+        {
+          "type": "function",
+          "name": "SE3_to_Sim3",
+          "line": 32
+        },
+        {
+          "type": "function",
+          "name": "_format",
+          "line": 38
+        },
+        {
+          "type": "function",
+          "name": "reduce_edges",
+          "line": 43
+        },
+        {
+          "type": "function",
+          "name": "umeyama_alignment",
+          "line": 83
+        },
+        {
+          "type": "function",
+          "name": "ransac_umeyama",
+          "line": 137
+        },
+        {
+          "type": "function",
+          "name": "batch_jacobian",
+          "line": 171
+        },
+        {
+          "type": "function",
+          "name": "_residual",
+          "line": 179
+        },
+        {
+          "type": "function",
+          "name": "residual",
+          "line": 185
+        },
+        {
+          "type": "function",
+          "name": "perform_updates",
+          "line": 214
+        },
+        {
+          "type": "function",
+          "name": "pose_refinement",
+          "line": 259
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 11 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/loop_utils/sim3loop.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "medium",
+      "line_count": 399,
+      "char_count": 14329,
+      "token_estimate": 3582,
+      "imports": [
+        "time",
+        "typing",
+        "numpy",
+        "pypose",
+        "torch",
+        "fastloop.solve_python",
+        "scipy.spatial.transform",
+        "sim3solve",
+        "einops",
+        "matplotlib",
+        "matplotlib.pyplot"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Sim3LoopOptimizer",
+          "line": 34
+        },
+        {
+          "type": "function",
+          "name": "create_ring_transforms",
+          "line": 323
+        },
+        {
+          "type": "function",
+          "name": "example_usage",
+          "line": 351
+        }
+      ],
+      "summary": "Supporting file module with 1 classes and 2 top-level functions.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "da3_streaming/loop_utils/sim3utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "medium",
+      "line_count": 1261,
+      "char_count": 40906,
+      "token_estimate": 10226,
+      "imports": [
+        "bisect",
+        "glob",
+        "os",
+        "numpy",
+        "trimesh",
+        "loop_utils.alignment_torch",
+        "loop_utils.alignment_triton",
+        "numba",
+        "sklearn.linear_model"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "accumulate_sim3_transforms",
+          "line": 28
+        },
+        {
+          "type": "function",
+          "name": "estimate_sim3",
+          "line": 59
+        },
+        {
+          "type": "function",
+          "name": "align_point_maps",
+          "line": 83
+        },
+        {
+          "type": "function",
+          "name": "apply_sim3",
+          "line": 124
+        },
+        {
+          "type": "function",
+          "name": "apply_sim3_direct",
+          "line": 128
+        },
+        {
+          "type": "function",
+          "name": "compute_alignment_error",
+          "line": 140
+        },
+        {
+          "type": "function",
+          "name": "save_confident_pointcloud",
+          "line": 201
+        },
+        {
+          "type": "function",
+          "name": "save_confident_pointcloud_batch",
+          "line": 237
+        },
+        {
+          "type": "function",
+          "name": "optimized_vectorized_reservoir_sampling",
+          "line": 363
+        },
+        {
+          "type": "function",
+          "name": "write_ply_header",
+          "line": 415
+        },
+        {
+          "type": "function",
+          "name": "write_ply_batch",
+          "line": 431
+        },
+        {
+          "type": "function",
+          "name": "save_ply",
+          "line": 454
+        },
+        {
+          "type": "function",
+          "name": "find_chunk_index",
+          "line": 460
+        },
+        {
+          "type": "function",
+          "name": "get_frame_range",
+          "line": 477
+        },
+        {
+          "type": "function",
+          "name": "process_loop_list",
+          "line": 506
+        },
+        {
+          "type": "function",
+          "name": "compute_sim3_ab",
+          "line": 534
+        },
+        {
+          "type": "function",
+          "name": "merge_ply_files",
+          "line": 546
+        },
+        {
+          "type": "function",
+          "name": "weighted_estimate_se3",
+          "line": 606
+        },
+        {
+          "type": "function",
+          "name": "weighted_estimate_sim3",
+          "line": 641
+        },
+        {
+          "type": "function",
+          "name": "huber_loss",
+          "line": 679
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 20 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "da3_streaming/scripts/download_weights.sh",
+      "language": "shell",
+      "type": "script",
+      "role": "utility-script",
+      "priority": "low",
+      "line_count": 20,
+      "char_count": 630,
+      "token_estimate": 158,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Shell utility script for environment or weight setup.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "docs/API.md",
+      "language": "markdown",
+      "type": "documentation",
+      "role": "api-doc",
+      "priority": "medium",
+      "line_count": 1,
+      "char_count": 13,
+      "token_estimate": 3,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Documentation covering repository usage and structure.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "docs/CLI.md",
+      "language": "markdown",
+      "type": "documentation",
+      "role": "cli-doc",
+      "priority": "high",
+      "line_count": 654,
+      "char_count": 21046,
+      "token_estimate": 5262,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "heading",
+          "name": "\ud83d\ude80 Depth Anything 3 Command Line Interface",
+          "line": 1
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udccb Table of Contents",
+          "line": 3
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udcd6 Overview",
+          "line": 19
+        },
+        {
+          "type": "heading",
+          "name": "\u26a1 Quick Start",
+          "line": 25
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udd27 Start backend service (optional, keeps model resident in GPU memory)",
+          "line": 30
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\ude80 Use auto mode to process input",
+          "line": 33
+        },
+        {
+          "type": "heading",
+          "name": "\u267b\ufe0f Reuse backend for next job",
+          "line": 36
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udcda Command Reference",
+          "line": 45
+        },
+        {
+          "type": "heading",
+          "name": "\ud83e\udd16 auto - Auto Mode",
+          "line": 47
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\uddbc\ufe0f Auto-process an image",
+          "line": 91
+        },
+        {
+          "type": "heading",
+          "name": "\ud83c\udfac Auto-process a video",
+          "line": 94
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udd27 Use backend service",
+          "line": 97
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\uddbc\ufe0f image - Single Image Processing",
+          "line": 107
+        },
+        {
+          "type": "heading",
+          "name": "\u2728 Basic usage",
+          "line": 142
+        },
+        {
+          "type": "heading",
+          "name": "\u26a1 With backend acceleration",
+          "line": 145
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udd0d Export feature visualization",
+          "line": 151
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\uddc2\ufe0f images - Image Directory Processing",
+          "line": 160
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udcc1 Process directory (defaults to png/jpg/jpeg)",
+          "line": 196
+        },
+        {
+          "type": "heading",
+          "name": "\ud83c\udfaf Custom extensions",
+          "line": 199
+        },
+        {
+          "type": "heading",
+          "name": "\ud83d\udd27 Use backend service",
+          "line": 202
+        }
+      ],
+      "summary": "Documentation covering \ud83d\ude80 Depth Anything 3 Command Line Interface, \ud83d\udccb Table of Contents, \ud83d\udcd6 Overview, \u26a1 Quick Start.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/api.py",
+      "language": "python",
+      "type": "source",
+      "role": "public-api",
+      "priority": "high",
+      "line_count": 446,
+      "char_count": 17983,
+      "token_estimate": 4496,
+      "imports": [
+        "__future__",
+        "time",
+        "typing",
+        "numpy",
+        "torch",
+        "torch.nn",
+        "huggingface_hub",
+        "PIL",
+        "depth_anything_3.cfg",
+        "depth_anything_3.registry",
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.export",
+        "depth_anything_3.utils.geometry",
+        "depth_anything_3.utils.io.input_processor",
+        "depth_anything_3.utils.io.output_processor",
+        "depth_anything_3.utils.logger",
+        "depth_anything_3.utils.pose_align"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/cfg.py",
+        "src/depth_anything_3/registry.py",
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/export/__init__.py",
+        "src/depth_anything_3/utils/geometry.py",
+        "src/depth_anything_3/utils/io/input_processor.py",
+        "src/depth_anything_3/utils/io/output_processor.py",
+        "src/depth_anything_3/utils/logger.py",
+        "src/depth_anything_3/utils/pose_align.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "DepthAnything3",
+          "line": 48
+        }
+      ],
+      "summary": "High-level Python API for loading pretrained Depth Anything 3 models, running inference, and exporting results.",
+      "parse_error": null,
+      "entry_flags": [
+        "api"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/cfg.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 144,
+      "char_count": 5036,
+      "token_estimate": 1259,
+      "imports": [
+        "importlib",
+        "pathlib",
+        "typing",
+        "omegaconf"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "load_config",
+          "line": 31
+        },
+        {
+          "type": "function",
+          "name": "resolve_recursive",
+          "line": 56
+        },
+        {
+          "type": "function",
+          "name": "resolve_inheritance",
+          "line": 74
+        },
+        {
+          "type": "function",
+          "name": "import_item",
+          "line": 101
+        },
+        {
+          "type": "function",
+          "name": "create_object",
+          "line": 108
+        },
+        {
+          "type": "function",
+          "name": "create_dataset",
+          "line": 132
+        },
+        {
+          "type": "function",
+          "name": "to_dict_recursive",
+          "line": 139
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 7 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/cli.py",
+      "language": "python",
+      "type": "source",
+      "role": "cli-entry",
+      "priority": "high",
+      "line_count": 803,
+      "char_count": 30723,
+      "token_estimate": 7681,
+      "imports": [
+        "__future__",
+        "os",
+        "typer",
+        "depth_anything_3.services",
+        "depth_anything_3.services.gallery",
+        "depth_anything_3.services.inference_service",
+        "depth_anything_3.services.input_handlers",
+        "depth_anything_3.utils.constants",
+        "depth_anything_3.app.gradio_app",
+        "sys"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/app/gradio_app.py",
+        "src/depth_anything_3/services/__init__.py",
+        "src/depth_anything_3/services/gallery.py",
+        "src/depth_anything_3/services/inference_service.py",
+        "src/depth_anything_3/services/input_handlers.py",
+        "src/depth_anything_3/utils/constants.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "detect_input_type",
+          "line": 57
+        },
+        {
+          "type": "function",
+          "name": "auto",
+          "line": 112
+        },
+        {
+          "type": "function",
+          "name": "image",
+          "line": 316
+        },
+        {
+          "type": "function",
+          "name": "images",
+          "line": 392
+        },
+        {
+          "type": "function",
+          "name": "colmap",
+          "line": 471
+        },
+        {
+          "type": "function",
+          "name": "video",
+          "line": 558
+        },
+        {
+          "type": "function",
+          "name": "backend",
+          "line": 640
+        },
+        {
+          "type": "function",
+          "name": "gradio",
+          "line": 686
+        },
+        {
+          "type": "function",
+          "name": "gallery",
+          "line": 766
+        }
+      ],
+      "summary": "Typer-based command-line interface that routes images, videos, and COLMAP inputs into local or backend inference workflows.",
+      "parse_error": null,
+      "entry_flags": [
+        "cli",
+        "script"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/registry.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 50,
+      "char_count": 2046,
+      "token_estimate": 512,
+      "imports": [
+        "collections",
+        "pathlib"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "get_all_models",
+          "line": 19
+        }
+      ],
+      "summary": "Supporting file module with 0 classes and 1 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/specs.py",
+      "language": "python",
+      "type": "source",
+      "role": "supporting-file",
+      "priority": "low",
+      "line_count": 45,
+      "char_count": 1685,
+      "token_estimate": 421,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "typing",
+        "numpy",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Gaussians",
+          "line": 24
+        },
+        {
+          "type": "class",
+          "name": "Prediction",
+          "line": 35
+        }
+      ],
+      "summary": "Supporting file module with 2 classes and 0 top-level functions.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/app/css_and_html.py",
+      "language": "python",
+      "type": "source",
+      "role": "ui-layer",
+      "priority": "medium",
+      "line_count": 594,
+      "char_count": 18829,
+      "token_estimate": 4707,
+      "imports": [
+        "gradio"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "get_header_html",
+          "line": 361
+        },
+        {
+          "type": "function",
+          "name": "get_description_html",
+          "line": 428
+        },
+        {
+          "type": "function",
+          "name": "get_acknowledgements_html",
+          "line": 481
+        },
+        {
+          "type": "function",
+          "name": "get_gradio_theme",
+          "line": 538
+        }
+      ],
+      "summary": "UI-related module with 0 classes and 4 top-level functions supporting the Gradio app.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/app/gradio_app.py",
+      "language": "python",
+      "type": "source",
+      "role": "web-app-entry",
+      "priority": "high",
+      "line_count": 724,
+      "char_count": 26746,
+      "token_estimate": 6686,
+      "imports": [
+        "argparse",
+        "os",
+        "typing",
+        "gradio",
+        "depth_anything_3.app.css_and_html",
+        "depth_anything_3.app.modules.event_handlers",
+        "depth_anything_3.app.modules.ui_components",
+        "depth_anything_3.app.modules.utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/app/css_and_html.py",
+        "src/depth_anything_3/app/modules/__init__.py",
+        "src/depth_anything_3/app/modules/event_handlers.py",
+        "src/depth_anything_3/app/modules/ui_components.py",
+        "src/depth_anything_3/app/modules/utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "DepthAnything3App",
+          "line": 35
+        },
+        {
+          "type": "function",
+          "name": "main",
+          "line": 604
+        }
+      ],
+      "summary": "Gradio application entry point that assembles the interactive reconstruction UI and wires event handlers.",
+      "parse_error": null,
+      "entry_flags": [
+        "script",
+        "web-app"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/app/modules/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "ui-layer",
+      "priority": "high",
+      "line_count": 43,
+      "char_count": 1473,
+      "token_estimate": 368,
+      "imports": [
+        "depth_anything_3.app.modules.event_handlers",
+        "depth_anything_3.app.modules.file_handlers",
+        "depth_anything_3.app.modules.model_inference",
+        "depth_anything_3.app.modules.ui_components",
+        "depth_anything_3.app.modules.utils",
+        "depth_anything_3.app.modules.visualization"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/app/modules/event_handlers.py",
+        "src/depth_anything_3/app/modules/file_handlers.py",
+        "src/depth_anything_3/app/modules/model_inference.py",
+        "src/depth_anything_3/app/modules/ui_components.py",
+        "src/depth_anything_3/app/modules/utils.py",
+        "src/depth_anything_3/app/modules/visualization.py"
+      ],
+      "key_elements": [],
+      "summary": "UI-related module with 0 classes and 0 top-level functions supporting the Gradio app.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/app/modules/event_handlers.py",
+      "language": "python",
+      "type": "source",
+      "role": "ui-layer",
+      "priority": "medium",
+      "line_count": 619,
+      "char_count": 22968,
+      "token_estimate": 5742,
+      "imports": [
+        "os",
+        "time",
+        "glob",
+        "typing",
+        "gradio",
+        "numpy",
+        "torch",
+        "depth_anything_3.app.modules.file_handlers",
+        "depth_anything_3.app.modules.model_inference",
+        "depth_anything_3.utils.memory",
+        "depth_anything_3.app.modules.visualization",
+        "datetime",
+        ".utils",
+        "glob",
+        "os"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/app/modules/__init__.py",
+        "src/depth_anything_3/app/modules/file_handlers.py",
+        "src/depth_anything_3/app/modules/model_inference.py",
+        "src/depth_anything_3/app/modules/utils.py",
+        "src/depth_anything_3/app/modules/visualization.py",
+        "src/depth_anything_3/utils/memory.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "EventHandlers",
+          "line": 35
+        }
+      ],
+      "summary": "UI-related module with 1 classes and 0 top-level functions supporting the Gradio app.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/app/modules/file_handlers.py",
+      "language": "python",
+      "type": "source",
+      "role": "ui-layer",
+      "priority": "medium",
+      "line_count": 304,
+      "char_count": 11121,
+      "token_estimate": 2780,
+      "imports": [
+        "os",
+        "shutil",
+        "time",
+        "datetime",
+        "typing",
+        "cv2",
+        "PIL",
+        "pillow_heif",
+        "depth_anything_3.app.modules.utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/app/modules/__init__.py",
+        "src/depth_anything_3/app/modules/utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "FileHandler",
+          "line": 33
+        }
+      ],
+      "summary": "UI-related module with 1 classes and 0 top-level functions supporting the Gradio app.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/app/modules/model_inference.py",
+      "language": "python",
+      "type": "source",
+      "role": "ui-layer",
+      "priority": "medium",
+      "line_count": 260,
+      "char_count": 9637,
+      "token_estimate": 2409,
+      "imports": [
+        "glob",
+        "os",
+        "typing",
+        "numpy",
+        "torch",
+        "depth_anything_3.api",
+        "depth_anything_3.utils.memory",
+        "depth_anything_3.utils.export.glb",
+        "depth_anything_3.utils.export.gs"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/api.py",
+        "src/depth_anything_3/utils/export/__init__.py",
+        "src/depth_anything_3/utils/export/glb.py",
+        "src/depth_anything_3/utils/export/gs.py",
+        "src/depth_anything_3/utils/memory.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "ModelInference",
+          "line": 34
+        }
+      ],
+      "summary": "UI-related module with 1 classes and 0 top-level functions supporting the Gradio app.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/app/modules/ui_components.py",
+      "language": "python",
+      "type": "source",
+      "role": "ui-layer",
+      "priority": "medium",
+      "line_count": 477,
+      "char_count": 16949,
+      "token_estimate": 4237,
+      "imports": [
+        "os",
+        "typing",
+        "gradio",
+        "depth_anything_3.app.modules.utils",
+        "depth_anything_3.app.css_and_html",
+        "depth_anything_3.app.css_and_html",
+        "depth_anything_3.app.css_and_html",
+        "depth_anything_3.app.css_and_html"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/app/css_and_html.py",
+        "src/depth_anything_3/app/modules/__init__.py",
+        "src/depth_anything_3/app/modules/utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "UIComponents",
+          "line": 28
+        }
+      ],
+      "summary": "UI-related module with 1 classes and 0 top-level functions supporting the Gradio app.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/app/modules/utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "ui-layer",
+      "priority": "medium",
+      "line_count": 207,
+      "char_count": 6823,
+      "token_estimate": 1706,
+      "imports": [
+        "json",
+        "os",
+        "shutil",
+        "datetime",
+        "typing",
+        "numpy",
+        "matplotlib.cm",
+        "glob",
+        "base64"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "create_depth_visualization",
+          "line": 30
+        },
+        {
+          "type": "function",
+          "name": "save_to_gallery_func",
+          "line": 64
+        },
+        {
+          "type": "function",
+          "name": "get_scene_info",
+          "line": 141
+        },
+        {
+          "type": "function",
+          "name": "get_logo_base64",
+          "line": 191
+        }
+      ],
+      "summary": "UI-related module with 0 classes and 4 top-level functions supporting the Gradio app.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/app/modules/visualization.py",
+      "language": "python",
+      "type": "source",
+      "role": "ui-layer",
+      "priority": "medium",
+      "line_count": 434,
+      "char_count": 17124,
+      "token_estimate": 4281,
+      "imports": [
+        "os",
+        "typing",
+        "cv2",
+        "gradio",
+        "numpy"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "VisualizationHandler",
+          "line": 28
+        }
+      ],
+      "summary": "UI-related module with 1 classes and 0 top-level functions supporting the Gradio app.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 20,
+      "char_count": 754,
+      "token_estimate": 188,
+      "imports": [
+        "depth_anything_3.model.da3"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/da3.py"
+      ],
+      "key_elements": [],
+      "summary": "Model implementation module with 0 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/cam_dec.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 45,
+      "char_count": 1712,
+      "token_estimate": 428,
+      "imports": [
+        "torch",
+        "torch.nn"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "CameraDec",
+          "line": 19
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/cam_enc.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 80,
+      "char_count": 2537,
+      "token_estimate": 634,
+      "imports": [
+        "torch.nn",
+        "depth_anything_3.model.utils.attention",
+        "depth_anything_3.model.utils.block",
+        "depth_anything_3.model.utils.transform",
+        "depth_anything_3.utils.geometry"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/utils/attention.py",
+        "src/depth_anything_3/model/utils/block.py",
+        "src/depth_anything_3/model/utils/transform.py",
+        "src/depth_anything_3/utils/geometry.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "CameraEnc",
+          "line": 23
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/da3.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 442,
+      "char_count": 17640,
+      "token_estimate": 4410,
+      "imports": [
+        "__future__",
+        "torch",
+        "torch.nn",
+        "addict",
+        "omegaconf",
+        "depth_anything_3.cfg",
+        "depth_anything_3.model.utils.transform",
+        "depth_anything_3.utils.alignment",
+        "depth_anything_3.utils.geometry",
+        "depth_anything_3.utils.ray_utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/cfg.py",
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/utils/transform.py",
+        "src/depth_anything_3/utils/alignment.py",
+        "src/depth_anything_3/utils/geometry.py",
+        "src/depth_anything_3/utils/ray_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_wrap_cfg",
+          "line": 36
+        },
+        {
+          "type": "class",
+          "name": "DepthAnything3Net",
+          "line": 40
+        },
+        {
+          "type": "class",
+          "name": "NestedDepthAnything3Net",
+          "line": 308
+        }
+      ],
+      "summary": "Model implementation module with 2 classes and 1 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dpt.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 458,
+      "char_count": 17437,
+      "token_estimate": 4359,
+      "imports": [
+        "typing",
+        "typing",
+        "torch",
+        "torch.nn",
+        "addict",
+        "einops",
+        "depth_anything_3.model.utils.head_utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/utils/head_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "DPT",
+          "line": 31
+        },
+        {
+          "type": "function",
+          "name": "_make_fusion_block",
+          "line": 342
+        },
+        {
+          "type": "function",
+          "name": "_make_scratch",
+          "line": 362
+        },
+        {
+          "type": "class",
+          "name": "ResidualConvUnit",
+          "line": 379
+        },
+        {
+          "type": "class",
+          "name": "FeatureFusionBlock",
+          "line": 407
+        }
+      ],
+      "summary": "Model implementation module with 3 classes and 2 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dualdpt.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 488,
+      "char_count": 19575,
+      "token_estimate": 4894,
+      "imports": [
+        "typing",
+        "torch",
+        "torch.nn",
+        "addict",
+        "depth_anything_3.model.dpt",
+        "depth_anything_3.model.utils.head_utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/dpt.py",
+        "src/depth_anything_3/model/utils/head_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "DualDPT",
+          "line": 30
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/gs_adapter.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 200,
+      "char_count": 8113,
+      "token_estimate": 2028,
+      "imports": [
+        "typing",
+        "torch",
+        "einops",
+        "torch",
+        "depth_anything_3.model.utils.transform",
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.geometry",
+        "depth_anything_3.utils.pose_align",
+        "depth_anything_3.utils.sh_helpers"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/utils/transform.py",
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/geometry.py",
+        "src/depth_anything_3/utils/pose_align.py",
+        "src/depth_anything_3/utils/sh_helpers.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "GaussianAdapter",
+          "line": 27
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/gsdpt.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 133,
+      "char_count": 4911,
+      "token_estimate": 1228,
+      "imports": [
+        "typing",
+        "typing",
+        "torch",
+        "torch.nn",
+        "depth_anything_3.model.dpt",
+        "depth_anything_3.model.utils.head_utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/dpt.py",
+        "src/depth_anything_3/model/utils/head_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "GSDPT",
+          "line": 24
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/reference_view_selector.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 222,
+      "char_count": 7856,
+      "token_estimate": 1964,
+      "imports": [
+        "torch",
+        "typing"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "select_reference_view",
+          "line": 29
+        },
+        {
+          "type": "function",
+          "name": "reorder_by_reference",
+          "line": 115
+        },
+        {
+          "type": "function",
+          "name": "restore_original_order",
+          "line": 168
+        }
+      ],
+      "summary": "Model implementation module with 0 classes and 3 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/dinov2.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 64,
+      "char_count": 1823,
+      "token_estimate": 456,
+      "imports": [
+        "typing",
+        "torch.nn",
+        "depth_anything_3.model.dinov2.vision_transformer"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/dinov2/vision_transformer.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "DinoV2",
+          "line": 22
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/vision_transformer.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 456,
+      "char_count": 17573,
+      "token_estimate": 4393,
+      "imports": [
+        "math",
+        "typing",
+        "numpy",
+        "torch",
+        "torch.nn",
+        "torch.utils.checkpoint",
+        "einops",
+        "depth_anything_3.utils.logger",
+        ".layers",
+        ".layers",
+        ".layers",
+        "depth_anything_3.model.reference_view_selector",
+        "depth_anything_3.utils.constants"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/dinov2/layers/__init__.py",
+        "src/depth_anything_3/model/reference_view_selector.py",
+        "src/depth_anything_3/utils/constants.py",
+        "src/depth_anything_3/utils/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "get_1d_sincos_pos_embed_from_grid",
+          "line": 40
+        },
+        {
+          "type": "function",
+          "name": "named_apply",
+          "line": 61
+        },
+        {
+          "type": "class",
+          "name": "BlockChunk",
+          "line": 76
+        },
+        {
+          "type": "class",
+          "name": "DinoVisionTransformer",
+          "line": 83
+        },
+        {
+          "type": "function",
+          "name": "vit_small",
+          "line": 401
+        },
+        {
+          "type": "function",
+          "name": "vit_base",
+          "line": 415
+        },
+        {
+          "type": "function",
+          "name": "vit_large",
+          "line": 429
+        },
+        {
+          "type": "function",
+          "name": "vit_giant2",
+          "line": 443
+        }
+      ],
+      "summary": "Model implementation module with 2 classes and 6 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 25,
+      "char_count": 643,
+      "token_estimate": 161,
+      "imports": [
+        ".block",
+        ".layer_scale",
+        ".mlp",
+        ".patch_embed",
+        ".rope",
+        ".swiglu_ffn"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Model implementation module with 0 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/attention.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 100,
+      "char_count": 3263,
+      "token_estimate": 816,
+      "imports": [
+        "logging",
+        "torch.nn.functional",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Attention",
+          "line": 18
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/block.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 143,
+      "char_count": 5009,
+      "token_estimate": 1252,
+      "imports": [
+        "logging",
+        "typing",
+        "torch",
+        "torch",
+        ".attention",
+        ".drop_path",
+        ".layer_scale",
+        ".mlp"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/dinov2/layers/attention.py",
+        "src/depth_anything_3/model/dinov2/layers/drop_path.py",
+        "src/depth_anything_3/model/dinov2/layers/layer_scale.py",
+        "src/depth_anything_3/model/dinov2/layers/mlp.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Block",
+          "line": 26
+        },
+        {
+          "type": "function",
+          "name": "drop_add_residual_stochastic_depth",
+          "line": 106
+        },
+        {
+          "type": "function",
+          "name": "get_branges_scales",
+          "line": 138
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 2 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/drop_path.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 35,
+      "char_count": 1145,
+      "token_estimate": 286,
+      "imports": [
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "drop_path",
+          "line": 15
+        },
+        {
+          "type": "class",
+          "name": "DropPath",
+          "line": 27
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 1 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/layer_scale.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 31,
+      "char_count": 999,
+      "token_estimate": 250,
+      "imports": [
+        "typing",
+        "torch",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "LayerScale",
+          "line": 14
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/mlp.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 40,
+      "char_count": 1270,
+      "token_estimate": 318,
+      "imports": [
+        "typing",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Mlp",
+          "line": 16
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/patch_embed.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 94,
+      "char_count": 2902,
+      "token_estimate": 726,
+      "imports": [
+        "typing",
+        "torch.nn",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "make_2tuple",
+          "line": 16
+        },
+        {
+          "type": "class",
+          "name": "PatchEmbed",
+          "line": 25
+        }
+      ],
+      "summary": "Model implementation module with 1 classes and 1 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/rope.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 200,
+      "char_count": 7792,
+      "token_estimate": 1948,
+      "imports": [
+        "typing",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "PositionGetter",
+          "line": 23
+        },
+        {
+          "type": "class",
+          "name": "RotaryPositionEmbedding2D",
+          "line": 63
+        }
+      ],
+      "summary": "Model implementation module with 2 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/dinov2/layers/swiglu_ffn.py",
+      "language": "python",
+      "type": "source",
+      "role": "model-component",
+      "priority": "medium",
+      "line_count": 62,
+      "char_count": 1857,
+      "token_estimate": 464,
+      "imports": [
+        "typing",
+        "torch.nn.functional",
+        "torch",
+        "xformers.ops"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "SwiGLUFFN",
+          "line": 12
+        },
+        {
+          "type": "class",
+          "name": "SwiGLUFFNFused",
+          "line": 44
+        }
+      ],
+      "summary": "Model implementation module with 2 classes and 0 top-level functions for geometry or network behavior.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/utils/attention.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 109,
+      "char_count": 3810,
+      "token_estimate": 952,
+      "imports": [
+        "typing",
+        "torch",
+        "torch.nn.functional",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Attention",
+          "line": 23
+        },
+        {
+          "type": "class",
+          "name": "LayerScale",
+          "line": 70
+        },
+        {
+          "type": "class",
+          "name": "Mlp",
+          "line": 85
+        }
+      ],
+      "summary": "Utility module with 3 classes and 0 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/utils/block.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 81,
+      "char_count": 2755,
+      "token_estimate": 689,
+      "imports": [
+        "typing",
+        "torch",
+        ".attention"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/utils/attention.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Block",
+          "line": 22
+        }
+      ],
+      "summary": "Utility module with 1 classes and 0 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/utils/gs_renderer.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "high",
+      "line_count": 340,
+      "char_count": 12248,
+      "token_estimate": 3062,
+      "imports": [
+        "math",
+        "math",
+        "typing",
+        "torch",
+        "einops",
+        "tqdm",
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.camera_trj_helpers",
+        "depth_anything_3.utils.geometry",
+        "depth_anything_3.utils.logger",
+        "gsplat"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/camera_trj_helpers.py",
+        "src/depth_anything_3/utils/geometry.py",
+        "src/depth_anything_3/utils/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "render_3dgs",
+          "line": 44
+        },
+        {
+          "type": "function",
+          "name": "run_renderer_in_chunk_w_trj_mode",
+          "line": 156
+        }
+      ],
+      "summary": "Utility module with 0 classes and 2 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/utils/head_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 230,
+      "char_count": 8106,
+      "token_estimate": 2026,
+      "imports": [
+        "typing",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "activate_head_gs",
+          "line": 25
+        },
+        {
+          "type": "class",
+          "name": "Permute",
+          "line": 83
+        },
+        {
+          "type": "function",
+          "name": "position_grid_to_embed",
+          "line": 96
+        },
+        {
+          "type": "function",
+          "name": "make_sincos_pos_embed",
+          "line": 123
+        },
+        {
+          "type": "function",
+          "name": "create_uv_grid",
+          "line": 152
+        },
+        {
+          "type": "function",
+          "name": "custom_interpolate",
+          "line": 205
+        }
+      ],
+      "summary": "Utility module with 1 classes and 5 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/model/utils/transform.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 208,
+      "char_count": 6548,
+      "token_estimate": 1637,
+      "imports": [
+        "torch",
+        "torch.nn.functional"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "extri_intri_to_pose_encoding",
+          "line": 19
+        },
+        {
+          "type": "function",
+          "name": "pose_encoding_to_extri_intri",
+          "line": 41
+        },
+        {
+          "type": "function",
+          "name": "quat_to_mat",
+          "line": 68
+        },
+        {
+          "type": "function",
+          "name": "mat_to_quat",
+          "line": 100
+        },
+        {
+          "type": "function",
+          "name": "_sqrt_positive_part",
+          "line": 155
+        },
+        {
+          "type": "function",
+          "name": "standardize_quaternion",
+          "line": 169
+        },
+        {
+          "type": "function",
+          "name": "cam_quat_xyzw_to_world_quat_wxyz",
+          "line": 184
+        }
+      ],
+      "summary": "Utility module with 0 classes and 7 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/services/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "service-layer",
+      "priority": "high",
+      "line_count": 24,
+      "char_count": 769,
+      "token_estimate": 192,
+      "imports": [
+        "depth_anything_3.services.backend"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/services/backend.py"
+      ],
+      "key_elements": [],
+      "summary": "Service-layer module with 0 classes and 0 top-level functions for execution and I/O orchestration.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/services/backend.py",
+      "language": "python",
+      "type": "source",
+      "role": "backend-service",
+      "priority": "high",
+      "line_count": 1417,
+      "char_count": 49029,
+      "token_estimate": 12257,
+      "imports": [
+        "os",
+        "posixpath",
+        "time",
+        "uuid",
+        "concurrent.futures",
+        "typing",
+        "urllib.parse",
+        "numpy",
+        "uvicorn",
+        "fastapi",
+        "fastapi.responses",
+        "pydantic",
+        "..api",
+        "..utils.memory",
+        "..services.gallery",
+        "argparse"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/api.py",
+        "src/depth_anything_3/services/gallery.py",
+        "src/depth_anything_3/utils/memory.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "InferenceRequest",
+          "line": 45
+        },
+        {
+          "type": "class",
+          "name": "InferenceResponse",
+          "line": 65
+        },
+        {
+          "type": "class",
+          "name": "TaskStatus",
+          "line": 76
+        },
+        {
+          "type": "class",
+          "name": "ModelBackend",
+          "line": 96
+        },
+        {
+          "type": "function",
+          "name": "_process_next_task",
+          "line": 172
+        },
+        {
+          "type": "function",
+          "name": "_run_inference_task",
+          "line": 202
+        },
+        {
+          "type": "function",
+          "name": "_cleanup_old_tasks",
+          "line": 392
+        },
+        {
+          "type": "function",
+          "name": "_schedule_task_cleanup",
+          "line": 437
+        },
+        {
+          "type": "function",
+          "name": "_load_gallery_html",
+          "line": 458
+        },
+        {
+          "type": "function",
+          "name": "_gallery_url_join",
+          "line": 478
+        },
+        {
+          "type": "function",
+          "name": "_is_plain_name",
+          "line": 485
+        },
+        {
+          "type": "function",
+          "name": "build_group_list",
+          "line": 490
+        },
+        {
+          "type": "function",
+          "name": "build_group_manifest",
+          "line": 518
+        },
+        {
+          "type": "function",
+          "name": "create_app",
+          "line": 559
+        },
+        {
+          "type": "function",
+          "name": "start_server",
+          "line": 1371
+        }
+      ],
+      "summary": "FastAPI backend that keeps a model loaded in memory, queues inference tasks, and exposes status/result endpoints.",
+      "parse_error": null,
+      "entry_flags": [
+        "script",
+        "server"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/services/gallery.py",
+      "language": "python",
+      "type": "source",
+      "role": "service-layer",
+      "priority": "medium",
+      "line_count": 806,
+      "char_count": 36496,
+      "token_estimate": 9124,
+      "imports": [
+        "argparse",
+        "json",
+        "mimetypes",
+        "os",
+        "posixpath",
+        "sys",
+        "functools",
+        "http",
+        "http.server",
+        "urllib.parse",
+        "webbrowser"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_url_join",
+          "line": 631
+        },
+        {
+          "type": "function",
+          "name": "_is_plain_name",
+          "line": 637
+        },
+        {
+          "type": "function",
+          "name": "build_group_list",
+          "line": 641
+        },
+        {
+          "type": "function",
+          "name": "build_group_manifest",
+          "line": 668
+        },
+        {
+          "type": "class",
+          "name": "GalleryHandler",
+          "line": 704
+        },
+        {
+          "type": "function",
+          "name": "gallery",
+          "line": 759
+        },
+        {
+          "type": "function",
+          "name": "main",
+          "line": 799
+        }
+      ],
+      "summary": "Service-layer module with 1 classes and 6 top-level functions for execution and I/O orchestration.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/services/inference_service.py",
+      "language": "python",
+      "type": "source",
+      "role": "inference-orchestrator",
+      "priority": "high",
+      "line_count": 239,
+      "char_count": 8826,
+      "token_estimate": 2206,
+      "imports": [
+        "typing",
+        "numpy",
+        "requests",
+        "typer",
+        "..api"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/api.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "InferenceService",
+          "line": 28
+        },
+        {
+          "type": "function",
+          "name": "run_inference",
+          "line": 179
+        }
+      ],
+      "summary": "Unified service layer that runs inference locally or delegates work to the backend API.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/services/input_handlers.py",
+      "language": "python",
+      "type": "source",
+      "role": "service-layer",
+      "priority": "medium",
+      "line_count": 266,
+      "char_count": 9270,
+      "token_estimate": 2318,
+      "imports": [
+        "glob",
+        "os",
+        "typing",
+        "cv2",
+        "numpy",
+        "typer",
+        "..utils.read_write_model",
+        "shutil",
+        "shutil"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/read_write_model.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "InputHandler",
+          "line": 30
+        },
+        {
+          "type": "class",
+          "name": "ImageHandler",
+          "line": 66
+        },
+        {
+          "type": "class",
+          "name": "ImagesHandler",
+          "line": 76
+        },
+        {
+          "type": "class",
+          "name": "ColmapHandler",
+          "line": 106
+        },
+        {
+          "type": "class",
+          "name": "VideoHandler",
+          "line": 187
+        },
+        {
+          "type": "function",
+          "name": "parse_export_feat",
+          "line": 255
+        }
+      ],
+      "summary": "Service-layer module with 5 classes and 1 top-level functions for execution and I/O orchestration.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/alignment.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 163,
+      "char_count": 4904,
+      "token_estimate": 1226,
+      "imports": [
+        "typing",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "least_squares_scale_scalar",
+          "line": 23
+        },
+        {
+          "type": "function",
+          "name": "compute_sky_mask",
+          "line": 54
+        },
+        {
+          "type": "function",
+          "name": "compute_alignment_mask",
+          "line": 68
+        },
+        {
+          "type": "function",
+          "name": "sample_tensor_for_quantile",
+          "line": 100
+        },
+        {
+          "type": "function",
+          "name": "apply_metric_scaling",
+          "line": 118
+        },
+        {
+          "type": "function",
+          "name": "set_sky_regions_to_max_depth",
+          "line": 136
+        }
+      ],
+      "summary": "Utility module with 0 classes and 6 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/api_helpers.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 58,
+      "char_count": 1632,
+      "token_estimate": 408,
+      "imports": [
+        "argparse"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "parse_scalar",
+          "line": 4
+        },
+        {
+          "type": "function",
+          "name": "fn_kv_csv",
+          "line": 25
+        }
+      ],
+      "summary": "Utility module with 0 classes and 2 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/camera_trj_helpers.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 479,
+      "char_count": 17584,
+      "token_estimate": 4396,
+      "imports": [
+        "cv2",
+        "numpy",
+        "torch",
+        "torch.nn.functional",
+        "einops",
+        "scipy.spatial.transform",
+        "depth_anything_3.utils.logger",
+        "depth_anything_3.utils.geometry"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/geometry.py",
+        "src/depth_anything_3/utils/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "render_stabilization_path",
+          "line": 32
+        },
+        {
+          "type": "function",
+          "name": "render_wander_path",
+          "line": 109
+        },
+        {
+          "type": "function",
+          "name": "render_dolly_zoom_path",
+          "line": 133
+        },
+        {
+          "type": "function",
+          "name": "interpolate_intrinsics",
+          "line": 158
+        },
+        {
+          "type": "function",
+          "name": "intersect_rays",
+          "line": 169
+        },
+        {
+          "type": "function",
+          "name": "normalize",
+          "line": 201
+        },
+        {
+          "type": "function",
+          "name": "generate_coordinate_frame",
+          "line": 205
+        },
+        {
+          "type": "function",
+          "name": "generate_rotation_coordinate_frame",
+          "line": 214
+        },
+        {
+          "type": "function",
+          "name": "matrix_to_euler",
+          "line": 235
+        },
+        {
+          "type": "function",
+          "name": "euler_to_matrix",
+          "line": 246
+        },
+        {
+          "type": "function",
+          "name": "extrinsics_to_pivot_parameters",
+          "line": 257
+        },
+        {
+          "type": "function",
+          "name": "pivot_parameters_to_extrinsics",
+          "line": 286
+        },
+        {
+          "type": "function",
+          "name": "interpolate_circular",
+          "line": 312
+        },
+        {
+          "type": "function",
+          "name": "interpolate_pivot_parameters",
+          "line": 340
+        },
+        {
+          "type": "function",
+          "name": "interpolate_extrinsics",
+          "line": 358
+        },
+        {
+          "type": "function",
+          "name": "generate_wobble_transformation",
+          "line": 409
+        },
+        {
+          "type": "function",
+          "name": "render_wobble_inter_path",
+          "line": 427
+        }
+      ],
+      "summary": "Utility module with 0 classes and 17 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/constants.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 270,
+      "char_count": 9485,
+      "token_estimate": 2371,
+      "imports": [],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [],
+      "summary": "Utility module with 0 classes and 0 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/geometry.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 498,
+      "char_count": 16998,
+      "token_estimate": 4250,
+      "imports": [
+        "types",
+        "typing",
+        "numpy",
+        "torch",
+        "torch.nn.functional",
+        "einops"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "as_homogeneous",
+          "line": 23
+        },
+        {
+          "type": "function",
+          "name": "affine_inverse",
+          "line": 55
+        },
+        {
+          "type": "function",
+          "name": "transpose_last_two_axes",
+          "line": 62
+        },
+        {
+          "type": "function",
+          "name": "affine_inverse_np",
+          "line": 74
+        },
+        {
+          "type": "function",
+          "name": "quat_to_mat",
+          "line": 87
+        },
+        {
+          "type": "function",
+          "name": "mat_to_quat",
+          "line": 120
+        },
+        {
+          "type": "function",
+          "name": "_sqrt_positive_part",
+          "line": 189
+        },
+        {
+          "type": "function",
+          "name": "standardize_quaternion",
+          "line": 203
+        },
+        {
+          "type": "function",
+          "name": "sample_image_grid",
+          "line": 218
+        },
+        {
+          "type": "function",
+          "name": "homogenize_points",
+          "line": 241
+        },
+        {
+          "type": "function",
+          "name": "homogenize_vectors",
+          "line": 246
+        },
+        {
+          "type": "function",
+          "name": "transform_rigid",
+          "line": 251
+        },
+        {
+          "type": "function",
+          "name": "transform_cam2world",
+          "line": 263
+        },
+        {
+          "type": "function",
+          "name": "unproject",
+          "line": 271
+        },
+        {
+          "type": "function",
+          "name": "get_world_rays",
+          "line": 290
+        },
+        {
+          "type": "function",
+          "name": "get_fov",
+          "line": 316
+        },
+        {
+          "type": "function",
+          "name": "map_pdf_to_opacity",
+          "line": 333
+        },
+        {
+          "type": "function",
+          "name": "normalize_homogenous_points",
+          "line": 351
+        },
+        {
+          "type": "function",
+          "name": "inverse_intrinsic_matrix",
+          "line": 355
+        },
+        {
+          "type": "function",
+          "name": "pixel_space_to_camera_space",
+          "line": 359
+        }
+      ],
+      "summary": "Utility module with 0 classes and 20 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/gsply_helpers.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 173,
+      "char_count": 6252,
+      "token_estimate": 1563,
+      "imports": [
+        "pathlib",
+        "typing",
+        "numpy",
+        "torch",
+        "einops",
+        "plyfile",
+        "torch",
+        "depth_anything_3.specs"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/specs.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "construct_list_of_attributes",
+          "line": 25
+        },
+        {
+          "type": "function",
+          "name": "export_ply",
+          "line": 39
+        },
+        {
+          "type": "function",
+          "name": "inverse_sigmoid",
+          "line": 105
+        },
+        {
+          "type": "function",
+          "name": "save_gaussian_ply",
+          "line": 109
+        }
+      ],
+      "summary": "Utility module with 0 classes and 4 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/layout_helpers.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 216,
+      "char_count": 6566,
+      "token_estimate": 1642,
+      "imports": [
+        "typing",
+        "torch",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_sanitize_color",
+          "line": 41
+        },
+        {
+          "type": "function",
+          "name": "_intersperse",
+          "line": 55
+        },
+        {
+          "type": "function",
+          "name": "_get_main_dim",
+          "line": 63
+        },
+        {
+          "type": "function",
+          "name": "_get_cross_dim",
+          "line": 70
+        },
+        {
+          "type": "function",
+          "name": "_compute_offset",
+          "line": 77
+        },
+        {
+          "type": "function",
+          "name": "overlay",
+          "line": 87
+        },
+        {
+          "type": "function",
+          "name": "cat",
+          "line": 120
+        },
+        {
+          "type": "function",
+          "name": "hcat",
+          "line": 160
+        },
+        {
+          "type": "function",
+          "name": "vcat",
+          "line": 182
+        },
+        {
+          "type": "function",
+          "name": "add_border",
+          "line": 204
+        }
+      ],
+      "summary": "Utility module with 0 classes and 10 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/logger.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 82,
+      "char_count": 2512,
+      "token_estimate": 628,
+      "imports": [
+        "os",
+        "sys"
+      ],
+      "exports": [
+        "\"logger\""
+      ],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Color",
+          "line": 19
+        },
+        {
+          "type": "function",
+          "name": "get_env_log_level",
+          "line": 32
+        },
+        {
+          "type": "class",
+          "name": "Logger",
+          "line": 37
+        }
+      ],
+      "summary": "Utility module with 2 classes and 1 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/utils/memory.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 127,
+      "char_count": 4502,
+      "token_estimate": 1126,
+      "imports": [
+        "__future__",
+        "gc",
+        "typing",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "get_gpu_memory_info",
+          "line": 16
+        },
+        {
+          "type": "function",
+          "name": "cleanup_cuda_memory",
+          "line": 42
+        },
+        {
+          "type": "function",
+          "name": "check_memory_availability",
+          "line": 78
+        },
+        {
+          "type": "function",
+          "name": "estimate_memory_requirement",
+          "line": 110
+        }
+      ],
+      "summary": "Utility module with 0 classes and 4 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/model_loading.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 149,
+      "char_count": 5064,
+      "token_estimate": 1266,
+      "imports": [
+        "typing",
+        "torch",
+        "depth_anything_3.utils.logger"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "convert_general_state_dict",
+          "line": 25
+        },
+        {
+          "type": "function",
+          "name": "convert_metric_state_dict",
+          "line": 75
+        },
+        {
+          "type": "function",
+          "name": "load_pretrained_weights",
+          "line": 90
+        },
+        {
+          "type": "function",
+          "name": "load_pretrained_nested_weights",
+          "line": 116
+        }
+      ],
+      "summary": "Utility module with 0 classes and 4 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/parallel_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 133,
+      "char_count": 4287,
+      "token_estimate": 1072,
+      "imports": [
+        "asyncio",
+        "os",
+        "functools",
+        "multiprocessing.pool",
+        "threading",
+        "typing",
+        "imageio",
+        "tqdm"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "async_call_func",
+          "line": 25
+        },
+        {
+          "type": "function",
+          "name": "async_call",
+          "line": 40
+        },
+        {
+          "type": "function",
+          "name": "_save_image_impl",
+          "line": 47
+        },
+        {
+          "type": "function",
+          "name": "save_image_async",
+          "line": 54
+        },
+        {
+          "type": "function",
+          "name": "save_image",
+          "line": 59
+        },
+        {
+          "type": "function",
+          "name": "parallel_execution",
+          "line": 64
+        }
+      ],
+      "summary": "Utility module with 0 classes and 6 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/pca_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 284,
+      "char_count": 10628,
+      "token_estimate": 2657,
+      "imports": [
+        "numpy",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "pca_to_rgb_4d_bf16_percentile",
+          "line": 27
+        },
+        {
+          "type": "class",
+          "name": "PCARGBVisualizer",
+          "line": 127
+        }
+      ],
+      "summary": "Utility module with 1 classes and 1 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/pose_align.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 347,
+      "char_count": 12138,
+      "token_estimate": 3034,
+      "imports": [
+        "typing",
+        "numpy",
+        "torch",
+        "evo.core.trajectory",
+        "depth_anything_3.utils.geometry"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/geometry.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "batch_apply_alignment_to_enc",
+          "line": 23
+        },
+        {
+          "type": "function",
+          "name": "batch_apply_alignment_to_ext",
+          "line": 29
+        },
+        {
+          "type": "function",
+          "name": "batch_align_poses_umeyama",
+          "line": 50
+        },
+        {
+          "type": "function",
+          "name": "_to44",
+          "line": 68
+        },
+        {
+          "type": "function",
+          "name": "_poses_from_ext",
+          "line": 76
+        },
+        {
+          "type": "function",
+          "name": "_umeyama_sim3_from_paths",
+          "line": 84
+        },
+        {
+          "type": "function",
+          "name": "_apply_sim3_to_poses",
+          "line": 92
+        },
+        {
+          "type": "function",
+          "name": "_median_nn_thresh",
+          "line": 101
+        },
+        {
+          "type": "function",
+          "name": "_ransac_align_sim3",
+          "line": 111
+        },
+        {
+          "type": "function",
+          "name": "align_poses_umeyama",
+          "line": 158
+        },
+        {
+          "type": "function",
+          "name": "apply_umeyama_alignment_to_ext",
+          "line": 227
+        },
+        {
+          "type": "function",
+          "name": "transform_points_sim3",
+          "line": 264
+        },
+        {
+          "type": "function",
+          "name": "_rand_rot",
+          "line": 282
+        },
+        {
+          "type": "function",
+          "name": "_rand_pose",
+          "line": 302
+        }
+      ],
+      "summary": "Utility module with 0 classes and 14 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/utils/ray_utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 523,
+      "char_count": 20115,
+      "token_estimate": 5029,
+      "imports": [
+        "torch",
+        "einops",
+        ".geometry"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/geometry.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "compute_optimal_rotation_intrinsics_batch",
+          "line": 20
+        },
+        {
+          "type": "function",
+          "name": "ql_decomposition",
+          "line": 97
+        },
+        {
+          "type": "function",
+          "name": "find_homography_least_squares_weighted_torch",
+          "line": 112
+        },
+        {
+          "type": "function",
+          "name": "ransac_find_homography_weighted",
+          "line": 147
+        },
+        {
+          "type": "function",
+          "name": "find_homography_least_squares_weighted_torch_batch",
+          "line": 208
+        },
+        {
+          "type": "function",
+          "name": "ransac_find_homography_weighted_fast",
+          "line": 235
+        },
+        {
+          "type": "function",
+          "name": "ransac_find_homography_weighted_fast_batch",
+          "line": 313
+        },
+        {
+          "type": "function",
+          "name": "get_params_for_ransac",
+          "line": 423
+        },
+        {
+          "type": "function",
+          "name": "camray_to_caminfo",
+          "line": 435
+        },
+        {
+          "type": "function",
+          "name": "get_extrinsic_from_camray",
+          "line": 506
+        }
+      ],
+      "summary": "Utility module with 0 classes and 10 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/read_write_model.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 585,
+      "char_count": 22452,
+      "token_estimate": 5613,
+      "imports": [
+        "argparse",
+        "collections",
+        "os",
+        "struct",
+        "numpy"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Image",
+          "line": 50
+        },
+        {
+          "type": "function",
+          "name": "read_next_bytes",
+          "line": 72
+        },
+        {
+          "type": "function",
+          "name": "write_next_bytes",
+          "line": 84
+        },
+        {
+          "type": "function",
+          "name": "read_cameras_text",
+          "line": 100
+        },
+        {
+          "type": "function",
+          "name": "read_cameras_binary",
+          "line": 130
+        },
+        {
+          "type": "function",
+          "name": "write_cameras_text",
+          "line": 163
+        },
+        {
+          "type": "function",
+          "name": "write_cameras_binary",
+          "line": 182
+        },
+        {
+          "type": "function",
+          "name": "read_images_text",
+          "line": 199
+        },
+        {
+          "type": "function",
+          "name": "read_images_binary",
+          "line": 239
+        },
+        {
+          "type": "function",
+          "name": "write_images_text",
+          "line": 287
+        },
+        {
+          "type": "function",
+          "name": "write_images_binary",
+          "line": 325
+        },
+        {
+          "type": "function",
+          "name": "read_points3D_text",
+          "line": 346
+        },
+        {
+          "type": "function",
+          "name": "read_points3D_binary",
+          "line": 378
+        },
+        {
+          "type": "function",
+          "name": "write_points3D_text",
+          "line": 414
+        },
+        {
+          "type": "function",
+          "name": "write_points3D_binary",
+          "line": 443
+        },
+        {
+          "type": "function",
+          "name": "detect_model_format",
+          "line": 462
+        },
+        {
+          "type": "function",
+          "name": "read_model",
+          "line": 474
+        },
+        {
+          "type": "function",
+          "name": "write_model",
+          "line": 496
+        },
+        {
+          "type": "function",
+          "name": "qvec2rotmat",
+          "line": 508
+        },
+        {
+          "type": "function",
+          "name": "rotmat2qvec",
+          "line": 530
+        }
+      ],
+      "summary": "Utility module with 1 classes and 19 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/utils/registry.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 36,
+      "char_count": 1050,
+      "token_estimate": 262,
+      "imports": [
+        "typing",
+        "addict"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "Registry",
+          "line": 19
+        }
+      ],
+      "summary": "Utility module with 1 classes and 0 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/sh_helpers.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 88,
+      "char_count": 3236,
+      "token_estimate": 809,
+      "imports": [
+        "math",
+        "torch",
+        "einops",
+        "e3nn.o3",
+        "depth_anything_3.utils.logger"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "project_to_so3_strict",
+          "line": 27
+        },
+        {
+          "type": "function",
+          "name": "rotate_sh",
+          "line": 56
+        }
+      ],
+      "summary": "Utility module with 0 classes and 2 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/visualize.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 120,
+      "char_count": 4122,
+      "token_estimate": 1030,
+      "imports": [
+        "matplotlib",
+        "numpy",
+        "torch",
+        "einops",
+        "depth_anything_3.utils.logger"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "visualize_depth",
+          "line": 23
+        },
+        {
+          "type": "function",
+          "name": "vis_depth_map_tensor",
+          "line": 84
+        },
+        {
+          "type": "function",
+          "name": "apply_color_map",
+          "line": 102
+        },
+        {
+          "type": "function",
+          "name": "apply_color_map_to_image",
+          "line": 115
+        }
+      ],
+      "summary": "Utility module with 0 classes and 4 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/export/__init__.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 59,
+      "char_count": 2258,
+      "token_estimate": 564,
+      "imports": [
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.export.gs",
+        ".colmap",
+        ".depth_vis",
+        ".feat_vis",
+        ".glb",
+        ".npz"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/export/gs.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "export",
+          "line": 25
+        }
+      ],
+      "summary": "Utility module with 0 classes and 1 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/export/colmap.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 150,
+      "char_count": 5279,
+      "token_estimate": 1320,
+      "imports": [
+        "os",
+        "pycolmap",
+        "cv2",
+        "numpy",
+        "PIL",
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.logger",
+        ".glb"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/export/glb.py",
+        "src/depth_anything_3/utils/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "export_to_colmap",
+          "line": 28
+        },
+        {
+          "type": "function",
+          "name": "_create_xyf",
+          "line": 130
+        }
+      ],
+      "summary": "Utility module with 0 classes and 2 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/export/depth_vis.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 41,
+      "char_count": 1610,
+      "token_estimate": 402,
+      "imports": [
+        "os",
+        "imageio",
+        "numpy",
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.visualize"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/visualize.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "export_to_depth_vis",
+          "line": 23
+        }
+      ],
+      "summary": "Utility module with 0 classes and 1 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/export/feat_vis.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 65,
+      "char_count": 2324,
+      "token_estimate": 581,
+      "imports": [
+        "os",
+        "cv2",
+        "imageio",
+        "numpy",
+        "tqdm.auto",
+        "depth_anything_3.utils.parallel_utils",
+        "depth_anything_3.utils.pca_utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/parallel_utils.py",
+        "src/depth_anything_3/utils/pca_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "export_to_feat_vis",
+          "line": 26
+        }
+      ],
+      "summary": "Utility module with 0 classes and 1 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/export/glb.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 432,
+      "char_count": 15088,
+      "token_estimate": 3772,
+      "imports": [
+        "__future__",
+        "os",
+        "numpy",
+        "trimesh",
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.logger",
+        ".depth_vis"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/export/depth_vis.py",
+        "src/depth_anything_3/utils/logger.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "set_sky_depth",
+          "line": 27
+        },
+        {
+          "type": "function",
+          "name": "get_conf_thresh",
+          "line": 35
+        },
+        {
+          "type": "function",
+          "name": "export_to_glb",
+          "line": 52
+        },
+        {
+          "type": "function",
+          "name": "_as_homogeneous44",
+          "line": 192
+        },
+        {
+          "type": "function",
+          "name": "_depths_to_world_points_with_colors",
+          "line": 205
+        },
+        {
+          "type": "function",
+          "name": "_filter_and_downsample",
+          "line": 255
+        },
+        {
+          "type": "function",
+          "name": "_estimate_scene_scale",
+          "line": 266
+        },
+        {
+          "type": "function",
+          "name": "_compute_alignment_transform_first_cam_glTF_center_by_points",
+          "line": 275
+        },
+        {
+          "type": "function",
+          "name": "_add_cameras_to_scene",
+          "line": 322
+        },
+        {
+          "type": "function",
+          "name": "_camera_frustum_lines",
+          "line": 362
+        },
+        {
+          "type": "function",
+          "name": "_index_color_rgb",
+          "line": 406
+        },
+        {
+          "type": "function",
+          "name": "_hsv_to_rgb",
+          "line": 413
+        }
+      ],
+      "summary": "Utility module with 0 classes and 12 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/export/gs.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 154,
+      "char_count": 5527,
+      "token_estimate": 1382,
+      "imports": [
+        "os",
+        "typing",
+        "moviepy.editor",
+        "torch",
+        "depth_anything_3.model.utils.gs_renderer",
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.gsply_helpers",
+        "depth_anything_3.utils.layout_helpers",
+        "depth_anything_3.utils.visualize"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/model/__init__.py",
+        "src/depth_anything_3/model/utils/gs_renderer.py",
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/gsply_helpers.py",
+        "src/depth_anything_3/utils/layout_helpers.py",
+        "src/depth_anything_3/utils/visualize.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "export_to_gs_ply",
+          "line": 33
+        },
+        {
+          "type": "function",
+          "name": "export_to_gs_video",
+          "line": 61
+        }
+      ],
+      "summary": "Utility module with 0 classes and 2 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/export/npz.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 73,
+      "char_count": 2476,
+      "token_estimate": 619,
+      "imports": [
+        "os",
+        "numpy",
+        "depth_anything_3.specs",
+        "depth_anything_3.utils.parallel_utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/parallel_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "export_to_npz",
+          "line": 23
+        },
+        {
+          "type": "function",
+          "name": "export_to_mini_npz",
+          "line": 54
+        }
+      ],
+      "summary": "Utility module with 0 classes and 2 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/export/utils.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 30,
+      "char_count": 1251,
+      "token_estimate": 313,
+      "imports": [
+        "numpy",
+        "torch"
+      ],
+      "exports": [],
+      "dependencies": [],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "_denorm_and_to_uint8",
+          "line": 19
+        }
+      ],
+      "summary": "Utility module with 0 classes and 1 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    },
+    {
+      "path": "src/depth_anything_3/utils/io/input_processor.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "medium",
+      "line_count": 501,
+      "char_count": 18923,
+      "token_estimate": 4731,
+      "imports": [
+        "__future__",
+        "typing",
+        "cv2",
+        "numpy",
+        "torch",
+        "torchvision.transforms",
+        "PIL",
+        "depth_anything_3.utils.logger",
+        "depth_anything_3.utils.parallel_utils"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/utils/logger.py",
+        "src/depth_anything_3/utils/parallel_utils.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "InputProcessor",
+          "line": 35
+        }
+      ],
+      "summary": "Utility module with 1 classes and 0 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": [
+        "script"
+      ]
+    },
+    {
+      "path": "src/depth_anything_3/utils/io/output_processor.py",
+      "language": "python",
+      "type": "source",
+      "role": "utility-module",
+      "priority": "low",
+      "line_count": 172,
+      "char_count": 5862,
+      "token_estimate": 1466,
+      "imports": [
+        "__future__",
+        "numpy",
+        "torch",
+        "addict",
+        "depth_anything_3.specs"
+      ],
+      "exports": [],
+      "dependencies": [
+        "src/depth_anything_3/specs.py"
+      ],
+      "key_elements": [
+        {
+          "type": "class",
+          "name": "OutputProcessor",
+          "line": 31
+        }
+      ],
+      "summary": "Utility module with 1 classes and 0 top-level functions used across inference, export, or visualization flows.",
+      "parse_error": null,
+      "entry_flags": []
+    }
+  ]
+}

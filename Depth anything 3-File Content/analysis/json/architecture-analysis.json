@@ -1,0 +1,218 @@
+{
+  "input": {
+    "repo_folder": "./Depth anything 3-File Content",
+    "focus": "Full Repository Overview",
+    "mode": "Balanced"
+  },
+  "status": "success",
+  "step": "Analyze-Architecture",
+  "architecture": {
+    "style": "layered inference platform with multi-surface interfaces and an attached streaming extension",
+    "summary": "The repository centers on a shared PyTorch inference core and fans it out into API, CLI, Gradio, backend-service, and long-video streaming execution paths, with utilities and exporters providing the connective tissue.",
+    "traits": [
+      "Single inference core reused by multiple entry surfaces",
+      "Strong separation between model internals, orchestration services, UI modules, and export utilities",
+      "Research-heavy geometry and rendering helpers embedded in the product-facing package",
+      "Streaming subsystem extends the main package for chunked video and loop closure workflows"
+    ]
+  },
+  "components": [
+    {
+      "name": "Core Public API",
+      "path": "src/depth_anything_3/api.py",
+      "responsibilities": [
+        "Load configurations, registries, and model assets",
+        "Accept input imagery through I/O helpers",
+        "Run main DA3 inference flows",
+        "Normalize predictions for export and downstream use"
+      ],
+      "key_functions": [
+        "DepthAnything3"
+      ],
+      "dependencies": [
+        "src/depth_anything_3/cfg.py",
+        "src/depth_anything_3/registry.py",
+        "src/depth_anything_3/specs.py",
+        "src/depth_anything_3/utils/io/input_processor.py",
+        "src/depth_anything_3/utils/io/output_processor.py",
+        "src/depth_anything_3/utils/export/__init__.py",
+        "src/depth_anything_3/utils/geometry.py"
+      ]
+    },
+    {
+      "name": "Operator Interfaces",
+      "path": "src/depth_anything_3/cli.py and src/depth_anything_3/app/gradio_app.py",
+      "responsibilities": [
+        "Expose batch and interactive workflows",
+        "Route user inputs into inference services",
+        "Support image, video, COLMAP, backend, and UI launch modes"
+      ],
+      "key_functions": [
+        "auto",
+        "image",
+        "images",
+        "video",
+        "backend",
+        "gradio",
+        "DepthAnything3App"
+      ],
+      "dependencies": [
+        "src/depth_anything_3/services/inference_service.py",
+        "src/depth_anything_3/services/input_handlers.py",
+        "src/depth_anything_3/services/gallery.py",
+        "src/depth_anything_3/app/modules/event_handlers.py",
+        "src/depth_anything_3/app/modules/ui_components.py"
+      ]
+    },
+    {
+      "name": "Backend Service Layer",
+      "path": "src/depth_anything_3/services/backend.py",
+      "responsibilities": [
+        "Keep a model loaded in memory",
+        "Queue GPU-bound jobs",
+        "Expose task status and result retrieval endpoints",
+        "Clean up old task artifacts"
+      ],
+      "key_functions": [
+        "ModelBackend",
+        "_process_next_task",
+        "_run_inference_task",
+        "_cleanup_old_tasks"
+      ],
+      "dependencies": [
+        "src/depth_anything_3/api.py",
+        "src/depth_anything_3/services/gallery.py",
+        "src/depth_anything_3/utils/memory.py",
+        "FastAPI"
+      ]
+    },
+    {
+      "name": "Model Stack",
+      "path": "src/depth_anything_3/model",
+      "responsibilities": [
+        "Implement DA3 prediction logic",
+        "Provide DINOv2 vision backbones and DPT-style heads",
+        "Estimate camera features and adapt outputs for Gaussian splatting",
+        "Support rendering-facing data structures"
+      ],
+      "key_functions": [
+        "DA3",
+        "DualDPT",
+        "GSDPT",
+        "GSAdapter",
+        "render_3dgs"
+      ],
+      "dependencies": [
+        "src/depth_anything_3/utils/geometry.py",
+        "src/depth_anything_3/utils/ray_utils.py",
+        "src/depth_anything_3/utils/pose_align.py",
+        "src/depth_anything_3/specs.py"
+      ]
+    },
+    {
+      "name": "Streaming Extension",
+      "path": "da3_streaming/da3_streaming.py",
+      "responsibilities": [
+        "Chunk long videos into manageable windows",
+        "Run inference incrementally",
+        "Detect loops and align chunks with Sim3 methods",
+        "Produce large-sequence outputs with memory-aware processing"
+      ],
+      "key_functions": [
+        "DA3_Streaming",
+        "depth_to_point_cloud_vectorized",
+        "remove_duplicates"
+      ],
+      "dependencies": [
+        "src/depth_anything_3/api.py",
+        "da3_streaming/loop_utils/alignment_torch.py",
+        "da3_streaming/loop_utils/alignment_triton.py",
+        "da3_streaming/loop_utils/loop_detector.py",
+        "da3_streaming/loop_utils/sim3loop.py"
+      ]
+    }
+  ],
+  "execution_flow": {
+    "primary_path": [
+      "User enters through README, CLI, Python API, Gradio app, or backend endpoint",
+      "Input handlers normalize images, videos, or COLMAP-style assets",
+      "The public API loads model configs, weights, and utility dependencies",
+      "Model components generate depth, confidence, pose, and related 3D predictions",
+      "Output processors and exporters materialize arrays, visualizations, meshes, or Gaussian-splat artifacts",
+      "Optional backend mode reuses a resident model to amortize GPU initialization cost",
+      "Optional streaming mode repeats inference across chunks and reconciles them with loop-aware alignment"
+    ],
+    "handoffs": [
+      {
+        "from": "src/depth_anything_3/cli.py",
+        "to": "src/depth_anything_3/services/inference_service.py",
+        "artifact": "normalized local or backend execution request"
+      },
+      {
+        "from": "src/depth_anything_3/services/inference_service.py",
+        "to": "src/depth_anything_3/api.py",
+        "artifact": "loaded model call with processed inputs"
+      },
+      {
+        "from": "src/depth_anything_3/api.py",
+        "to": "src/depth_anything_3/utils/export/*",
+        "artifact": "prediction object with depth, pose, confidence, and geometry outputs"
+      },
+      {
+        "from": "da3_streaming/da3_streaming.py",
+        "to": "da3_streaming/loop_utils/*",
+        "artifact": "chunk-level predictions and alignment constraints"
+      }
+    ]
+  },
+  "data_flow": {
+    "inputs": [
+      "Single images, image batches, videos, or COLMAP reconstructions",
+      "Runtime configuration and model/checkpoint references",
+      "Streaming configs for chunking and loop handling"
+    ],
+    "intermediate_artifacts": [
+      "Processed image tensors and camera representations",
+      "Depth, confidence, intrinsics, and extrinsics arrays",
+      "Geometry buffers, visualization frames, and task metadata",
+      "Chunk-level point clouds and Sim3 alignment state in streaming mode"
+    ],
+    "outputs": [
+      "Depth predictions and confidence maps",
+      "Pose and intrinsic camera estimates",
+      "NPZ, GLB, COLMAP, feature-visualization, and Gaussian-splat export assets",
+      "Interactive galleries and backend task results"
+    ]
+  },
+  "integration_boundaries": {
+    "internal": [
+      "Interfaces call into a shared service and API core",
+      "Model modules depend heavily on shared geometry and spec utilities",
+      "UI modules remain mostly isolated from core inference internals except through orchestration helpers",
+      "Streaming utilities depend on the main API but maintain their own alignment toolchain"
+    ],
+    "external": [
+      "Hugging Face and safetensors model assets",
+      "GPU-centric PyTorch runtime",
+      "FastAPI/Uvicorn for backend serving",
+      "Gradio for interactive UI",
+      "Open3D, pycolmap, trimesh, and related 3D ecosystem packages"
+    ]
+  },
+  "strengths": [
+    "Well-defined separation between inference core and operator surfaces",
+    "Rich export pipeline makes predictions usable in downstream geometry workflows",
+    "Backend mode addresses repeated inference cost by keeping models warm",
+    "Streaming subsystem broadens the repo from image inference into long-video reconstruction"
+  ],
+  "risks": [
+    "The available input is a prepared snapshot rather than live source files, so some architectural details may be omitted.",
+    "Heavy dependency surface and GPU assumptions increase setup complexity.",
+    "Model, export, and utility layers are large enough that cross-module coupling may be difficult to evolve safely.",
+    "Streaming code appears specialized and may drift from the main package if contracts are not kept stable."
+  ],
+  "outputs": {
+    "json": "./Depth anything 3-File Content/analysis/json/architecture-analysis.json",
+    "markdown": "./Depth anything 3-File Content/analysis/markdown/architecture-analysis.md"
+  }
+}

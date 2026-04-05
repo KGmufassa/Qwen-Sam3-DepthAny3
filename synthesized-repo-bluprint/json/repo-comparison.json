@@ -1,0 +1,248 @@
+{
+  "goal": "Extract best practices",
+  "mode": "Deep",
+  "comparison_scope": "Full",
+  "repos_compared": [
+    {
+      "name": "Depth anything 3-File Content",
+      "repo_folder": "./Depth anything 3-File Content",
+      "type": "research-oriented Python package for monocular and multi-view 3D inference",
+      "architecture_pattern": "layered inference-platform architecture",
+      "normalized_structure": {
+        "entry": [
+          "README.md",
+          "src/depth_anything_3/cli.py",
+          "src/depth_anything_3/app/gradio_app.py",
+          "src/depth_anything_3/services/backend.py",
+          "da3_streaming/da3_streaming.py"
+        ],
+        "control": [
+          "src/depth_anything_3/api.py",
+          "src/depth_anything_3/services/inference_service.py",
+          "src/depth_anything_3/services/backend.py"
+        ],
+        "logic": [
+          "src/depth_anything_3/model",
+          "da3_streaming/loop_utils"
+        ],
+        "utility": [
+          "src/depth_anything_3/utils",
+          "src/depth_anything_3/app/modules",
+          "docs"
+        ]
+      },
+      "detected_components": [
+        "API",
+        "CLI",
+        "UI",
+        "backend service",
+        "data/export layer",
+        "streaming pipeline",
+        "utilities"
+      ],
+      "primary_flow": "ENTRY -> interface -> api/service orchestration -> model inference -> export/backend/streaming output"
+    },
+    {
+      "name": "Qwen-image-layered File Content",
+      "repo_folder": "./Qwen-image-layered File Content",
+      "type": "demo-oriented Python application suite",
+      "architecture_pattern": "workflow-oriented multi-app script architecture",
+      "normalized_structure": {
+        "entry": [
+          "README.md",
+          "src/app.py",
+          "src/tool/edit_rgba_image.py",
+          "src/tool/combine_layers.py"
+        ],
+        "control": [
+          "src/app.py",
+          "src/tool/edit_rgba_image.py",
+          "src/tool/combine_layers.py"
+        ],
+        "logic": [
+          "QwenImageLayeredPipeline",
+          "QwenImageEditPlusPipeline",
+          "RMBG-assisted transparency restoration"
+        ],
+        "utility": [
+          "PPTX export",
+          "ZIP export",
+          "PSD export"
+        ]
+      },
+      "detected_components": [
+        "UI",
+        "workflow scripts",
+        "data/export layer",
+        "utilities"
+      ],
+      "primary_flow": "ENTRY -> decompose image -> hand off RGBA artifacts -> optional layer editing -> recomposition/export"
+    },
+    {
+      "name": "Sam3_File Contents",
+      "repo_folder": "./Sam3_File Contents",
+      "type": "layered research/ML package with factory-driven model construction and optional agent orchestration",
+      "architecture_pattern": "layered research/ML package",
+      "normalized_structure": {
+        "entry": [
+          "README.md",
+          "sam3/model_builder.py",
+          "scripts/eval/gold/eval_sam3.py",
+          "scripts/measure_speed.py"
+        ],
+        "control": [
+          "sam3/model_builder.py",
+          "sam3/model/sam3_base_predictor.py",
+          "sam3/agent/agent_core.py"
+        ],
+        "logic": [
+          "sam3/model",
+          "sam3/sam"
+        ],
+        "utility": [
+          "sam3/agent/helpers",
+          "sam3/visualization_utils.py",
+          "scripts",
+          "examples"
+        ]
+      },
+      "detected_components": [
+        "agent orchestration",
+        "data layer",
+        "evaluation scripts",
+        "utilities"
+      ],
+      "primary_flow": "ENTRY -> model factory/predictor setup -> image or video segmentation runtime -> optional agent loop -> evaluation or visualization output"
+    }
+  ],
+  "similarity_matrix": {
+    "Depth anything 3-File Content": {
+      "Qwen-image-layered File Content": 0.5,
+      "Sam3_File Contents": 0.7
+    },
+    "Qwen-image-layered File Content": {
+      "Depth anything 3-File Content": 0.5,
+      "Sam3_File Contents": 0.35
+    },
+    "Sam3_File Contents": {
+      "Depth anything 3-File Content": 0.7,
+      "Qwen-image-layered File Content": 0.35
+    }
+  },
+  "pattern_summary": {
+    "shared_patterns": [
+      "Python-first ML repositories with GPU-oriented runtime assumptions",
+      "User-facing execution surfaces separated from heavy model logic",
+      "Artifact-oriented outputs beyond raw tensor predictions",
+      "Prepared analyses emphasize workflows and operator usability"
+    ],
+    "key_differences": [
+      "Depth Anything 3 is the most platform-like with API, CLI, UI, backend, and streaming surfaces around one core",
+      "Qwen-image-layered is the most workflow-centric and least modular, coupling stages through files and user actions",
+      "SAM 3 is the most library-like in core modeling and factory assembly, with an adjacent agent layer rather than multiple operator UIs"
+    ]
+  },
+  "component_comparison": {
+    "operator_interfaces": {
+      "best_repo": "Depth anything 3-File Content",
+      "reason": "It centralizes one inference core behind multiple coherent surfaces rather than duplicating workflow logic."
+    },
+    "workflow_clarity": {
+      "best_repo": "Qwen-image-layered File Content",
+      "reason": "Its stage-by-stage producer/edit/recompose design is immediately legible to operators."
+    },
+    "model_assembly_and_reuse": {
+      "best_repo": "Sam3_File Contents",
+      "reason": "The factory-driven builder and predictor split suggests stronger internal composability for model variants."
+    },
+    "artifact_export_and_downstream_interop": {
+      "best_repo": "Depth anything 3-File Content",
+      "reason": "It provides the richest export surface across visualization, reconstruction, and machine-readable outputs."
+    },
+    "evaluation_and_validation_surfaces": {
+      "best_repo": "Sam3_File Contents",
+      "reason": "It exposes the strongest explicit evaluation and benchmarking layer in the available analyses."
+    }
+  },
+  "flow_alignment": {
+    "normalized_flow": "ENTRY -> CONTROL -> LOGIC -> OUTPUT",
+    "repo_alignment": {
+      "Depth anything 3-File Content": "CLI/API/UI/backend/streaming -> api/service orchestration -> DA3 model and geometry stack -> export/backend/streamed artifacts",
+      "Qwen-image-layered File Content": "Gradio scripts -> stage-specific app logic -> image decomposition/edit/composition pipelines -> layer files and creative exports",
+      "Sam3_File Contents": "README/scripts/factory entry -> model_builder/predictor/agent control -> segmentation and SAM core modules -> masks, scores, visualizations, eval artifacts"
+    },
+    "alignment_notes": [
+      "All three repos follow a clear staged flow even though only Depth Anything 3 and SAM 3 exhibit deep internal layering.",
+      "Qwen-image-layered aligns at the workflow level, but its control and logic are more collapsed into scripts."
+    ]
+  },
+  "conflicts": [
+    {
+      "type": "packaging depth",
+      "severity": "medium",
+      "details": "Qwen-image-layered is script-first, while Depth Anything 3 and SAM 3 favor reusable package structures."
+    },
+    {
+      "type": "integration boundary",
+      "severity": "medium",
+      "details": "Qwen-image-layered uses manual artifact handoffs; Depth Anything 3 and SAM 3 center reusable Python contracts."
+    },
+    {
+      "type": "runtime surface mismatch",
+      "severity": "low",
+      "details": "Depth Anything 3 emphasizes many operator interfaces, SAM 3 emphasizes model/runtime assembly, and Qwen-image-layered emphasizes a guided creative workflow."
+    },
+    {
+      "type": "environment certainty",
+      "severity": "medium",
+      "details": "All three depend on heavyweight model assets and GPUs, but Qwen-image-layered also lacks a clear dependency manifest in the analyzed snapshot."
+    }
+  ],
+  "integration_opportunities": [
+    "Adopt SAM 3 style factory/builder separation for heavyweight model assembly in repos that currently blend orchestration and runtime concerns.",
+    "Adopt Depth Anything 3 style central API contract so multiple UX surfaces can share one implementation core.",
+    "Adopt Qwen-image-layered's explicit stage framing for operator-facing workflows, but back it with typed internal contracts instead of manual file handoffs.",
+    "Borrow SAM 3's evaluation-script emphasis to make runtime and quality validation first-class in the other repos.",
+    "Borrow Depth Anything 3's export/interoperability orientation when designing downstream artifact pipelines."
+  ],
+  "system_blueprint": {
+    "recommended_architecture": "layered ML application platform",
+    "recommended_modules": [
+      "central API/service contract",
+      "factory-based model assembly",
+      "separate operator surfaces (CLI/UI/backend)",
+      "artifact and export subsystem",
+      "evaluation and benchmark subsystem",
+      "optional agent-orchestration layer"
+    ],
+    "recommended_flow": [
+      "entry surface receives request",
+      "controller resolves workflow and validates inputs",
+      "factory assembles or selects the model runtime",
+      "core logic executes inference or transformation",
+      "artifact/export layer persists outputs",
+      "evaluation or telemetry layer records quality/runtime signals"
+    ],
+    "best_practices": [
+      "Keep one authoritative inference core and fan out UX layers around it.",
+      "Use factories and predictors to isolate model construction from request handling.",
+      "Prefer explicit handoff contracts over implicit shared state, but automate them instead of relying on manual operator transfer.",
+      "Treat export, evaluation, and interoperability as first-class modules rather than afterthoughts.",
+      "Design optional advanced subsystems such as streaming or agents as extensions over stable core contracts."
+    ]
+  },
+  "confidence": {
+    "score": 0.81,
+    "rationale": [
+      "Pattern consistency is strong across the available foundation, architecture, and explanation documents.",
+      "Flow alignment is high at the abstract pipeline level.",
+      "Confidence is reduced by snapshot-based analysis and incomplete operational/dependency details in some repos."
+    ]
+  },
+  "unknowns": [
+    "No raw-code verification was performed by design; findings rely only on prepared analysis outputs.",
+    "Deployment, CI, and production hardening details are mostly absent across the compared inputs.",
+    "Some SAM 3 imports appear to reference files not present in the extracted snapshot.",
+    "The Qwen-image-layered snapshot is very small and may omit packaging or support files."
+  ]
+}

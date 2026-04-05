@@ -1,0 +1,331 @@
+{
+  "input": {
+    "input_source": "/Users/wislemleger/Desktop/GitHub/Qwen-Sam3-DepthAny3/Qwen-image-layered File Content.md",
+    "goal": "General understanding",
+    "mode": "Balanced"
+  },
+  "repository": {
+    "name": "Qwen-image-layered File Content",
+    "source_filename": "Qwen-image-layered File Content.md",
+    "virtual_root": "kgmufassa-qwen-image-layered"
+  },
+  "validation": {
+    "is_valid": true,
+    "errors": [],
+    "file_markers_detected": 5,
+    "code_block_markers_detected": 14
+  },
+  "overview": {
+    "total_files_detected": 5,
+    "total_files_processed": 5,
+    "processing_mode": "Balanced",
+    "goal": "General understanding"
+  },
+  "virtual_files": [
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "type": "documentation",
+      "role": "Project guide and operator entry documentation",
+      "priority": "MEDIUM",
+      "imports": [],
+      "exports": [],
+      "key_elements": [
+        {
+          "type": "h2",
+          "name": "Introduction"
+        },
+        {
+          "type": "h2",
+          "name": "News"
+        },
+        {
+          "type": "h2",
+          "name": "Quick Start"
+        },
+        {
+          "type": "h2",
+          "name": "Deploy Qwen-Image-Layered"
+        },
+        {
+          "type": "h3",
+          "name": "vLLM-Omni"
+        },
+        {
+          "type": "h2",
+          "name": "Showcase"
+        },
+        {
+          "type": "h3",
+          "name": "Layered Decomposition in Application"
+        },
+        {
+          "type": "h3",
+          "name": "Flexible and Iterative Decomposition"
+        },
+        {
+          "type": "h2",
+          "name": "License Agreement"
+        },
+        {
+          "type": "h2",
+          "name": "Citation"
+        }
+      ],
+      "summary": "Explains the layered image decomposition concept, installation flow, Python usage, and how to launch the decomposition, editing, and recomposition apps.",
+      "content_stats": {
+        "lines": 143,
+        "characters": 7516
+      },
+      "entry_point": false,
+      "parsing_notes": []
+    },
+    {
+      "path": "LICENSE",
+      "language": "text",
+      "type": "legal",
+      "role": "License text",
+      "priority": "LOW",
+      "imports": [],
+      "exports": [],
+      "key_elements": [],
+      "summary": "Apache 2.0 license for the repository contents.",
+      "content_stats": {
+        "lines": 201,
+        "characters": 11357
+      },
+      "entry_point": false,
+      "parsing_notes": []
+    },
+    {
+      "path": "src/app.py",
+      "language": "python",
+      "type": "application",
+      "role": "Primary Gradio application for layer decomposition and export",
+      "priority": "HIGH",
+      "imports": [
+        "diffusers.QwenImageLayeredPipeline",
+        "torch",
+        "PIL.Image",
+        "pptx.Presentation",
+        "os",
+        "gradio",
+        "uuid",
+        "numpy",
+        "random",
+        "tempfile",
+        "zipfile",
+        "psd_tools.PSDImage"
+      ],
+      "exports": [
+        "imagelist_to_pptx",
+        "imagelist_to_psd",
+        "export_gallery",
+        "infer"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "imagelist_to_pptx",
+          "line": 19
+        },
+        {
+          "type": "function",
+          "name": "imagelist_to_psd",
+          "line": 42
+        },
+        {
+          "type": "function",
+          "name": "export_gallery",
+          "line": 59
+        },
+        {
+          "type": "function",
+          "name": "infer",
+          "line": 65
+        }
+      ],
+      "summary": "Loads the Qwen-Image-Layered diffusion pipeline, decomposes an RGBA image into multiple layers, and packages outputs as gallery images plus PPTX, ZIP, and PSD downloads through a Gradio UI.",
+      "content_stats": {
+        "lines": 248,
+        "characters": 8841
+      },
+      "entry_point": true,
+      "parsing_notes": []
+    },
+    {
+      "path": "src/tool/combine_layers.py",
+      "language": "python",
+      "type": "tool",
+      "role": "Layer recomposition utility",
+      "priority": "MEDIUM",
+      "imports": [
+        "gradio",
+        "PIL.Image"
+      ],
+      "exports": [
+        "combine_images"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "combine_images",
+          "line": 4
+        }
+      ],
+      "summary": "Provides a lightweight Gradio interface that alpha-composites uploaded transparent PNG layers back into one image in stack order.",
+      "content_stats": {
+        "lines": 31,
+        "characters": 947
+      },
+      "entry_point": true,
+      "parsing_notes": []
+    },
+    {
+      "path": "src/tool/edit_rgba_image.py",
+      "language": "python",
+      "type": "tool",
+      "role": "Auxiliary editing app for transparent layers",
+      "priority": "HIGH",
+      "imports": [
+        "gradio",
+        "numpy",
+        "random",
+        "torch",
+        "PIL.Image",
+        "PIL.ImageDraw",
+        "torchvision.transforms",
+        "transformers.AutoModelForImageSegmentation",
+        "diffusers.QwenImageEditPlusPipeline"
+      ],
+      "exports": [
+        "blend_with_green_bg",
+        "infer"
+      ],
+      "key_elements": [
+        {
+          "type": "function",
+          "name": "blend_with_green_bg",
+          "line": 27
+        },
+        {
+          "type": "function",
+          "name": "infer",
+          "line": 34
+        }
+      ],
+      "summary": "Runs a second Gradio app that edits a single RGBA layer with Qwen-Image-Edit, then removes the background again with RMBG so the result stays transparent.",
+      "content_stats": {
+        "lines": 159,
+        "characters": 5156
+      },
+      "entry_point": true,
+      "parsing_notes": []
+    }
+  ],
+  "relationships": [
+    {
+      "from": "README.md",
+      "to": "src/app.py",
+      "type": "documents_entry_point",
+      "reason": "README instructs users to launch the main decomposition app with `python src/app.py`."
+    },
+    {
+      "from": "README.md",
+      "to": "src/tool/edit_rgba_image.py",
+      "type": "documents_entry_point",
+      "reason": "README instructs users to launch the transparent layer editor with `python src/tool/edit_rgba_image.py`."
+    },
+    {
+      "from": "README.md",
+      "to": "src/tool/combine_layers.py",
+      "type": "documents_entry_point",
+      "reason": "README instructs users to launch the layer recomposition tool with `python src/tool/combine_layers.py`."
+    },
+    {
+      "from": "src/app.py",
+      "to": "src/tool/edit_rgba_image.py",
+      "type": "workflow_handoff",
+      "reason": "The main app produces decomposed PNG layers that the editing app can modify individually."
+    },
+    {
+      "from": "src/tool/edit_rgba_image.py",
+      "to": "src/tool/combine_layers.py",
+      "type": "workflow_handoff",
+      "reason": "Edited RGBA layers can be uploaded to the combine tool to rebuild a final composite image."
+    }
+  ],
+  "entry_points": [
+    {
+      "path": "src/app.py",
+      "kind": "cli/web_app",
+      "reason": "Launches the primary Gradio decomposition service."
+    },
+    {
+      "path": "src/tool/combine_layers.py",
+      "kind": "cli/web_app",
+      "reason": "Launches the Gradio layer recomposition tool."
+    },
+    {
+      "path": "src/tool/edit_rgba_image.py",
+      "kind": "cli/web_app",
+      "reason": "Launches the Gradio layer editor for RGBA images."
+    }
+  ],
+  "config_files": [
+    {
+      "path": "package.json",
+      "detected": false
+    },
+    {
+      "path": "requirements.txt",
+      "detected": false
+    },
+    {
+      "path": "Dockerfile",
+      "detected": false
+    },
+    {
+      "path": ".env",
+      "detected": false
+    }
+  ],
+  "tech_stack": {
+    "languages": [
+      "markdown",
+      "python",
+      "text"
+    ],
+    "tools": [
+      "diffusers",
+      "gradio",
+      "torch",
+      "Pillow",
+      "python-pptx",
+      "psd-tools",
+      "transformers",
+      "torchvision",
+      "numpy"
+    ],
+    "runtime": [
+      "Python",
+      "CUDA-capable GPU preferred"
+    ]
+  },
+  "token_estimate": {
+    "method": "approx_char_count_div_4",
+    "total_characters": 33817,
+    "estimated_tokens": 8454
+  },
+  "observations": [
+    "The repository is a small demo-oriented Python project centered on Gradio interfaces rather than a reusable package layout.",
+    "The three Python scripts are linked by user workflow more than by direct internal imports.",
+    "Model execution depends on external pretrained Hugging Face assets and is likely GPU-oriented because the main pipeline is moved directly to CUDA with bfloat16.",
+    "The main app includes export paths for PPTX, ZIP, and PSD, which positions the repo as an editing workflow bridge rather than only a model demo."
+  ],
+  "unknowns_or_issues": [
+    "No dependency manifest such as `requirements.txt` or `pyproject.toml` is present in the markdown snapshot, so install requirements are inferred from imports and README commands.",
+    "The directory snapshot shown in the markdown does not include `assets/`, but `src/app.py` references `assets/test_images/*.png`, so the capture appears incomplete.",
+    "Runtime environment details such as model cache setup, CUDA version, and launch hardware are not encoded in the repository snapshot."
+  ]
+}

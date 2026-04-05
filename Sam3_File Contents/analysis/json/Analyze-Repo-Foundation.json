@@ -1,0 +1,174 @@
+{
+  "input": {
+    "repo_folder": "./Sam3_File Contents",
+    "focus": "Full Repository Overview",
+    "source_preprep_json": "./Sam3_File Contents/analysis/json/preprep-repo-doc.json",
+    "source_preprep_markdown": "./Sam3_File Contents/analysis/markdown/preprep-repo-breakdown.md"
+  },
+  "repository_identity": {
+    "name": "Sam3_File Contents",
+    "goal": "General understanding",
+    "processing_mode_from_preprep": "Deep",
+    "selected_focus": "Full Repository Overview"
+  },
+  "inventory": {
+    "total_files_detected": 81,
+    "total_files_processed": 81,
+    "token_estimate_total": 228811,
+    "role_counts": {
+      "agent-runtime": 19,
+      "evaluation-script": 7,
+      "example-notebook": 8,
+      "model-component": 6,
+      "model-factory": 1,
+      "model-support": 22,
+      "package-config": 1,
+      "package-export": 1,
+      "predictor": 4,
+      "project-overview": 1,
+      "sam-core-component": 6,
+      "supporting-file": 3,
+      "utility-script": 2
+    },
+    "language_counts": {
+      "markdown": 2,
+      "python": 76,
+      "text": 2,
+      "toml": 1
+    },
+    "priority_counts": {
+      "high": 12,
+      "medium": 51,
+      "other": 18
+    }
+  },
+  "entry_points": [
+    "README.md",
+    "sam3/agent/helpers/color_map.py",
+    "sam3/model_builder.py",
+    "scripts/eval/gold/eval_sam3.py",
+    "scripts/eval/standalone_cgf1.py",
+    "scripts/eval/veval/README.md",
+    "scripts/eval/veval/__init__.py",
+    "scripts/eval/veval/saco_yt1b_annot_update.py",
+    "scripts/eval/veval/saco_yt1b_downloader.py",
+    "scripts/eval/veval/saco_yt1b_frame_prep_util.py",
+    "scripts/measure_speed.py",
+    "scripts/qualitative_test.py"
+  ],
+  "config_files": [
+    "pyproject.toml"
+  ],
+  "tech_stack": {
+    "languages": [
+      [
+        "python",
+        76
+      ],
+      [
+        "markdown",
+        2
+      ],
+      [
+        "text",
+        2
+      ],
+      [
+        "toml",
+        1
+      ]
+    ],
+    "tools": [
+      "Jupyter",
+      "OpenCV",
+      "Pillow",
+      "PyTorch",
+      "huggingface_hub",
+      "iopath",
+      "matplotlib",
+      "numpy",
+      "torchvision"
+    ],
+    "runtime": [
+      "Python >=3.8",
+      "CUDA GPU recommended"
+    ]
+  },
+  "top_level_areas": {
+    "README.md": 1,
+    "pyproject.toml": 1,
+    "sam3": 61,
+    "scripts": 9,
+    "MANIFEST.in": 1,
+    "examples": 8
+  },
+  "role_examples": {
+    "project-overview": [
+      "README.md"
+    ],
+    "package-config": [
+      "pyproject.toml"
+    ],
+    "package-export": [
+      "sam3/__init__.py"
+    ],
+    "agent-runtime": [
+      "sam3/agent/agent_core.py",
+      "sam3/agent/client_llm.py",
+      "sam3/agent/client_sam3.py"
+    ],
+    "predictor": [
+      "sam3/model/sam3_base_predictor.py",
+      "sam3/model/sam3_multiplex_video_predictor.py",
+      "sam3/model/sam3_video_predictor.py"
+    ],
+    "model-support": [
+      "sam3/model/sam3_image.py",
+      "sam3/model/sam3_image_processor.py",
+      "sam3/model/act_ckpt_utils.py"
+    ],
+    "model-factory": [
+      "sam3/model_builder.py"
+    ],
+    "utility-script": [
+      "scripts/measure_speed.py",
+      "scripts/qualitative_test.py"
+    ],
+    "model-component": [
+      "sam3/model/encoder.py",
+      "sam3/model/geometry_encoders.py",
+      "sam3/model/multiplex_mask_decoder.py"
+    ],
+    "sam-core-component": [
+      "sam3/sam/common.py",
+      "sam3/sam/mask_decoder.py",
+      "sam3/sam/prompt_encoder.py"
+    ],
+    "evaluation-script": [
+      "scripts/eval/gold/eval_sam3.py",
+      "scripts/eval/standalone_cgf1.py",
+      "scripts/eval/veval/README.md"
+    ],
+    "supporting-file": [
+      "MANIFEST.in",
+      "sam3/logger.py",
+      "sam3/visualization_utils.py"
+    ],
+    "example-notebook": [
+      "examples/saco_gold_silver_vis_example.ipynb",
+      "examples/saco_veval_eval_example.ipynb",
+      "examples/saco_veval_vis_example.ipynb"
+    ]
+  },
+  "dependency_snapshot": {
+    "internal_edge_count": 74,
+    "files_with_dependencies": 30,
+    "files_without_dependencies": 51
+  },
+  "key_findings": [
+    "The repo is Python-dominant and oriented around model assembly, predictors, evaluation scripts, and an agent layer.",
+    "sam3/model_builder.py is the central construction hub for image, video, and multiplex model variants.",
+    "The repository snapshot includes documentation and evaluation workflows alongside the core package, indicating both library and research/demo usage.",
+    "The agent subsystem adds multimodal LLM-driven orchestration on top of the segmentation stack."
+  ]
+}
