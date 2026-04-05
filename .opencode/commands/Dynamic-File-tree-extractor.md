@@ -8,17 +8,21 @@ Subtask: true
 ## Inputs
 
 - file_tree_path (string, required)  
-- goal (string, optional)
-
+- goal:
+   - I want to only extract files that help do the following:
+        1. How to use the app
+        2. How to apply or wrap the app withing an exsiting app
+        3. How to run the app in tandem with other exsiting apps
+        4. How to make changes to the code base to increase productivity when applicable
 ---
 
 ## Outputs
 
 ### JSON Output
-`./pre-analysis/<repo_name>/extraction-plan.json`
+`./pre-analysis/<repo_name>/json/extraction-plan.json`
 
 ### Markdown Output
-`./pre-analysis/<repo_name>/extraction-plan.md`
+`./pre-analysis/<repo_name>/markdown/extraction-plan.md`
 
 ---
 
@@ -59,7 +63,7 @@ Extract repo name from root
 
 ### Step 2 — Create Output Directory
 
-`./pre-analysis/<repo_name>/`
+`./pre-analysis/<repo_name>`
 
 ---
 
@@ -116,6 +120,7 @@ Example:
 Example:
 
 `LICENSE`
+
 `CONTRIBUTING.md`
 
 
@@ -221,10 +226,10 @@ id="simple-exclude-list"
 ### Step 15 — Persist Outputs
 
 JSON:
-`.pre-analysis/<repo_name>/extraction-plan.json`
+`./pre-analysis/<repo_name>/json/extraction-plan.json`
 
 Markdown:
-`./pre-analysis/<repo_name>/extraction-plan.md`
+`./pre-analysis/<repo_name>/markdown/extraction-plan.md`
 
 ---
 
