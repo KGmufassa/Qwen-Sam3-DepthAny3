@@ -1,0 +1,579 @@
+{
+  "repo_folder": "./kgmufassa-parallax-story-board",
+  "focus": "Full Repository Overview",
+  "mode": "Deep",
+  "source_inputs": {
+    "preprep_json": "./kgmufassa-parallax-story-board/analysis/json/preprep-repo-doc.json",
+    "foundation_json": "./kgmufassa-parallax-story-board/analysis/json/Analyze-Repo-Foundation.json"
+  },
+  "layers": {
+    "counts": {
+      "app_routes": 30,
+      "config": 2,
+      "core": 8,
+      "data": 2,
+      "docs": 21,
+      "feature_ui": 16,
+      "infrastructure": 4,
+      "interfaces": 12,
+      "modules": 45,
+      "other": 42,
+      "tests": 16
+    },
+    "dependency_flows": [
+      {
+        "from_layer": "modules",
+        "to_layer": "modules",
+        "count": 60
+      },
+      {
+        "from_layer": "interfaces",
+        "to_layer": "modules",
+        "count": 25
+      },
+      {
+        "from_layer": "app_routes",
+        "to_layer": "core",
+        "count": 21
+      },
+      {
+        "from_layer": "feature_ui",
+        "to_layer": "feature_ui",
+        "count": 21
+      },
+      {
+        "from_layer": "app_routes",
+        "to_layer": "interfaces",
+        "count": 20
+      },
+      {
+        "from_layer": "modules",
+        "to_layer": "core",
+        "count": 17
+      },
+      {
+        "from_layer": "interfaces",
+        "to_layer": "core",
+        "count": 16
+      },
+      {
+        "from_layer": "modules",
+        "to_layer": "config",
+        "count": 14
+      },
+      {
+        "from_layer": "tests",
+        "to_layer": "modules",
+        "count": 14
+      },
+      {
+        "from_layer": "app_routes",
+        "to_layer": "infrastructure",
+        "count": 13
+      },
+      {
+        "from_layer": "interfaces",
+        "to_layer": "interfaces",
+        "count": 11
+      },
+      {
+        "from_layer": "interfaces",
+        "to_layer": "other",
+        "count": 10
+      },
+      {
+        "from_layer": "app_routes",
+        "to_layer": "feature_ui",
+        "count": 8
+      },
+      {
+        "from_layer": "tests",
+        "to_layer": "config",
+        "count": 8
+      },
+      {
+        "from_layer": "core",
+        "to_layer": "core",
+        "count": 6
+      },
+      {
+        "from_layer": "modules",
+        "to_layer": "infrastructure",
+        "count": 6
+      },
+      {
+        "from_layer": "interfaces",
+        "to_layer": "config",
+        "count": 5
+      },
+      {
+        "from_layer": "infrastructure",
+        "to_layer": "modules",
+        "count": 4
+      },
+      {
+        "from_layer": "app_routes",
+        "to_layer": "modules",
+        "count": 3
+      },
+      {
+        "from_layer": "infrastructure",
+        "to_layer": "core",
+        "count": 3
+      },
+      {
+        "from_layer": "app_routes",
+        "to_layer": "config",
+        "count": 2
+      },
+      {
+        "from_layer": "app_routes",
+        "to_layer": "other",
+        "count": 2
+      },
+      {
+        "from_layer": "feature_ui",
+        "to_layer": "modules",
+        "count": 2
+      },
+      {
+        "from_layer": "infrastructure",
+        "to_layer": "config",
+        "count": 2
+      },
+      {
+        "from_layer": "tests",
+        "to_layer": "core",
+        "count": 2
+      },
+      {
+        "from_layer": "core",
+        "to_layer": "config",
+        "count": 1
+      },
+      {
+        "from_layer": "interfaces",
+        "to_layer": "infrastructure",
+        "count": 1
+      },
+      {
+        "from_layer": "other",
+        "to_layer": "config",
+        "count": 1
+      },
+      {
+        "from_layer": "other",
+        "to_layer": "modules",
+        "count": 1
+      },
+      {
+        "from_layer": "tests",
+        "to_layer": "feature_ui",
+        "count": 1
+      }
+    ]
+  },
+  "architectural_patterns": [
+    "Request handling appears to flow from Next.js route files into controller files and then into module services, matching a layered application design.",
+    "UI concerns are separated into `src/features/**`, while reusable business logic lives in `src/modules/**`, reducing coupling between presentation and domain logic.",
+    "Persistence and provider integrations are isolated under infrastructure and Prisma layers, suggesting deliberate boundaries around external systems.",
+    "The versioned API surface under `src/app/api/v1/**` indicates an intentional external contract rather than ad hoc route growth."
+  ],
+  "module_architecture": {
+    "assets": {
+      "file_count": 5,
+      "service_files": [
+        "src/modules/assets/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [
+        "src/modules/assets/index.ts"
+      ],
+      "support_files": [],
+      "cross_module_dependencies": {
+        "decomposition": 1,
+        "scenes": 1
+      }
+    },
+    "auth": {
+      "file_count": 5,
+      "service_files": [
+        "src/modules/auth/service.ts"
+      ],
+      "repository_files": [
+        "src/modules/auth/repository.ts"
+      ],
+      "index_files": [
+        "src/modules/auth/index.ts"
+      ],
+      "support_files": [
+        "src/modules/auth/types.ts",
+        "src/modules/auth/validator.ts"
+      ],
+      "cross_module_dependencies": {}
+    },
+    "authorization": {
+      "file_count": 3,
+      "service_files": [
+        "src/modules/authorization/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [
+        "src/modules/authorization/index.ts"
+      ],
+      "support_files": [
+        "src/modules/authorization/types.ts"
+      ],
+      "cross_module_dependencies": {}
+    },
+    "decomposition": {
+      "file_count": 3,
+      "service_files": [
+        "src/modules/decomposition/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [],
+      "support_files": [
+        "src/modules/decomposition/types.ts"
+      ],
+      "cross_module_dependencies": {
+        "assets": 1,
+        "feature-flags": 1,
+        "motion": 1,
+        "playback": 1,
+        "scenes": 1
+      }
+    },
+    "feature-flags": {
+      "file_count": 2,
+      "service_files": [
+        "src/modules/feature-flags/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [
+        "src/modules/feature-flags/index.ts"
+      ],
+      "support_files": [],
+      "cross_module_dependencies": {}
+    },
+    "guest-sessions": {
+      "file_count": 4,
+      "service_files": [
+        "src/modules/guest-sessions/service.ts"
+      ],
+      "repository_files": [
+        "src/modules/guest-sessions/repository.ts"
+      ],
+      "index_files": [
+        "src/modules/guest-sessions/index.ts"
+      ],
+      "support_files": [
+        "src/modules/guest-sessions/types.ts"
+      ],
+      "cross_module_dependencies": {}
+    },
+    "maintenance": {
+      "file_count": 2,
+      "service_files": [
+        "src/modules/maintenance/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [
+        "src/modules/maintenance/index.ts"
+      ],
+      "support_files": [],
+      "cross_module_dependencies": {
+        "scenes": 2,
+        "projects": 1
+      }
+    },
+    "motion": {
+      "file_count": 3,
+      "service_files": [
+        "src/modules/motion/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [
+        "src/modules/motion/index.ts"
+      ],
+      "support_files": [
+        "src/modules/motion/types.ts"
+      ],
+      "cross_module_dependencies": {
+        "scenes": 3
+      }
+    },
+    "playback": {
+      "file_count": 2,
+      "service_files": [
+        "src/modules/playback/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [
+        "src/modules/playback/index.ts"
+      ],
+      "support_files": [],
+      "cross_module_dependencies": {
+        "feature-flags": 1,
+        "projects": 1,
+        "scenes": 1
+      }
+    },
+    "processing": {
+      "file_count": 2,
+      "service_files": [
+        "src/modules/processing/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [
+        "src/modules/processing/index.ts"
+      ],
+      "support_files": [],
+      "cross_module_dependencies": {
+        "feature-flags": 1,
+        "scenes": 1
+      }
+    },
+    "projects": {
+      "file_count": 5,
+      "service_files": [
+        "src/modules/projects/service.ts"
+      ],
+      "repository_files": [
+        "src/modules/projects/repository.ts"
+      ],
+      "index_files": [
+        "src/modules/projects/index.ts"
+      ],
+      "support_files": [
+        "src/modules/projects/types.ts",
+        "src/modules/projects/validator.ts"
+      ],
+      "cross_module_dependencies": {}
+    },
+    "scenes": {
+      "file_count": 5,
+      "service_files": [
+        "src/modules/scenes/service.ts"
+      ],
+      "repository_files": [
+        "src/modules/scenes/repository.ts"
+      ],
+      "index_files": [
+        "src/modules/scenes/index.ts"
+      ],
+      "support_files": [
+        "src/modules/scenes/types.ts",
+        "src/modules/scenes/validator.ts"
+      ],
+      "cross_module_dependencies": {}
+    },
+    "uploads": {
+      "file_count": 4,
+      "service_files": [
+        "src/modules/uploads/service.ts"
+      ],
+      "repository_files": [],
+      "index_files": [
+        "src/modules/uploads/index.ts"
+      ],
+      "support_files": [
+        "src/modules/uploads/types.ts",
+        "src/modules/uploads/validator.ts"
+      ],
+      "cross_module_dependencies": {}
+    }
+  },
+  "critical_flows": [
+    {
+      "name": "Authentication flow",
+      "path": [
+        "src/app/api/auth/[...nextauth]/route.ts",
+        "src/auth.ts",
+        "src/modules/auth/repository.ts",
+        "src/infrastructure/db/prisma.ts"
+      ],
+      "description": "Auth requests enter through NextAuth routes, rely on auth setup, and likely resolve users through the auth repository and Prisma client."
+    },
+    {
+      "name": "Project management flow",
+      "path": [
+        "src/app/api/v1/projects/route.ts",
+        "src/interfaces/http/controllers/project-controller.ts",
+        "src/modules/projects/service.ts",
+        "src/modules/projects/repository.ts",
+        "src/infrastructure/db/prisma.ts"
+      ],
+      "description": "Project CRUD and orchestration likely move from API route to controller, through project service logic, into repository-backed persistence."
+    },
+    {
+      "name": "Scene processing flow",
+      "path": [
+        "src/app/api/v1/scenes/[sceneId]/regenerate/route.ts",
+        "src/interfaces/http/controllers/scene-controller.ts",
+        "src/modules/scenes/service.ts",
+        "src/modules/processing/service.ts",
+        "src/infrastructure/providers/qwen/client.ts"
+      ],
+      "description": "Scene regeneration appears to combine scene orchestration, processing logic, and Qwen provider integration."
+    },
+    {
+      "name": "Preview playback flow",
+      "path": [
+        "src/app/projects/[projectId]/preview/page.tsx",
+        "src/features/preview/components/project-preview-page.tsx",
+        "src/features/preview/lib/playback-client.ts",
+        "src/app/api/v1/projects/[projectId]/preview/playback/route.ts",
+        "src/interfaces/http/controllers/preview-controller.ts",
+        "src/modules/playback/service.ts"
+      ],
+      "description": "The preview UI likely requests playback data from the API, which is then composed by preview and playback services."
+    }
+  ],
+  "dependency_hubs": [
+    {
+      "path": "src/config/env.ts",
+      "incoming": 26,
+      "outgoing": 0,
+      "layer": "config",
+      "type": "source-file"
+    },
+    {
+      "path": "src/core/http/route-handler.ts",
+      "incoming": 20,
+      "outgoing": 3,
+      "layer": "core",
+      "type": "source-file"
+    },
+    {
+      "path": "src/core/errors/app-error.ts",
+      "incoming": 18,
+      "outgoing": 0,
+      "layer": "core",
+      "type": "source-file"
+    },
+    {
+      "path": "src/interfaces/http/controllers/scene-controller.ts",
+      "incoming": 4,
+      "outgoing": 13,
+      "layer": "interfaces",
+      "type": "controller"
+    },
+    {
+      "path": "src/infrastructure/rate-limit/memory-rate-limiter.ts",
+      "incoming": 13,
+      "outgoing": 2,
+      "layer": "infrastructure",
+      "type": "source-file"
+    },
+    {
+      "path": "src/interfaces/http/controllers/project-controller.ts",
+      "incoming": 4,
+      "outgoing": 10,
+      "layer": "interfaces",
+      "type": "controller"
+    },
+    {
+      "path": "src/modules/scenes/index.ts",
+      "incoming": 9,
+      "outgoing": 3,
+      "layer": "modules",
+      "type": "module-index"
+    },
+    {
+      "path": "src/modules/assets/index.ts",
+      "incoming": 7,
+      "outgoing": 4,
+      "layer": "modules",
+      "type": "module-index"
+    },
+    {
+      "path": "src/modules/decomposition/service.ts",
+      "incoming": 1,
+      "outgoing": 10,
+      "layer": "modules",
+      "type": "service"
+    },
+    {
+      "path": "src/core/request/context.ts",
+      "incoming": 10,
+      "outgoing": 0,
+      "layer": "core",
+      "type": "source-file"
+    },
+    {
+      "path": "src/interfaces/http/controllers/auth-controller.ts",
+      "incoming": 2,
+      "outgoing": 8,
+      "layer": "interfaces",
+      "type": "controller"
+    },
+    {
+      "path": "src/lib/api-response.ts",
+      "incoming": 9,
+      "outgoing": 0,
+      "layer": "other",
+      "type": "source-file"
+    },
+    {
+      "path": "src/interfaces/http/controllers/preview-controller.ts",
+      "incoming": 2,
+      "outgoing": 7,
+      "layer": "interfaces",
+      "type": "controller"
+    },
+    {
+      "path": "src/features/shared/components/app-header.tsx",
+      "incoming": 7,
+      "outgoing": 1,
+      "layer": "feature_ui",
+      "type": "component"
+    },
+    {
+      "path": "src/interfaces/http/support/request-actor.ts",
+      "incoming": 4,
+      "outgoing": 4,
+      "layer": "interfaces",
+      "type": "source-file"
+    },
+    {
+      "path": "src/interfaces/http/controllers/health-controller.ts",
+      "incoming": 2,
+      "outgoing": 6,
+      "layer": "interfaces",
+      "type": "controller"
+    },
+    {
+      "path": "src/modules/maintenance/service.ts",
+      "incoming": 2,
+      "outgoing": 6,
+      "layer": "modules",
+      "type": "service"
+    },
+    {
+      "path": "src/interfaces/http/controllers/upload-controller.ts",
+      "incoming": 1,
+      "outgoing": 7,
+      "layer": "interfaces",
+      "type": "controller"
+    },
+    {
+      "path": "src/modules/playback/service.ts",
+      "incoming": 1,
+      "outgoing": 7,
+      "layer": "modules",
+      "type": "service"
+    },
+    {
+      "path": "src/config/constants.ts",
+      "incoming": 7,
+      "outgoing": 0,
+      "layer": "config",
+      "type": "source-file"
+    }
+  ],
+  "risks_and_unknowns": [
+    "17 local imports could not be resolved from the markdown snapshot.",
+    "Several modules do not expose an obvious repository file, so persistence responsibilities may be unevenly distributed."
+  ]
+}

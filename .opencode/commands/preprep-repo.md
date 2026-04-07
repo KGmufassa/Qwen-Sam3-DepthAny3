@@ -7,10 +7,29 @@ subtask: false
 
 ## Interactive Input Phase (REQUIRED)
 
-### 1. Define Source File
+### 1. Select Source Folder (Multiple Choice)
 
 Prompt:
-- Provide the path to the Markdown file containing the repository
+- Scan `./Pre-analysis/` for direct child folders only
+- Present those folder names as selectable options
+- Ask the user to choose one source folder
+
+Options:
+- `<folder_1>`
+- `<folder_2>`
+- `<folder_3>`
+- etc.
+
+Derived Source File:
+- `input_source = ./Pre-analysis/<selected_folder>/content-file-download.md`
+
+Validation:
+- Ensure the selected folder exists
+- Ensure `content-file-download.md` exists inside the selected folder
+- IF missing:
+  - log error
+  - prompt user to choose another folder or fix the missing file
+
 
 ---
 

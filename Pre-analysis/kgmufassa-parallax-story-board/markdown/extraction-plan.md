@@ -1,0 +1,361 @@
+# File Tree Extraction Plan: kgmufassa-parallax-story-board
+
+## Overview
+- Project Type: Next.js TypeScript web application with Prisma, Vitest, and repo-local productivity tooling
+- Goal: Extract only files that help explain how to use the app, wrap it inside an existing app, run it alongside other existing apps, and improve developer productivity when relevant.
+- Total Items: 277
+- Included: 198
+- Excluded: 79
+
+---
+
+## Included Paths
+- `.env.example`
+- `.opencode/commands/brainstorm.md`
+- `.opencode/commands/build-frontend-system.md`
+- `.opencode/commands/classify-app.md`
+- `.opencode/commands/extract-design-spec.md`
+- `.opencode/commands/finalize-prd.md`
+- `.opencode/commands/generate-architecture.md`
+- `.opencode/commands/generate-page-graph.md`
+- `.opencode/commands/generate-plan.md`
+- `.opencode/commands/generate-stack-guidelines.md`
+- `.opencode/commands/generate-ui-dependency-graph.md`
+- `.opencode/commands/implement-app.md`
+- `.opencode/commands/stack-advisor.md`
+- `.opencode/commands/ui-prompt-builder.md`
+- `.opencode/modules/buildBackendCore.js`
+- `.opencode/modules/buildDatabase.js`
+- `.opencode/modules/buildFrontendCore.js`
+- `.opencode/modules/dependencyGraph.js`
+- `.opencode/modules/deployApp.js`
+- `.opencode/modules/featureBuilder.js`
+- `.opencode/modules/qaValidator.js`
+- `.opencode/modules/scaffoldProject.js`
+- `.opencode/modules/taskScheduler.js`
+- `.opencode/modules/testRunner.js`
+- `.opencode/modules/validateArchitecture.js`
+- `.opencode/skills/debugg/skill.md`
+- `.opencode/skills/implement-app/orchestrator.js`
+- `.opencode/skills/implement-app/skill.md`
+- `.opencode/skills/validate-build/orchestrator.js`
+- `.opencode/skills/validate-build/skill.md`
+- `AGENTS.md`
+- `docs/notes/button-trigger-route-audit.md`
+- `docs/notes/canonical-app-route-structure.md`
+- `docs/notes/planning backend architecture.md`
+- `docs/public/AI_BUILD_PIPELINE.md`
+- `docs/public/Planning Phase Pipeline (Simplified).md`
+- `docs/public/Qwen Image Layered Readme.rtf`
+- `docs/public/Qwen Image layered combine Tools py.rtf`
+- `docs/public/Qwen image layered app.py .rtf`
+- `docs/public/Qwen image layered edit_rgba_image tool.rtf`
+- `docs/public/Runpod_sshk.md`
+- `docs/public/implementation Flow`
+- `docs/public/validate-build Flow`
+- `docs/reference/01-stitched-parallax-story-product-flow.md`
+- `docs/reference/02-stitched-parallax-story-engine-sequence.md`
+- `docs/reference/03-editor-to-parallax-integration-plan.md`
+- `docs/reference/brainstorm-prd-draft.md`
+- `docs/reference/prd-draft.md`
+- `docs/reference/project-state.md`
+- `docs/rules/architecture-rules.md`
+- `docs/setup/local-mvp.md`
+- `docs/setup/mvp-decision-log.md`
+- `eslint.config.mjs`
+- `next-env.d.ts`
+- `next.config.ts`
+- `package.json`
+- `prisma/migrations/20260316000000_init/migration.sql`
+- `prisma/schema.prisma`
+- `public/runpod-ssh-setup-tutorial.md`
+- `scripts/dev-with-chunk-sync.mjs`
+- `src/app/api/auth/[...nextauth]/route.ts`
+- `src/app/api/v1/assets/[...assetPath]/route.ts`
+- `src/app/api/v1/auth/register/route.ts`
+- `src/app/api/v1/auth/session/route.ts`
+- `src/app/api/v1/guest-sessions/route.ts`
+- `src/app/api/v1/health/live/route.ts`
+- `src/app/api/v1/health/ready/route.ts`
+- `src/app/api/v1/internal/maintenance/cleanup/route.ts`
+- `src/app/api/v1/internal/maintenance/recover-timeouts/route.ts`
+- `src/app/api/v1/projects/[projectId]/claim/route.ts`
+- `src/app/api/v1/projects/[projectId]/preview/playback/route.ts`
+- `src/app/api/v1/projects/[projectId]/preview/status/route.ts`
+- `src/app/api/v1/projects/[projectId]/route.ts`
+- `src/app/api/v1/projects/[projectId]/scenes/reorder/route.ts`
+- `src/app/api/v1/projects/[projectId]/uploads/finalize/route.ts`
+- `src/app/api/v1/projects/[projectId]/uploads/init/route.ts`
+- `src/app/api/v1/projects/route.ts`
+- `src/app/api/v1/scenes/[sceneId]/regenerate/route.ts`
+- `src/app/api/v1/scenes/[sceneId]/retry/route.ts`
+- `src/app/api/v1/scenes/[sceneId]/route.ts`
+- `src/app/api/v1/uploads/[uploadToken]/route.ts`
+- `src/app/layout.tsx`
+- `src/app/login/page.tsx`
+- `src/app/page.tsx`
+- `src/app/projects/[projectId]/editor/page.tsx`
+- `src/app/projects/[projectId]/preview/page.tsx`
+- `src/app/projects/new/page.tsx`
+- `src/app/projects/page.tsx`
+- `src/app/settings/page.tsx`
+- `src/app/signup/page.tsx`
+- `src/auth.ts`
+- `src/config/constants.ts`
+- `src/config/env.ts`
+- `src/core/errors/app-error.ts`
+- `src/core/errors/error-response.ts`
+- `src/core/http/route-handler.ts`
+- `src/core/logging/logger.ts`
+- `src/core/observability/metrics.ts`
+- `src/core/observability/processing-log.ts`
+- `src/core/request/context.ts`
+- `src/core/security/cookies.ts`
+- `src/features/auth/components/auth-page.tsx`
+- `src/features/marketing/components/landing-page.tsx`
+- `src/features/preview/components/playback-scene-renderer.tsx`
+- `src/features/preview/components/project-preview-page.tsx`
+- `src/features/preview/lib/playback-client.ts`
+- `src/features/projects/components/new-project-form.tsx`
+- `src/features/projects/components/new-project-page.tsx`
+- `src/features/projects/components/project-card.tsx`
+- `src/features/projects/components/project-editor-page.tsx`
+- `src/features/projects/components/projects-dashboard-page.tsx`
+- `src/features/projects/mock-projects.ts`
+- `src/features/scenes/components/scene-rail.tsx`
+- `src/features/settings/components/settings-page.tsx`
+- `src/features/shared/components/app-header.tsx`
+- `src/features/shared/components/app-icon.tsx`
+- `src/features/uploads/components/upload-panel.tsx`
+- `src/infrastructure/db/prisma.ts`
+- `src/infrastructure/jobs/trigger-dev.ts`
+- `src/infrastructure/providers/qwen/client.ts`
+- `src/infrastructure/rate-limit/memory-rate-limiter.ts`
+- `src/interfaces/http/controllers/auth-controller.ts`
+- `src/interfaces/http/controllers/guest-session-controller.ts`
+- `src/interfaces/http/controllers/health-controller.ts`
+- `src/interfaces/http/controllers/maintenance-controller.ts`
+- `src/interfaces/http/controllers/preview-controller.ts`
+- `src/interfaces/http/controllers/project-controller.ts`
+- `src/interfaces/http/controllers/scene-controller.ts`
+- `src/interfaces/http/controllers/upload-controller.ts`
+- `src/interfaces/http/support/authorization.ts`
+- `src/interfaces/http/support/internal-maintenance.ts`
+- `src/interfaces/http/support/json-body.ts`
+- `src/interfaces/http/support/request-actor.ts`
+- `src/lib/api-response.ts`
+- `src/modules/assets/index.ts`
+- `src/modules/assets/pathing.ts`
+- `src/modules/assets/serialization.ts`
+- `src/modules/assets/service.ts`
+- `src/modules/assets/storage.ts`
+- `src/modules/auth/index.ts`
+- `src/modules/auth/repository.ts`
+- `src/modules/auth/service.ts`
+- `src/modules/auth/types.ts`
+- `src/modules/auth/validator.ts`
+- `src/modules/authorization/index.ts`
+- `src/modules/authorization/service.ts`
+- `src/modules/authorization/types.ts`
+- `src/modules/decomposition/adapter.ts`
+- `src/modules/decomposition/service.ts`
+- `src/modules/decomposition/types.ts`
+- `src/modules/feature-flags/index.ts`
+- `src/modules/feature-flags/service.ts`
+- `src/modules/guest-sessions/index.ts`
+- `src/modules/guest-sessions/repository.ts`
+- `src/modules/guest-sessions/service.ts`
+- `src/modules/guest-sessions/types.ts`
+- `src/modules/maintenance/index.ts`
+- `src/modules/maintenance/service.ts`
+- `src/modules/motion/index.ts`
+- `src/modules/motion/service.ts`
+- `src/modules/motion/types.ts`
+- `src/modules/playback/index.ts`
+- `src/modules/playback/service.ts`
+- `src/modules/processing/index.ts`
+- `src/modules/processing/service.ts`
+- `src/modules/projects/index.ts`
+- `src/modules/projects/repository.ts`
+- `src/modules/projects/service.ts`
+- `src/modules/projects/types.ts`
+- `src/modules/projects/validator.ts`
+- `src/modules/scenes/index.ts`
+- `src/modules/scenes/repository.ts`
+- `src/modules/scenes/service.ts`
+- `src/modules/scenes/types.ts`
+- `src/modules/scenes/validator.ts`
+- `src/modules/uploads/index.ts`
+- `src/modules/uploads/service.ts`
+- `src/modules/uploads/types.ts`
+- `src/modules/uploads/validator.ts`
+- `src/types/next-auth.d.ts`
+- `tests/unit/core/errors/error-response.test.ts`
+- `tests/unit/features/preview/playback-client.test.ts`
+- `tests/unit/modules/assets/pathing.test.ts`
+- `tests/unit/modules/auth/service.test.ts`
+- `tests/unit/modules/auth/validator.test.ts`
+- `tests/unit/modules/authorization/policy.test.ts`
+- `tests/unit/modules/decomposition/adapter.test.ts`
+- `tests/unit/modules/feature-flags/service.test.ts`
+- `tests/unit/modules/guest-sessions/service.test.ts`
+- `tests/unit/modules/maintenance/service.test.ts`
+- `tests/unit/modules/motion/service.test.ts`
+- `tests/unit/modules/playback/service.test.ts`
+- `tests/unit/modules/projects/service.test.ts`
+- `tests/unit/modules/scenes/service.test.ts`
+- `tests/unit/modules/scenes/validator.test.ts`
+- `tests/unit/modules/uploads/service.test.ts`
+- `tsconfig.json`
+- `vitest.config.ts`
+
+---
+
+## Excluded Paths (Detailed)
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/05bc7602-fce3-48c9-9bca-7b2d24e28f51/v1/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/05bc7602-fce3-48c9-9bca-7b2d24e28f51/v2/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/05bc7602-fce3-48c9-9bca-7b2d24e28f51/v3/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/05bc7602-fce3-48c9-9bca-7b2d24e28f51/v4/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6c28396e-0082-47d0-b0ad-8673189b2c6c/v1/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6c28396e-0082-47d0-b0ad-8673189b2c6c/v2/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6c28396e-0082-47d0-b0ad-8673189b2c6c/v3/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6c28396e-0082-47d0-b0ad-8673189b2c6c/v4/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6e338340-6f10-4bb8-88c3-7971f1d04dd2/v1/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6e338340-6f10-4bb8-88c3-7971f1d04dd2/v2/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6e338340-6f10-4bb8-88c3-7971f1d04dd2/v3/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6e338340-6f10-4bb8-88c3-7971f1d04dd2/v4/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6e338340-6f10-4bb8-88c3-7971f1d04dd2/v5/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/6e338340-6f10-4bb8-88c3-7971f1d04dd2/v6/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/ab4452ac-8d76-4ec7-8200-5d3f0ab2124a/v1/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/ab4452ac-8d76-4ec7-8200-5d3f0ab2124a/v2/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/ab4452ac-8d76-4ec7-8200-5d3f0ab2124a/v3/manifest.json`
+- `.local/storage/projects/57dbb5da-9823-4961-96b6-27e80a97662b/scenes/ab4452ac-8d76-4ec7-8200-5d3f0ab2124a/v4/manifest.json`
+- `apps/web/.next-dev/trace`
+- `design/HTML/authentication-mvp.html`
+- `design/HTML/landing-page-design-system.html`
+- `design/HTML/project-editor-final-mvp.html`
+- `design/HTML/saved-projects-dashboard-final.html`
+- `design/HTML/settings-page-design-system.html`
+- `design/webpages/00-shared-design-system.md`
+- `design/webpages/01-landing-page.md`
+- `design/webpages/02-auth-page.md`
+- `design/webpages/03-project-editor-page.md`
+- `design/webpages/04-preview-player-page.md`
+- `design/webpages/05-projects-dashboard-page.md`
+- `design/webpages/06-settings-page.md`
+- `design/webpages/07-component-map.md`
+- `design/webpages/Create-new-project-progression.md`
+- `docs/Logs/UI-UX-logs-2026-03-17_22-41-59.md`
+- `docs/Logs/UI-UX-logs-2026-03-17_22-56-02.md`
+- `docs/Logs/UI-UX-logs-2026-03-17_23-45-12.md`
+- `docs/Logs/UI-UX-logs-2026-03-17_23-53-50.md`
+- `docs/Logs/UI-UX-logs-2026-03-18_23-31-47.md`
+- `docs/Logs/UI-UX-logs-2026-03-18_23-50-59.md`
+- `docs/Logs/UI-UX-logs-2026-03-18_23-55-13.md`
+- `docs/Logs/UI-UX-logs-2026-03-20_00-00-00.md`
+- `docs/Logs/UI-UX-logs-2026-03-22_12-00-00.md`
+- `docs/Logs/UI-UX-logs-2026-03-22_13-00-00.md`
+- `docs/Logs/UI-UX-logs-2026-03-22_14-00-00.md`
+- `docs/Logs/UI-UX-logs-2026-03-22_14-20-00.md`
+- `docs/Logs/UI-UX-logs-2026-03-22_15-00-00.md`
+- `docs/Logs/runtime-error-2026-03-24_00-54-37.md`
+- `docs/Logs/runtime-error-2026-03-24_00-57-59.md`
+- `docs/Logs/sprint-1-changelog-2026-03-16_01-05-32.md`
+- `docs/rule-packs/ai-native.md`
+- `docs/rule-packs/compliance.md`
+- `docs/rule-packs/high-scale.md`
+- `docs/rule-packs/multi-tenant.md`
+- `docs/rule-packs/real-time.md`
+- `docs/rule-packs/saas.md`
+- `docs/task/Backendplan/index.md`
+- `docs/task/Backendplan/sprint-1/check-build-list.md`
+- `docs/task/Backendplan/sprint-1/plan.md`
+- `docs/task/Backendplan/sprint-2/check-build-list.md`
+- `docs/task/Backendplan/sprint-2/plan.md`
+- `docs/task/Backendplan/sprint-3/check-build-list.md`
+- `docs/task/Backendplan/sprint-3/plan.md`
+- `docs/task/Frontendplan/Webpage-errors.txt`
+- `docs/task/Frontendplan/frontend-build-task-list.md`
+- `docs/task/Frontendplan/index.md`
+- `docs/task/Frontendplan/missing-route-report.md`
+- `docs/task/system/core-system-tickets.md`
+- `docs/task/system/mvp-system-task-list.md`
+- `docs/task/system/parallel-system-tickets.md`
+- `docs/task/system/project-editor-doc-alignment-checklist.md`
+- `docs/task/system/project-editor-doc-alignment-implementation-plan.md`
+- `docs/task/system/project-editor-element-parallax-mvp-execution-plan.md`
+- `docs/task/system/project-editor-grouped-parallax-mobile-first-execution-checklist.md`
+- `docs/templates/ARCHITECTURE_TEMPLATE.md`
+- `docs/templates/FEATURES_BUILD_PLAN.md`
+- `docs/templates/FRONTEND_ARCHITECTURE_TEMPLATE.md`
+- `docs/templates/TECHNICAL_PRD_TEMPLATE.md`
+- `log/visual-audit-2026-03-20.md`
+- `validation-reports/blank.md`
+
+---
+
+## Simplified Exclusion List (KEY SECTION)
+
+```text
+.local, apps, design, log, validation-reports, docs/Logs, docs/rule-packs, docs/task, docs/templates
+```
+id="simple-exclude-list"
+
+---
+
+## Representative Selections
+- `package.json`
+- `next.config.ts`
+- `prisma/schema.prisma`
+- `scripts/dev-with-chunk-sync.mjs`
+- `public/runpod-ssh-setup-tutorial.md`
+- `docs/setup/local-mvp.md`
+- `docs/reference/03-editor-to-parallax-integration-plan.md`
+- `docs/public/AI_BUILD_PIPELINE.md`
+- `src/app/page.tsx`
+- `src/app/api/v1/projects/route.ts`
+- `src/features/projects/components/project-editor-page.tsx`
+- `src/infrastructure/providers/qwen/client.ts`
+- `src/modules/projects/service.ts`
+- `tests/unit/modules/projects/service.test.ts`
+- `.opencode/modules/taskScheduler.js`
+
+---
+
+## Patterns Detected
+- Next.js App Router structure under `src/app` with `page.tsx` and `route.ts` files
+- TypeScript-first project setup with Next.js, ESLint, and Vitest config at the repository root
+- Prisma-backed persistence layer under `prisma/` and `src/infrastructure/db/`
+- Modular feature and service organization under `src/features/`, `src/modules/`, and `src/interfaces/`
+- Operational and integration-oriented documentation under `docs/public/`, `docs/reference/`, `docs/setup/`, and `public/`
+- Developer productivity automation under `.opencode/`
+- Generated, log, and local-state artifacts under `apps/web/.next-dev/`, `docs/Logs/`, `log/`, `.local/`, and `validation-reports/`
+
+---
+
+## Selection Rules Applied
+- Include root runtime/config files needed to identify how the app boots and is configured
+- Include `src/`, `tests/`, `scripts/`, and `prisma/` because they describe usage flow, extension points, and change-safe productivity work
+- Include integration and setup documentation under `docs/setup/`, `docs/public/`, `docs/reference/`, `docs/notes/`, `docs/rules/`, and `public/`
+- Include `.opencode/` because it exposes repository-specific automation and productivity helpers
+- Exclude `design/`, `docs/Logs/`, `docs/task/`, `docs/templates/`, `log/`, `apps/web/.next-dev/`, `.local/`, and `validation-reports/` as non-essential to the goal
+
+---
+
+## Reasoning
+- Included runtime, integration, setup, testing, and automation paths because they best support app usage, embedding, parallel operation, and codebase productivity.
+- Excluded generated traces, logs, design mockups, blank validation placeholders, local storage state, and backlog/planning trackers because they are not required for the extraction goal.
+- Used path-based classification only, so the plan stays deterministic and aligned with the no-content-analysis constraint.
+
+---
+
+## Key Observations
+- The tree shows a Next.js app-router codebase centered in `src/` rather than a deep multi-package workspace.
+- The strongest integration clues live in `docs/reference/`, `docs/public/`, `docs/setup/`, `public/`, `scripts/`, and the API routes under `src/app/api/`.
+- The strongest productivity clues live in `tests/`, `.opencode/`, and the modular service layout under `src/modules/`.
+
+---
+
+## Summary
+- This plan keeps operational code, setup docs, integration docs, tests, and automation helpers.
+- This plan drops non-essential artifacts and collapses broad exclusions into readable directory-level summaries where possible.

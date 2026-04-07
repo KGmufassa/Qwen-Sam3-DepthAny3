@@ -1,0 +1,397 @@
+{
+  "repo_folder": "./kgmufassa-parallax-story-board",
+  "focus": "Full Repository Overview",
+  "source": {
+    "preprep_json": "./kgmufassa-parallax-story-board/analysis/json/preprep-repo-doc.json"
+  },
+  "overview": {
+    "repo_name": "kgmufassa-parallax-story-board",
+    "summary": "This repository appears to be a Next.js parallax story composition platform with a layered backend, Prisma-backed persistence, and feature-oriented UI plus API workflows for projects, scenes, uploads, preview, and authentication.",
+    "total_files": 198,
+    "entry_points": 38,
+    "relationships": 300
+  },
+  "repo_shape": {
+    "top_level_areas": {
+      "AGENTS.md": 1,
+      "docs": 21,
+      "env.example": 1,
+      "eslint.config.mjs": 1,
+      "next-env.d.ts": 1,
+      "next.config.ts": 1,
+      "opencode": 29,
+      "package.json": 1,
+      "prisma": 2,
+      "public": 1,
+      "scripts": 1,
+      "src": 120,
+      "tests": 16,
+      "tsconfig.json": 1,
+      "vitest.config.ts": 1
+    },
+    "high_priority_files": [
+      "next.config.ts",
+      "package.json",
+      "tsconfig.json",
+      "prisma/schema.prisma",
+      "src/auth.ts",
+      "src/app/layout.tsx",
+      "src/app/page.tsx",
+      "src/app/api/auth/[...nextauth]/route.ts",
+      "src/app/api/v1/assets/[...assetPath]/route.ts",
+      "src/app/api/v1/auth/register/route.ts",
+      "src/app/api/v1/auth/session/route.ts",
+      "src/app/api/v1/guest-sessions/route.ts",
+      "src/app/api/v1/health/live/route.ts",
+      "src/app/api/v1/health/ready/route.ts",
+      "src/app/api/v1/internal/maintenance/cleanup/route.ts",
+      "src/app/api/v1/internal/maintenance/recover-timeouts/route.ts",
+      "src/app/api/v1/projects/route.ts",
+      "src/app/api/v1/projects/[projectId]/route.ts",
+      "src/app/api/v1/projects/[projectId]/claim/route.ts",
+      "src/app/api/v1/projects/[projectId]/preview/playback/route.ts",
+      "src/app/api/v1/projects/[projectId]/preview/status/route.ts",
+      "src/app/api/v1/projects/[projectId]/scenes/reorder/route.ts",
+      "src/app/api/v1/projects/[projectId]/uploads/finalize/route.ts",
+      "src/app/api/v1/projects/[projectId]/uploads/init/route.ts",
+      "src/app/api/v1/scenes/[sceneId]/route.ts",
+      "src/app/api/v1/scenes/[sceneId]/regenerate/route.ts",
+      "src/app/api/v1/scenes/[sceneId]/retry/route.ts",
+      "src/app/api/v1/uploads/[uploadToken]/route.ts",
+      "src/interfaces/http/controllers/auth-controller.ts",
+      "src/interfaces/http/controllers/guest-session-controller.ts",
+      "src/interfaces/http/controllers/health-controller.ts",
+      "src/interfaces/http/controllers/maintenance-controller.ts",
+      "src/interfaces/http/controllers/preview-controller.ts",
+      "src/interfaces/http/controllers/project-controller.ts",
+      "src/interfaces/http/controllers/scene-controller.ts",
+      "src/interfaces/http/controllers/upload-controller.ts",
+      "src/modules/assets/index.ts",
+      "src/modules/assets/service.ts",
+      "src/modules/auth/index.ts",
+      "src/modules/auth/repository.ts"
+    ],
+    "major_categories": {
+      "api_routes": 21,
+      "controllers": 8,
+      "services": 13,
+      "repositories": 4,
+      "components": 14,
+      "docs": 33
+    }
+  },
+  "modules": {
+    "module_names": [
+      "assets",
+      "auth",
+      "authorization",
+      "decomposition",
+      "feature-flags",
+      "guest-sessions",
+      "maintenance",
+      "motion",
+      "playback",
+      "processing",
+      "projects",
+      "scenes",
+      "uploads"
+    ],
+    "module_file_counts": {
+      "assets": 5,
+      "auth": 5,
+      "authorization": 3,
+      "decomposition": 3,
+      "feature-flags": 2,
+      "guest-sessions": 4,
+      "maintenance": 2,
+      "motion": 3,
+      "playback": 2,
+      "processing": 2,
+      "projects": 5,
+      "scenes": 5,
+      "uploads": 4
+    }
+  },
+  "features": {
+    "feature_names": [
+      "auth",
+      "marketing",
+      "preview",
+      "projects",
+      "scenes",
+      "settings",
+      "shared",
+      "uploads"
+    ],
+    "feature_file_counts": {
+      "auth": 1,
+      "marketing": 1,
+      "preview": 3,
+      "projects": 6,
+      "scenes": 1,
+      "settings": 1,
+      "shared": 2,
+      "uploads": 1
+    }
+  },
+  "entry_points": [
+    {
+      "path": "next.config.ts",
+      "reasons": [
+        "project/bootstrap config"
+      ]
+    },
+    {
+      "path": "package.json",
+      "reasons": [
+        "project/bootstrap config"
+      ]
+    },
+    {
+      "path": "scripts/dev-with-chunk-sync.mjs",
+      "reasons": [
+        "script entry"
+      ]
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "reasons": [
+        "global layout shell"
+      ]
+    },
+    {
+      "path": "src/app/page.tsx",
+      "reasons": [
+        "root app route"
+      ]
+    },
+    {
+      "path": "src/app/api/auth/[...nextauth]/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/assets/[...assetPath]/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/auth/register/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/auth/session/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/guest-sessions/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/health/live/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/health/ready/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/internal/maintenance/cleanup/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/internal/maintenance/recover-timeouts/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/projects/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/projects/[projectId]/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/projects/[projectId]/claim/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/projects/[projectId]/preview/playback/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/projects/[projectId]/preview/status/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/projects/[projectId]/scenes/reorder/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/projects/[projectId]/uploads/finalize/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/projects/[projectId]/uploads/init/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/scenes/[sceneId]/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/scenes/[sceneId]/regenerate/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/scenes/[sceneId]/retry/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/app/api/v1/uploads/[uploadToken]/route.ts",
+      "reasons": [
+        "API route handler"
+      ]
+    },
+    {
+      "path": "src/modules/assets/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/auth/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/authorization/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/feature-flags/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/guest-sessions/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/maintenance/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/motion/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/playback/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/processing/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/projects/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/scenes/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    },
+    {
+      "path": "src/modules/uploads/index.ts",
+      "reasons": [
+        "module index"
+      ]
+    }
+  ],
+  "tech_stack": {
+    "languages": [
+      "javascript",
+      "json",
+      "markdown",
+      "prisma",
+      "rtf",
+      "sql",
+      "text",
+      "tsx",
+      "typescript"
+    ],
+    "tools": [
+      "next",
+      "next-auth",
+      "pino",
+      "prisma",
+      "react",
+      "typescript",
+      "vitest",
+      "zod"
+    ],
+    "runtime": [
+      "Node.js",
+      "PostgreSQL (via Prisma)"
+    ]
+  },
+  "known_issues": [
+    "17 local imports could not be resolved from the markdown snapshot."
+  ]
+}

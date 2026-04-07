@@ -1,0 +1,416 @@
+# Worker Runtime Contract Plan
+
+## Document Purpose
+
+This document defines the runtime contract for the external execution workers used by the MVP.
+
+It focuses on:
+
+- worker responsibilities
+- worker input/output contracts
+- job expectations
+- artifact expectations
+- timeouts
+- error behavior
+- boundaries between worker and control plane
+
+It does not define UI-facing API routes. Those belong in the API and job contract plan.
+
+---
+
+## Worker Design Principles
+
+- one worker family per major responsibility
+- workers are execution services, not sources of truth
+- workers receive typed inputs
+- workers return typed result payloads
+- workers never mutate scene graph state directly
+- workers identify model/runtime version in their results
+
+---
+
+## Required Worker Families
+
+The MVP requires contracts for:
+
+- stitch/alignment worker
+- segmentation worker
+- depth worker
+- matting worker
+- optional layer-refine worker
+- compose/export worker
+
+---
+
+## Common Worker Request Contract
+
+Every worker request should include:
+
+- `request_id`
+- `job_id`
+- `scene_id`
+- `pipeline_run_id` when applicable
+- `stage`
+- `inputs`
+- `output_targets`
+- `options`
+- `trace`
+
+### Trace fields
+
+Trace fields should include:
+
+- request source
+- correlation id
+- created timestamp
+
+---
+
+## Common Worker Response Contract
+
+Every worker response should include:
+
+- `request_id`
+- `job_id`
+- `scene_id`
+- `status`
+- `artifacts`
+- `metrics`
+- `producer`
+- `warnings`
+- `error` when failed
+
+### Producer fields
+
+Producer metadata should include:
+
+- worker family
+- runtime version
+- model name
+- model version if relevant
+
+---
+
+## Worker Boundary Rules
+
+Workers may:
+
+- read declared input artifacts
+- execute model or transformation logic
+- write declared output artifacts
+- return typed result metadata
+
+Workers may not:
+
+- assign final scene semantics directly
+- mutate groups or layers in persistent state directly
+- decide whether preview/export state is committed
+
+The control plane remains authoritative.
+
+---
+
+## Stitch/Alignment Worker
+
+### Responsibility
+
+- align ordered source images
+- generate stitched scene artifact
+- return provenance metadata
+
+### Required inputs
+
+- ordered normalized source image references
+- scene dimensions or stitch options
+- output targets for stitched artifact(s)
+
+### Required outputs
+
+- stitched scene artifact metadata
+- stitched preview artifact if produced
+- source placement/provenance metadata
+
+### Contract notes
+
+- must not invent scene graph groups or layers
+- must describe placement in a way the control plane can store
+
+---
+
+## Segmentation Worker
+
+### Responsibility
+
+- run segmentation on the stitched scene artifact
+- produce candidate mask artifacts and metadata
+
+### Required inputs
+
+- stitched scene artifact reference
+- prompt payload
+- segmentation options
+
+### Required outputs
+
+- mask artifacts
+- mask preview artifacts optional
+- candidate confidence metadata
+- geometry metadata such as bounding boxes if available
+
+### Contract notes
+
+- output masks must declare coordinate space
+- results must be traceable to the stitched scene artifact used
+
+---
+
+## Depth Worker
+
+### Responsibility
+
+- run depth estimation for the stitched scene
+- produce canonical depth outputs and metadata needed for normalization
+
+### Required inputs
+
+- stitched scene artifact reference
+- depth options
+- output targets
+
+### Required outputs
+
+- canonical depth artifact
+- preview depth artifact
+- depth metadata sufficient for control-plane aggregation
+
+### Contract notes
+
+- worker may compute raw scene-level depth
+- control plane remains responsible for binding resulting depth metrics to layers unless explicitly delegated in a later contract update
+
+---
+
+## Matting Worker
+
+### Responsibility
+
+- refine alpha quality for one layer
+- return refined alpha and/or refined RGBA outputs
+
+### Required inputs
+
+- active layer RGBA reference
+- source crop reference if required
+- mask reference
+- output targets
+
+### Required outputs
+
+- refined alpha artifact
+- refined RGBA artifact
+- confidence or warning metadata when available
+
+---
+
+## Optional Layer-Refine Worker
+
+### Responsibility
+
+- perform optional user-invoked difficult-layer content enhancement
+
+### Required inputs
+
+- current layer version artifacts
+- optional prompt
+- output targets
+
+### Required outputs
+
+- alternate RGBA artifact
+- optional alternate alpha artifact
+- model metadata
+
+### Contract notes
+
+- this worker is optional for MVP completion
+- it must never silently replace the base version without control-plane confirmation
+
+---
+
+## Compose/Export Worker
+
+### Responsibility
+
+- compile saved scene graph inputs into export artifacts
+
+### Required inputs
+
+- export manifest payload
+- references to active layer assets
+- scene dimensions
+- group and parallax mapping payload
+- medium-aware settings if bundle supports them
+
+### Required outputs
+
+- export bundle artifact
+- export manifest artifact if generated by worker
+- summary metadata
+
+### Contract notes
+
+- worker consumes explicit control-plane payload
+- worker must not invent runtime behavior not present in the scene graph payload
+
+---
+
+## Output Target Contract
+
+Worker requests should include explicit output targets rather than relying on undeclared local paths.
+
+Output target metadata may include:
+
+- target type
+- upload URL or storage target
+- expected mime type
+- expected filename/path pattern
+
+This keeps artifact handling deterministic.
+
+---
+
+## Timeouts
+
+Worker timeouts should be defined per family.
+
+Recommended MVP planning defaults:
+
+- stitch/alignment: medium
+- segmentation: medium
+- depth: medium
+- matting: medium
+- layer refine: longer
+- export: medium
+
+Exact numeric values may be finalized later, but the contract must support timeout classification and reporting.
+
+---
+
+## Failure Contract
+
+Workers must return typed failures rather than unstructured crashes where possible.
+
+Worker failures should distinguish:
+
+- validation failure
+- input artifact unavailable
+- model initialization failure
+- execution timeout
+- output upload failure
+- internal execution error
+
+The control plane maps these into user-facing status behavior.
+
+---
+
+## Retry Contract
+
+Worker contracts must be safe for retries.
+
+Therefore:
+
+- repeated requests with the same idempotency context must not silently create conflicting official state
+- output artifact creation must be safe for duplicate-attempt handling
+- control plane should reconcile final accepted result registration
+
+---
+
+## Artifact Metadata Requirements
+
+Every returned artifact must provide enough metadata for registration:
+
+- stage
+- type
+- storage path or registered URL target result
+- checksum if available
+- width/height when relevant
+- coordinate space
+
+This is mandatory for:
+
+- stitched scene outputs
+- masks
+- layer outputs
+- depth outputs
+- export bundles
+
+---
+
+## Responsive Parallax Runtime Boundary
+
+Workers are not responsible for deciding final responsive parallax semantics.
+
+Responsive behavior is primarily a scene graph and runtime concern.
+
+Workers may provide:
+
+- depth metrics
+- renderable artifacts
+- stitched geometry metadata
+
+But they do not decide:
+
+- scene-level medium defaults
+- group-level responsive override semantics
+- final layer inheritance behavior
+
+Those belong to the control plane and runtime.
+
+---
+
+## Observability Requirements
+
+Workers should emit enough metadata for control-plane observability:
+
+- request id
+- job id
+- runtime duration
+- model/runtime identity
+- warnings
+- error summaries
+
+This is necessary for:
+
+- retries
+- debugging
+- QA
+- performance tracking
+
+---
+
+## Out-Of-Scope Worker Features
+
+The MVP worker contracts do not require:
+
+- workers directly updating database state
+- websocket worker sessions
+- nested workflow execution inside one worker
+- per-layer medium-specific responsive logic as baseline behavior
+
+---
+
+## Freeze Criteria
+
+This plan is ready to freeze when:
+
+- worker families are accepted
+- input/output responsibilities are accepted
+- control-plane versus worker boundaries are accepted
+- artifact metadata requirements are accepted
+- failure and retry semantics are accepted
+
+---
+
+## Final Runtime Statement
+
+The MVP worker runtime contract uses isolated worker families for stitching, segmentation, depth, matting, optional refinement, and export, with the control plane remaining authoritative for state, artifact registration, and workflow semantics while workers act as typed execution services that return artifacts and metadata.

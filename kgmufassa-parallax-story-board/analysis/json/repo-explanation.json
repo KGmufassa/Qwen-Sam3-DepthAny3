@@ -1,0 +1,182 @@
+{
+  "repo_folder": "./kgmufassa-parallax-story-board",
+  "focus": "Full Repository Overview",
+  "what_it_is": "This repository appears to be a Next.js parallax story composition platform with a layered backend, Prisma-backed persistence, and feature-oriented UI plus API workflows for projects, scenes, uploads, preview, and authentication.",
+  "plain_english": {
+    "purpose": "It looks like a web app for composing parallax-style story projects, managing scenes and uploads, and previewing playback results.",
+    "how_it_is_organized": "The code is split into app routes, feature UI, HTTP controllers, domain modules, core utilities, infrastructure integrations, and Prisma data definitions.",
+    "how_requests_move": "Browser or API requests enter through Next.js routes, pass into controllers, then into module services and repositories or infrastructure adapters.",
+    "where_the_main_logic_lives": "Most business logic appears to live in `src/modules/**`, while HTTP-specific orchestration sits in `src/interfaces/http/**` and UI composition sits in `src/features/**`."
+  },
+  "key_areas": {
+    "entry_points": {
+      "ui": [
+        "src/app/layout.tsx",
+        "src/app/page.tsx"
+      ],
+      "api": [
+        "src/app/api/auth/[...nextauth]/route.ts",
+        "src/app/api/v1/assets/[...assetPath]/route.ts",
+        "src/app/api/v1/auth/register/route.ts",
+        "src/app/api/v1/auth/session/route.ts",
+        "src/app/api/v1/guest-sessions/route.ts",
+        "src/app/api/v1/health/live/route.ts",
+        "src/app/api/v1/health/ready/route.ts",
+        "src/app/api/v1/internal/maintenance/cleanup/route.ts",
+        "src/app/api/v1/internal/maintenance/recover-timeouts/route.ts",
+        "src/app/api/v1/projects/route.ts",
+        "src/app/api/v1/projects/[projectId]/route.ts",
+        "src/app/api/v1/projects/[projectId]/claim/route.ts",
+        "src/app/api/v1/projects/[projectId]/preview/playback/route.ts",
+        "src/app/api/v1/projects/[projectId]/preview/status/route.ts",
+        "src/app/api/v1/projects/[projectId]/scenes/reorder/route.ts",
+        "src/app/api/v1/projects/[projectId]/uploads/finalize/route.ts",
+        "src/app/api/v1/projects/[projectId]/uploads/init/route.ts",
+        "src/app/api/v1/scenes/[sceneId]/route.ts",
+        "src/app/api/v1/scenes/[sceneId]/regenerate/route.ts",
+        "src/app/api/v1/scenes/[sceneId]/retry/route.ts",
+        "src/app/api/v1/uploads/[uploadToken]/route.ts"
+      ]
+    },
+    "important_modules": [
+      "assets",
+      "auth",
+      "authorization",
+      "decomposition",
+      "feature-flags",
+      "guest-sessions",
+      "maintenance",
+      "motion",
+      "playback",
+      "processing",
+      "projects",
+      "scenes",
+      "uploads"
+    ],
+    "important_features": [
+      "auth",
+      "marketing",
+      "preview",
+      "projects",
+      "scenes",
+      "settings",
+      "shared",
+      "uploads"
+    ],
+    "tech_stack": {
+      "languages": [
+        "javascript",
+        "json",
+        "markdown",
+        "prisma",
+        "rtf",
+        "sql",
+        "text",
+        "tsx",
+        "typescript"
+      ],
+      "tools": [
+        "next",
+        "next-auth",
+        "pino",
+        "prisma",
+        "react",
+        "typescript",
+        "vitest",
+        "zod"
+      ],
+      "runtime": [
+        "Node.js",
+        "PostgreSQL (via Prisma)"
+      ]
+    }
+  },
+  "architecture_story": {
+    "layers": {
+      "app_routes": 30,
+      "config": 2,
+      "core": 8,
+      "data": 2,
+      "docs": 21,
+      "feature_ui": 16,
+      "infrastructure": 4,
+      "interfaces": 12,
+      "modules": 45,
+      "other": 42,
+      "tests": 16
+    },
+    "patterns": [
+      "Request handling appears to flow from Next.js route files into controller files and then into module services, matching a layered application design.",
+      "UI concerns are separated into `src/features/**`, while reusable business logic lives in `src/modules/**`, reducing coupling between presentation and domain logic.",
+      "Persistence and provider integrations are isolated under infrastructure and Prisma layers, suggesting deliberate boundaries around external systems.",
+      "The versioned API surface under `src/app/api/v1/**` indicates an intentional external contract rather than ad hoc route growth."
+    ],
+    "critical_flows": [
+      {
+        "name": "Authentication flow",
+        "path": [
+          "src/app/api/auth/[...nextauth]/route.ts",
+          "src/auth.ts",
+          "src/modules/auth/repository.ts",
+          "src/infrastructure/db/prisma.ts"
+        ],
+        "description": "Auth requests enter through NextAuth routes, rely on auth setup, and likely resolve users through the auth repository and Prisma client."
+      },
+      {
+        "name": "Project management flow",
+        "path": [
+          "src/app/api/v1/projects/route.ts",
+          "src/interfaces/http/controllers/project-controller.ts",
+          "src/modules/projects/service.ts",
+          "src/modules/projects/repository.ts",
+          "src/infrastructure/db/prisma.ts"
+        ],
+        "description": "Project CRUD and orchestration likely move from API route to controller, through project service logic, into repository-backed persistence."
+      },
+      {
+        "name": "Scene processing flow",
+        "path": [
+          "src/app/api/v1/scenes/[sceneId]/regenerate/route.ts",
+          "src/interfaces/http/controllers/scene-controller.ts",
+          "src/modules/scenes/service.ts",
+          "src/modules/processing/service.ts",
+          "src/infrastructure/providers/qwen/client.ts"
+        ],
+        "description": "Scene regeneration appears to combine scene orchestration, processing logic, and Qwen provider integration."
+      },
+      {
+        "name": "Preview playback flow",
+        "path": [
+          "src/app/projects/[projectId]/preview/page.tsx",
+          "src/features/preview/components/project-preview-page.tsx",
+          "src/features/preview/lib/playback-client.ts",
+          "src/app/api/v1/projects/[projectId]/preview/playback/route.ts",
+          "src/interfaces/http/controllers/preview-controller.ts",
+          "src/modules/playback/service.ts"
+        ],
+        "description": "The preview UI likely requests playback data from the API, which is then composed by preview and playback services."
+      }
+    ]
+  },
+  "operator_notes": {
+    "best_starting_points": [
+      "src/app/page.tsx",
+      "src/app/layout.tsx",
+      "src/interfaces/http/controllers/project-controller.ts",
+      "src/modules/projects/service.ts",
+      "prisma/schema.prisma"
+    ],
+    "recommended_reading_order": [
+      "Analyze-Repo-Foundation.json",
+      "architecture-analysis.json",
+      "src/app/api/v1/projects/route.ts",
+      "src/interfaces/http/controllers/project-controller.ts",
+      "src/modules/projects/service.ts",
+      "src/modules/projects/repository.ts"
+    ],
+    "known_unknowns": [
+      "17 local imports could not be resolved from the markdown snapshot.",
+      "Several modules do not expose an obvious repository file, so persistence responsibilities may be unevenly distributed."
+    ]
+  }
+}
