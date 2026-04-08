@@ -1,0 +1,36 @@
+---
+Skill: plan-draft-all-core
+Description: Supervisor skill for the full planning flow. Reuses the combined stage command contracts in order, writes a consolidated supervisor report, and stops on first failure.
+---
+
+## Purpose
+
+This skill supervises the full Stage 1 through Stage 4 pipeline.
+
+It must not bypass stage-specific command logic.
+
+## Inputs
+
+- initialized planning workspace
+- metadata from `meta/json`
+
+## Outputs
+
+Markdown:
+
+- `Build Plan/Active Plans/<app_slug>/meta/markdown/plan-draft-all-report.md`
+
+JSON:
+
+- `Build Plan/Active Plans/<app_slug>/meta/json/plan-draft-all-report.json`
+- updated `Build Plan/Active Plans/<app_slug>/meta/json/manifest.json`
+- updated `Build Plan/Active Plans/<app_slug>/meta/json/state.json`
+
+## Instructions
+
+- run `plan-stage1`
+- run `plan-stage2`
+- run `plan-stage3`
+- run `plan-stage4`
+- stop on first failure
+- write a consolidated summary of completed and blocked stages
